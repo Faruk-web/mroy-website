@@ -25,7 +25,7 @@ class SliderController extends Controller
 
         // Create an Intervention Image instance
         $img = \Intervention\Image\Facades\Image::make($image->getRealPath());
-        $img->resize(1180, 400);
+        $img->resize(499, 565);
         $img->save($imageUrl);
         return $imageUrl;
     }
