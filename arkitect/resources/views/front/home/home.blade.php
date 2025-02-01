@@ -39,6 +39,7 @@ Hero Area
 
 <div class="swiper th-slider " id="heroSlidee1" data-slider-options='{"effect":"fade", "autoHeight": "true"}'>
     <div class="swiper-wrapper">
+    @foreach($Slider as $item)
         <div class="swiper-slide">
             <div class="hero-inner hero-style1">
                 <div class="container">
@@ -76,7 +77,7 @@ Hero Area
                         <div class="col-xl-5 col-lg-5">
                             <div class="hero-img">
                                 <div class="img-main" data-ani="slideinrighthero" data-ani-delay="0.8s">
-                                    <img src="{{ asset('front') }}/assets/img/hero/hero_1_1.png" alt="Image">
+                                    <img src="{{asset($item->image)}}" alt="Image">
                                 </div>
                             </div>
                         </div>
@@ -84,96 +85,7 @@ Hero Area
                 </div>
             </div>
         </div>
-        <div class="swiper-slide">
-            <div class="hero-inner hero-style1">
-                <div class="container">
-                    <div class="row gy-4 align-items-center">
-                        <div class="col-xl-7 col-lg-7">
-                            <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">Your Guardian in Law</span>
-                            <div data-ani="slideinup" data-ani-delay="0.4s">
-                                <h1 class="hero-title">Experienced Attorneys, Trusted</h1>
-                                <div class="hero-title">Results
-                                    <span class="client-group-wrap">
-                                        <span class="thumb">
-                                            <img src="{{ asset('front') }}/assets/img/icon/hero-1-title-1.png" alt="img">
-                                        </span>
-                                        <span class="client-group-wrap__content">
-                                            <span class="client-group-wrap__box-title">
-                                                We have to <span><span class="counter-number">2</span>k+</span>
-                                                Happy Client
-                                            </span>
-                                            <span class="client-group-wrap__box-review">
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <span>4.5/5(<span class="counter-number">35</span>k<span class="plus">+</span> Reviews)</span>
-                                            </span>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="btn-group justify-content-center" data-ani="slideinup" data-ani-delay="0.6s">
-                                <a href="contact.html" class="th-btn ">Contact us <i class="fa-regular fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="hero-img">
-                                <div class="img-main" data-ani="slideinrighthero" data-ani-delay="0.8s">
-                                    <img src="{{ asset('front') }}/assets/img/hero/hero_1_2.png" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="hero-inner hero-style1">
-                <div class="container">
-                    <div class="row gy-4 align-items-center">
-                        <div class="col-xl-7 col-lg-7">
-                            <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">Secure With Experience</span>
-                            <div data-ani="slideinup" data-ani-delay="0.4s">
-                                <h1 class="hero-title">Committed Lawyers, Proven</h1>
-                                <div class="hero-title">Results
-                                    <span class="client-group-wrap">
-                                        <span class="thumb">
-                                            <img src="{{ asset('front') }}/assets/img/icon/hero-1-title-1.png" alt="img">
-                                        </span>
-                                        <span class="client-group-wrap__content">
-                                            <span class="client-group-wrap__box-title">
-                                                We have to <span><span class="counter-number">2</span>k+</span>
-                                                Happy Client
-                                            </span>
-                                            <span class="client-group-wrap__box-review">
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <i class="fa-sharp fa-solid fa-star"></i>
-                                                <span>4.5/5(<span class="counter-number">35</span>k<span class="plus">+</span> Reviews)</span>
-                                            </span>
-                                        </span>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="btn-group justify-content-center" data-ani="slideinup" data-ani-delay="0.6s">
-                                <a href="contact.html" class="th-btn ">Contact us <i class="fa-regular fa-arrow-right-long"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-5">
-                            <div class="hero-img">
-                                <div class="img-main" data-ani="slideinrighthero" data-ani-delay="0.8s">
-                                    <img src="{{ asset('front') }}/assets/img/hero/hero_1_3.png" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+     @endforeach
     </div>
     <div class="slider-pagination"></div>
 </div>
