@@ -47,11 +47,12 @@ Hero Area
                         <div class="col-xl-7 col-lg-7">
                             <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">Your Legal Shield</span>
                             <div data-ani="slideinup" data-ani-delay="0.4s">
-                                <h1 class="hero-title">Experienced Lawyers, Proven</h1>
+                                <h1 class="hero-title">Welcome to M. Roy & Associates
+                                The Best Law Chamber</h1>
                                 <div class="hero-title">Results
                                     <span class="client-group-wrap">
                                         <span class="thumb">
-                                            <img src="{{ asset('front') }}/assets/img/icon/hero-1-title-1.png" alt="img">
+                                            <!-- <img src="{{ asset('front') }}/assets/img/icon/hero-1-title-1.png" alt="img"> -->
                                         </span>
                                         <span class="client-group-wrap__content">
                                             <span class="client-group-wrap__box-title">
@@ -119,7 +120,7 @@ About Area
                             </div>
                         </div>
                         <div class="img1">
-                            <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about-1-left.jpg" alt="Image">
+                            <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about_left.jpg" alt="Image">
                         </div>
                         <div class="img2">
                             <div class="img2-top">
@@ -1145,9 +1146,6 @@ Contact Area
                         </div>
                         <div class="contact-img">
                             <img src="{{ asset('front') }}/assets/img/contact/contact_1.jpg" alt="vector">
-                        </div>
-                        <div class="shape-mockup contact_1-man">
-                            <img src="{{ asset('front') }}/assets/img/contact/contact_1-man.png" alt="vector">
                         </div>
                     </div>
                 </div>

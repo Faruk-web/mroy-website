@@ -33,10 +33,22 @@ class HomeController extends Controller
         $privacy=Privacy::select('id','name','image','title')->get();
         return view('front.about.about',compact('privacy'));
     }
-
-    public function features()
+    public function practice()
     {
-        return view('front.page.features');
+        return view('front.Practice.practice');
+    }
+    public function client()
+    {
+        return view('front.client.client');
+    }
+    public function attorney()
+    {
+        return view('front.attorney.attorney');
+    }
+    
+    public function gallery()
+    {
+        return view('front.gallery.gallery');
     }
     public function projects()
     {
@@ -45,7 +57,7 @@ class HomeController extends Controller
     }
     public function terms()
     {
-        return view('front.page.terms');
+        return view('front.terms.terms');
     }
     public function privacy()
     {

@@ -103,7 +103,7 @@
             <div class="widget  ">
                 <div class="th-widget-about">
                     <div class="about-logo">
-                        <a href="index.html"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
+                        <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
                     </div>
                     <p class="about-text">We provide specialized winterization services to safeguard your pool during the off-season, and when spring arrives, we handle the thorough opening process.</p>
                     <div class="th-social">
@@ -175,64 +175,36 @@
         <div class="th-menu-area text-center">
             <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
+                <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
             </div>
             <div class="th-mobile-menu">
                 <ul>
                     <li class="menu-item-has-children">
-                        <a href="index.html">Home</a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Home Law Agency</a></li>
-                            <li><a href="home-2.html">Home Lawyer</a></li>
-                            <li><a href="home-3.html">Home Legal Consultant</a></li>
-                        </ul>
+                        <a href="{{route('home')}}">Home</a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#">About Us</a>
-                        <ul class="sub-menu">
-                            <li><a href="about.html">About Us Style 1</a></li>
-                            <li><a href="about2.html">About Us Style 2</a></li>
-                        </ul>
+                        <a href="{{route('about')}}">About Us</a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#">Service</a>
-                        <ul class="sub-menu">
-                            <li><a href="service.html">Service</a></li>
-                            <li><a href="service-details.html">Service Details</a></li>
-                        </ul>
+                        <a href="{{route('practice')}}">Practice Area</a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#">Pages</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item-has-children">
-                                <a href="#">Shop</a>
-                                <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
-                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="team.html">Our Attorney</a></li>
-                            <li><a href="team-details.html">Attorney Details</a></li>
-                            <li><a href="pricing.html">Pricing Plan</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faq.html">Faq Page</a></li>
-                            <li><a href="case-studies.html">Case Studies</a></li>
-                            <li><a href="case-studies-details.html">Case Studies Details</a></li>
-                            <li><a href="error.html">Error Page</a></li>
-                        </ul>
+                        <a href="{{route('client')}}">Clients</a>
                     </li>
                     <li class="menu-item-has-children">
-                        <a href="#">Blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
+                        <a href="{{route('attorney')}}">Advocates</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{{route('terms')}}">Support Team</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{{route('gallery')}}">Gallery</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{{route('blog')}}">Blog</a>
                     </li>
                     <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="{{route('contact')}}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -247,9 +219,9 @@
                     <div class="col-auto d-none d-lg-block">
                         <div class="header-links">
                             <ul>
-                                <li><i class="fa-regular fa-phone"></i> <a href="tel:+152-6485-5467">+ 152-6485-5467</a></li>
-                                <li><i class="fa-sharp fa-regular fa-envelope"></i> <a href="mailto:info@ensaf.com">info@ensaf.com</a></li>
-                                <li><i class="fal fa-location-dot"></i> <a href="https://www.google.com/maps">371 7th Ave, New York, NY 10001</a></li>
+                                <li><i class="fa-regular fa-phone"></i> <a href="tel:+8801791404011">+8801791404011 , +8801833780455, Phone: +8802223385673</a></li>
+                                <li><i class="fa-sharp fa-regular fa-envelope"></i> <a href="moloy.advocate@gmail.com">moloy.advocate@gmail.com</a></li>
+                                <li><i class="fal fa-location-dot"></i> <a href="https://www.google.com/maps/place/Tropicana+Tower,+45+Topkhana+Road,+Dhaka+1000/@23.730477,90.409228,19z">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</a></li>
                             </ul>
                         </div>
                     </div>
@@ -275,66 +247,38 @@
                         <div class="col-auto">
                             <div class="header-logo">
                                 <div class="logo-bg"></div>
-                                <a href="index.html"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
+                                <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
                             </div>
                         </div>
                         <div class="col-auto me-xl-auto">
                             <nav class="main-menu d-none d-lg-inline-block me-xl-auto">
                                 <ul>
                                     <li class="menu-item-has-children">
-                                        <a href="index.html">Home</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="index.html">Home Law Agency</a></li>
-                                            <li><a href="home-2.html">Home Lawyer</a></li>
-                                            <li><a href="home-3.html">Home Legal Consultant</a></li>
-                                        </ul>
+                                        <a href="{{route('home')}}">Home</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#">About Us</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="about.html">About Us Style 1</a></li>
-                                            <li><a href="about2.html">About Us Style 2</a></li>
-                                        </ul>
+                                        <a href="{{route('about')}}">About Us</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#">Service</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="service.html">Service</a></li>
-                                            <li><a href="service-details.html">Service Details</a></li>
-                                        </ul>
+                                        <a href="{{route('practice')}}">Practice Area</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#">Pages</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item-has-children">
-                                                <a href="#">Shop</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="shop.html">Shop</a></li>
-                                                    <li><a href="shop-details.html">Shop Details</a></li>
-                                                    <li><a href="cart.html">Cart Page</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="team.html">Our Attorney</a></li>
-                                            <li><a href="team-details.html">Attorney Details</a></li>
-                                            <li><a href="pricing.html">Pricing Plan</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="faq.html">Faq Page</a></li>
-                                            <li><a href="case-studies.html">Case Studies</a></li>
-                                            <li><a href="case-studies-details.html">Case Studies Details</a></li>
-                                            <li><a href="error.html">Error Page</a></li>
-                                        </ul>
+                                        <a href="{{route('client')}}">Clients</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="#">Blog</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
+                                        <a href="{{route('attorney')}}">Advocates</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="{{route('terms')}}">Support Team</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="{{route('gallery')}}">Gallery</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="{{route('blog')}}">Blog</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{route('contact')}}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -343,7 +287,7 @@
                         <div class="col-auto d-none d-xl-block">
                             <div class="header-button">
                                 <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-magnifying-glass"></i></button>
-                                <a href="contact.html" class="th-btn style4">Free consultation <i class="far fa-arrow-right-long"></i></a>
+                                <a href="{{route('contact')}}" class="th-btn style4">Free consultation <i class="far fa-arrow-right-long"></i></a>
                                 <button type="button" class="icon-btn sideMenuInfo">
                                     <i class="fa-solid fa-bars"></i>
                                 </button>
@@ -366,15 +310,36 @@
                 <div class="row justify-content-between">
                     <div class="col-md-6 col-xl-auto footer-border-right">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Pages</h3>
+                            <h3 class="widget_title">Our Pages</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="blog.html">Our Blog</a></li>
-                                    <li><a href="team.html">Our Team</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="pricing.html">Pricing Plans</a></li>
-                                    <li><a href="testimonials.html">Testimonials</a></li>
+                                <li>
+                                        <a href="{{route('home')}}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('about')}}">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('practice')}}">Practice Area</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('client')}}">Clients</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('attorney')}}">Advocates</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('terms')}}">Support Team</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('gallery')}}">Gallery</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('blog')}}">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('contact')}}">Contact</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -390,6 +355,7 @@
                                     <li><a href="service-details.html">Criminal Law</a></li>
                                     <li><a href="service-details.html">Health Care</a></li>
                                     <li><a href="service-details.html">Family Law</a></li>
+                                    <li><a href="service-details.html">Others Law</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -398,9 +364,9 @@
                         <div class="widget footer-widget text-xl-center text-start">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="index.html"><img src="{{ asset('front') }}/assets/img/footer-round-logo.svg" alt="Ensaf-html"></a>
+                                    <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/footer-round-logo.svg" alt="Ensaf-html"></a>
                                 </div>
-                                <p class="about-text">Ensaf is a Saudi Arabian law firm founded in 1982. They offer a wide range of legal services, including corporate law, commercial law.</p>
+                                <p class="about-text">The services of ‘ M. Roy & Associates’ are the offspring of the sincere, well-thought-out and meticulous teamwork of its associates, who have embarked on the mission to serve the clients with great zeal and vigor and race-track of their professional services from ethics.</p>
                                 <div class="th-social">
                                     <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
                                     <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -419,20 +385,19 @@
                                     </div>
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Location</h4>
-                                        <p class="info-box_text">371 7th Ave, New York, NY 10001</p>
+                                        <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</p>
                                     </div>
                                 </div>
                                 <div class="info-box">
                                     <div class="info-box_icon">
                                         <i class="fa-regular fa-phone"></i>
                                     </div>
-
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Phone</h4>
-
                                         <p class="info-box_text">
-                                            <a href="tel:+15264855467" class="info-box_link">+ 152-6485-5467</a>
-                                            <a href="tel:+15264855467" class="info-box_link">+ 152-6485-5467</a>
+                                            <a href="tel: +8801791404011" class="info-box_link"> +8801791404011</a>
+                                            <a href="tel:+8801833780455" class="info-box_link">+8801833780455</a>
+                                            <a href="tel:+8802223385673" class="info-box_link">+8802223385673</a>
                                         </p>
                                     </div>
                                 </div>
@@ -440,12 +405,11 @@
                                     <div class="info-box_icon">
                                         <i class="fa-regular fa-envelope"></i>
                                     </div>
-
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Email</h4>
                                         <p class="info-box_text">
-                                            <a href="mailto:info@kleanix.com" class="info-box_link">info@ensaf.com</a>
-                                            <a href="mailto:info@kleanix.com" class="info-box_link">info@ensaf.com</a>
+                                            <a href="mailto:moloy.advocate@gmail.com " class="info-box_link">moloy.advocate@gmail.com </a>
+                                            <a href="mailto:moloy.advocate@mroyassociates.com" class="info-box_link">moloy.advocate@mroyassociates.com</a>
                                         </p>
                                     </div>
 
@@ -460,7 +424,7 @@
             <div class="container">
                 <div class="row gy-2 align-items-center">
                     <div class="col-md-12">
-                        <p class="copyright-text text-center">Copyright <i class="fal fa-copyright"></i> 2025 <a href="index.html">Ensaf</a>. All Rights Reserved.</p>
+                        <p class="copyright-text text-center">Copyright <i class="fal fa-copyright"></i> 2025 <a href="{{route('home')}}">Design By M.Roy & Associates</a>. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
