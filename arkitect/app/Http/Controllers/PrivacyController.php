@@ -15,50 +15,37 @@ class PrivacyController extends Controller
         return view('admin.privacy.index', compact('privacy'));
     }
 
-    public function create(Request $request){
+    public function create(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+    ]);
 
-        // img upload and save and img intervations packge use
+    $privacy = new Privacy();
+
+    // Handle image upload
+    if ($request->hasFile('image')) {
         $image = $request->file('image');
-        $name_gen_blog = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(700,700)->save('upload/propert/'.$name_gen_blog);
-        $save_url_blog = 'upload/propert/'.$name_gen_blog;
-            $product_id =   Privacy::insertGetId([
-                'name' => $request->name,
-                'privacy' => $request->privacy,
-                'title' => $request->title,
-                'condition' => $request->condition,
-                'status' => $request->status,
-                'image' => $request->image,
-                'image' => $save_url_blog,
+        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url_blog = 'upload/propert/' . $name_gen_blog;
 
-            ]);
-        Alert::success('Privacy Added Successfully', '');
-        return redirect()->back();
-     } // end mathod
+        Image::make($image)->resize(391, 341)->save(public_path($save_url_blog));
+        $privacy->image = $save_url_blog;
+    }
 
+    // Assign other fields
+    $privacy->name = $request->name;
+    $privacy->title = $request->title;
+    $privacy->privacy = $request->privacy;
+    $privacy->status = $request->status == 1 ? 1 : 2;
 
+    $privacy->save();
 
+    Alert::success('Advocate Added Successfully', '');
+    return redirect()->back();
+}
 
-
-    // public function create(Request $request)
-    // {
-    //     $privacy = new Privacy();
-    //     $privacy->privacy = $request->privacy;
-    //     $privacy->condition = $request->condition;
-    //     if ($request->status == 1)
-    //     {
-    //         $privacy->status = $request->status;
-    //     }
-    //     else
-    //     {
-    //         $privacy->status = 2;
-    //     }
-    //     $privacy->save();
-    //     Alert::success('Privacy Added Successfully', '');
-    //     return redirect()->back();
-    // }
-
-    public function manage()
+  public function manage()
     {
         $privacy = Privacy::orderBy('id', 'asc')->get();
         return view('admin.privacy.manage', compact('privacy'));
@@ -71,37 +58,64 @@ class PrivacyController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $privacy = Privacy::find($id);
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name_gen_blog = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(700,700)->save('upload/propert/'.$name_gen_blog);
-            $save_url_blog = 'upload/propert/'.$name_gen_blog;
-            $privacy->image = $save_url_blog;
-        }
-        $privacy->privacy = $request->privacy;
-        $privacy->condition = $request->condition;
-        if ($request->status == 1)
-        {
-            $privacy->status = $request->status;
-        }
-        else
-        {
-            $privacy->status = 2;
-        }
-        $privacy->save();
-        Alert::success('Privacy update successfully', '');
+{
+    $privacy = Privacy::find($id);
+
+    if (!$privacy) {
+        Alert::error('Privacy not found', '');
         return redirect()->route('privacyy.manage');
     }
+
+    // Check if a new image is uploaded
+    if ($request->hasFile('image')) {
+        // Delete old image
+        if (file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+
+        // Upload new image
+        $image = $request->file('image');
+        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url_blog = 'upload/propert/' . $name_gen_blog;
+
+        Image::make($image)->resize(700, 700)->save(public_path($save_url_blog));
+        $privacy->image = $save_url_blog;
+    }
+
+    // Update other fields
+    $privacy->name = $request->name;
+    $privacy->title = $request->title;
+    $privacy->privacy = $request->privacy;
+    $privacy->status = $request->status == 1 ? 1 : 2;
+
+    $privacy->save();
+
+    Alert::success('Privacy updated successfully', '');
+    return redirect()->route('privacyy.manage');
+}
+ 
 
     public function delete($id)
     {
         $privacy = Privacy::find($id);
+    
+        if (!$privacy) {
+            Alert::error('Privacy not found', '');
+            return redirect()->back();
+        }
+    
+        // Delete image from storage
+        if (file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+    
+        // Delete record from database
         $privacy->delete();
-        Alert::success('Privacy delete Successfully', '');
+    
+        Alert::success('Advocate deleted successfully', '');
         return redirect()->back();
     }
+    
 
     public function page_view()
     {

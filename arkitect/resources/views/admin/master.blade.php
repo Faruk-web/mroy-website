@@ -291,16 +291,16 @@
                     <a data-bs-toggle="collapse" href="#sidebarPrivacy" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Privacy & Policy </span>
+                        <span> Advocate Create </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarPrivacy">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('privacyy.add')}}">Add Privacy</a>
+                                <a href="{{route('privacyy.add')}}">New Advocate</a>
                             </li>
                             <li>
-                                <a href="{{route('privacyy.manage')}}">Manage Privacy</a>
+                                <a href="{{route('privacyy.manage')}}">Manage Advocate</a>
                             </li>
                         </ul>
                     </div>

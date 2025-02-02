@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Privacy & Policy Manage</h4>
+                <h4 class="page-title">Advocate Manage</h4>
             </div>
         </div>
     </div>
@@ -36,8 +36,9 @@
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Privacy & Policy</th>
-                            <th>Conditions</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -46,17 +47,14 @@
                         @foreach($privacy as $data)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            @php
-                            $without_tag_privacy = strip_tags($data->privacy);
-                            $without_tag_condition = strip_tags($data->condition);
-                            @endphp
-                            <td>{{\Illuminate\Support\Str::limit($without_tag_privacy, 20)}}</td>
-                            <td>{{\Illuminate\Support\Str::limit($without_tag_condition, 20)}}</td>
+                            <td>{{$data->name}}</td>
+                            <td>{{$data->title}}</td>
+                            <td><img src="{{asset($data->image)}}" alt="" style="height: 50px"></td>
                             <td>
                                 @if($data->status == 1)
-                                    <span class="badge bg-success">Active</span>
+                                    <span class="badge bg-success">advocate</span>
                                 @else
-                                    <span class="badge bg-danger">In Active</span>
+                                    <span class="badge bg-info">support team</span>
                                 @endif
                             </td>
                             <td>

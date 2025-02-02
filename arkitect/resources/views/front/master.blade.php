@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Ensaf-html - Law Agency HTML Template - Home One</title>
+    <title>The Best Law Chamber - M. Roy & Associates</title>
     <meta name="author" content="Ensaf">
     <meta name="description" content="Ensaf-html - Law Agency HTML Template">
     <meta name="keywords" content="Ensaf-html - Law Agency HTML Template">

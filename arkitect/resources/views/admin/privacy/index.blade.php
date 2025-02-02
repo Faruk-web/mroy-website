@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Privacy & Policy Add</h4>
+                <h4 class="page-title">New Advocate Crate</h4>
             </div>
         </div>
     </div>
@@ -36,25 +36,25 @@
                             <form action="{{route('privacyy.new')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Privacy Name</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Name</label>
                                     <div class="col-9">
                                         <input type="text" class="form-control" name="name" id="inputEmail34" placeholder="Property Image"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Privacy Title</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Designation</label>
                                     <div class="col-9">
                                         <input type="text" class="form-control" name="title" id="inputEmail34" placeholder="Property Image"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Privacy Image</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Image size: 394 X 341</label>
                                     <div class="col-9">
                                         <input type="file" class="form-control" name="image" multiple id="inputEmail34" placeholder="Property Image"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Privacy & Policy</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Details</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy"></textarea>
                                         @error('privacy')
@@ -62,21 +62,12 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Condition</label>
-                                    <div class="col-10">
-                                        <textarea type="text" id="summernote2" name="condition" class="form-control @error('condition') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter condition"></textarea>
-                                        @error('condition')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div> --}}
+
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate or support team</label>
                                     <div class="col-10">
-                                        {{--                                        <input type="checkbox" id="switch1" name="status" @if($notice->status == 1) checked @endif data-switch="bool"/>--}}
                                         <input type="checkbox" id="switch1" class="form-control" value="1" name="status" data-switch="bool"/>
-                                        <label for="switch1" data-on-label="On" data-off-label="Off"></label>
+                                        <label for="switch1" data-on-label="adv" data-off-label="team"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
