@@ -306,6 +306,24 @@
                     </div>
                 </li>
                 <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarabout" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> About</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarabout">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('about.add')}}">Add About</a>
+                            </li>
+                            <li>
+                                <a href="{{route('about.manage')}}">Manage About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarProperty" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>

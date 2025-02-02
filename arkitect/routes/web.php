@@ -10,6 +10,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\AboutController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -109,6 +110,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [PropertyController::class, 'edit'])->name('propertyy.edit');
                 Route::post('/update/{id}', [PropertyController::class, 'update'])->name('propertyy.update');
                 Route::post('/delete/{id}', [PropertyController::class, 'delete'])->name('propertyy.delete');
+            });
+            Route::prefix('about')->group(function () {
+                Route::get('/add', [AboutController::class, 'index'])->name('about.add');
+                Route::post('/new', [AboutController::class, 'create'])->name('about.new');
+                Route::get('/manage', [AboutController::class, 'manage'])->name('about.manage');
+                Route::get('/edit/{id}', [AboutController::class, 'edit'])->name('about.edit');
+                Route::post('/update/{id}', [AboutController::class, 'update'])->name('about.update');
+                Route::post('/delete/{id}', [AboutController::class, 'delete'])->name('about.delete');
             });
         });
     });

@@ -221,7 +221,7 @@
                             <ul>
                                 <li><i class="fa-regular fa-phone"></i> <a href="tel:+8801791404011">+8801791404011 , +8801833780455, Phone: +8802223385673</a></li>
                                 <li><i class="fa-sharp fa-regular fa-envelope"></i> <a href="moloy.advocate@gmail.com">moloy.advocate@gmail.com</a></li>
-                                <li><i class="fal fa-location-dot"></i> <a href="https://www.google.com/maps/place/Tropicana+Tower,+45+Topkhana+Road,+Dhaka+1000/@23.730477,90.409228,19z">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</a></li>
+                                <!-- <li><i class="fal fa-location-dot"></i> <a href="https://www.google.com/maps/place/Tropicana+Tower,+45+Topkhana+Road,+Dhaka+1000/@23.730477,90.409228,19z">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -268,14 +268,19 @@
                                     <li class="menu-item-has-children">
                                         <a href="{{route('attorney')}}">Advocates</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <!-- <li class="menu-item-has-children">
                                         <a href="{{route('terms')}}">Support Team</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="{{route('gallery')}}">Gallery</a>
-                                    </li>
+                                       <a href="{{route('gallery')}}">Gallery</a>
+                                    </li> -->
                                     <li class="menu-item-has-children">
                                         <a href="{{route('blog')}}">Blog</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{route('blog')}}">Blogs</a></li>
+                                            <li><a href="{{route('gallery')}}">Gallery</a></li>
+                                            <li><a href="{{route('terms')}}">Support Team</a></li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="{{route('contact')}}">Contact</a>
