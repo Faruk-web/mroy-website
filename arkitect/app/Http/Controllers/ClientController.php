@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Privacy;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Client;
 use Intervention\Image\Facades\Image;
-class PrivacyController extends Controller
+use RealRashid\SweetAlert\Facades\Alert;
+class ClientController extends Controller
 {
+    //
     public function index()
     {
-        $privacy = Privacy::where('status', 1)->first();
-     
-        return view('admin.privacy.index', compact('privacy'));
+        return view('admin.client.index');
     }
 
     public function create(Request $request)
@@ -21,13 +20,13 @@ class PrivacyController extends Controller
         'name' => 'required',
     ]);
 
-    $privacy = new Privacy();
+    $privacy = new Client();
 
     // Handle image upload
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $save_url_blog = 'upload/propert/' . $name_gen_blog;
+        $save_url_blog = 'upload/client/' . $name_gen_blog;
 
         Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
@@ -41,25 +40,25 @@ class PrivacyController extends Controller
 
     $privacy->save();
 
-    Alert::success('Advocate Added Successfully', '');
+    Alert::success('Client Added Successfully', '');
     return redirect()->back();
 }
 
   public function manage()
     {
-        $privacy = Privacy::orderBy('id', 'asc')->get();
-        return view('admin.privacy.manage', compact('privacy'));
+        $privacy = Client::orderBy('id', 'asc')->get();
+        return view('admin.client.manage', compact('privacy'));
     }
 
     public function edit($id)
     {
-        $privacy = Privacy::find($id);
-        return view('admin.privacy.edit', compact('privacy'));
+        $privacy = Client::find($id);
+        return view('admin.client.edit', compact('privacy'));
     }
 
     public function update(Request $request, $id)
 {
-    $privacy = Privacy::find($id);
+    $privacy = Client::find($id);
 
     if (!$privacy) {
         Alert::error('Privacy not found', '');
@@ -76,7 +75,7 @@ class PrivacyController extends Controller
         // Upload new image
         $image = $request->file('image');
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $save_url_blog = 'upload/propert/' . $name_gen_blog;
+        $save_url_blog = 'upload/client/' . $name_gen_blog;
 
         Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
@@ -90,14 +89,14 @@ class PrivacyController extends Controller
 
     $privacy->save();
 
-    Alert::success('Privacy updated successfully', '');
-    return redirect()->route('privacyy.manage');
+    Alert::success('Client updated successfully', '');
+    return redirect()->route('client.manage');
 }
  
 
     public function delete($id)
     {
-        $privacy = Privacy::find($id);
+        $privacy = Client::find($id);
     
         if (!$privacy) {
             Alert::error('Privacy not found', '');
@@ -112,7 +111,7 @@ class PrivacyController extends Controller
         // Delete record from database
         $privacy->delete();
     
-        Alert::success('Advocate deleted successfully', '');
+        Alert::success('client deleted successfully', '');
         return redirect()->back();
     }
     
@@ -129,4 +128,3 @@ class PrivacyController extends Controller
         return view('front.privacy.conditions', compact('privacy'));
     }
 }
-

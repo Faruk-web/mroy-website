@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Advocate Update</h4>
+                <h4 class="page-title">Client Update</h4>
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane show active" id="basic-form-preview">
-                            <form action="{{route('privacyy.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('client.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Name</label>
@@ -73,10 +73,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate or support team</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">status client</label>
                                     <div class="col-10">
                                         <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
-                                        <label for="switch{{$privacy->id}}" data-on-label="adv" data-off-label="team"></label>
+                                        <label for="switch{{$privacy->id}}" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

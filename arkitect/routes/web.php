@@ -11,6 +11,7 @@ use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ClientController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -118,6 +119,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [AboutController::class, 'edit'])->name('about.edit');
                 Route::post('/update/{id}', [AboutController::class, 'update'])->name('about.update');
                 Route::post('/delete/{id}', [AboutController::class, 'delete'])->name('about.delete');
+            });
+            Route::prefix('client')->group(function () {
+                Route::get('/add', [ClientController::class, 'index'])->name('client.add');
+                Route::post('/new', [ClientController::class, 'create'])->name('client.new');
+                Route::get('/manage', [ClientController::class, 'manage'])->name('client.manage');
+                Route::get('/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
+                Route::post('/update/{id}', [ClientController::class, 'update'])->name('client.update');
+                Route::post('/delete/{id}', [ClientController::class, 'delete'])->name('client.delete');
             });
         });
     });

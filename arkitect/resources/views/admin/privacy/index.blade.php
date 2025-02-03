@@ -38,13 +38,13 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail34" class="col-3 col-form-label">Name</label>
                                     <div class="col-9">
-                                        <input type="text" class="form-control" name="name" id="inputEmail34" placeholder="Property Image"/>
+                                        <input type="text" class="form-control" name="name" id="inputEmail34" placeholder="Name"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail34" class="col-3 col-form-label">Designation</label>
                                     <div class="col-9">
-                                        <input type="text" class="form-control" name="title" id="inputEmail34" placeholder="Property Image"/>
+                                        <input type="text" class="form-control" name="title" id="inputEmail34" placeholder="title"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
