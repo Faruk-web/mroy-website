@@ -342,19 +342,37 @@
                     </div>
                 </li>
                 <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarpractice" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Practice</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarpractice">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('practice.add')}}">Create Practice</a>
+                            </li>
+                            <li>
+                                <a href="{{route('practice.manage')}}">Manage Practice</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarProperty" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Property</span>
+                        <span> Blog</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarProperty">
                         <ul class="side-nav-second-level">
                             <li>
-                                <a href="{{route('propertyy.add')}}">Add Property</a>
+                                <a href="{{route('propertyy.add')}}">Create Blog</a>
                             </li>
                             <li>
-                                <a href="{{route('propertyy.manage')}}">Manage Property</a>
+                                <a href="{{route('propertyy.manage')}}">Manage Blog</a>
                             </li>
                         </ul>
                     </div>

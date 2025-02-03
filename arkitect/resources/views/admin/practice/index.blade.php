@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Privacy & Policy Edit | {{env('APP_NAME')}}
+    Privacy & Policy Add | {{env('APP_NAME')}}
 @endsection
 
 @section('body')
@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Blog update</h4>
+                <h4 class="page-title">New Practice Crate</h4>
             </div>
         </div>
     </div>
@@ -33,44 +33,41 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane show active" id="basic-form-preview">
-                            <form action="{{route('propertyy.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('practice.new')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Blog Name</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label"> Name</label>
                                     <div class="col-9">
-                                        <input type="text" class="form-control" name="name" value="{{$privacy->name}}" id="inputEmail34" placeholder="Property Image"/>
+                                        <input type="text" class="form-control" name="name" id="inputEmail34" placeholder="name"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Image</label>
+                                    <label for="inputEmail34" class="col-3 col-form-label">Designation</label>
                                     <div class="col-9">
-                                        <input type="file" class="form-control" name="image" id="inputEmail34" placeholder="Property Image"/>
-                                        <img src="{{asset($privacy->image)}}" alt="" style="height: 100px">
+                                        <input type="text" class="form-control" name="title" id="inputEmail34" placeholder="designation"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Description</label>
-                                    <div class="col-10">
-                                        <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy">{{$privacy->privacy}}</textarea>
-                                        @error('privacy')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                    <label for="inputEmail34" class="col-3 col-form-label">Image size: 394 X 341</label>
+                                    <div class="col-9">
+                                        <input type="file" class="form-control" name="image" multiple id="inputEmail34" placeholder="Property Image"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Details</label>
                                     <div class="col-10">
-                                        <textarea type="text" id="summernote2" name="condition" class="form-control @error('condition') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter condition">{{$privacy->condition}}</textarea>
-                                        @error('condition')
+                                        <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy"></textarea>
+                                        @error('privacy')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Status Practice</label>
                                     <div class="col-10">
-                                        <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
-                                        <label for="switch{{$privacy->id}}" data-on-label="On" data-off-label="Off"></label>
+                                        <input type="checkbox" id="switch1" class="form-control" value="1" name="status" data-switch="bool"/>
+                                        <label for="switch1" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -88,19 +85,15 @@
         </div>
         <!-- end col -->
     </div>
-    <!-- end row -->
-
     <script>
         $('#summernote').summernote({
-            tabsize: 5,
-            height: 500
-        });
-
-        $('#summernote2').summernote({
-            tabsize: 5,
-            height: 500
+            tabsize: 2,
+            height: 300
         });
     </script>
+    <!-- end row -->
+
+
 
 @endsection
 

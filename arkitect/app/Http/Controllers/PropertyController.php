@@ -17,34 +17,33 @@ class PropertyController extends Controller
 
     public function create(Request $request){
 
-        // img upload and save and img intervations packge use
-        $image = $request->file('image');
-        $name_gen_blog = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(700,700)->save('upload/propert/'.$name_gen_blog);
-        $save_url_blog = 'upload/propert/'.$name_gen_blog;
-            $product_id =   Property::insertGetId([
-                'name' => $request->name,
-                'privacy' => $request->privacy,
-                'condition' => $request->condition,
-                'image' => $request->image,
-                'image' => $save_url_blog,
-
+            $request->validate([
+                'name' => 'required',
             ]);
-            // Multiple img upload start
-        // $images = $request->file('multi_image');
-        // foreach ($images as $img){
-        //     $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-        //     Image::make($img)->resize(700,700)->save('upload/multi_image/'.$make_name);
-        //     $uploadPath = 'upload/multi_image/'.$make_name;
-        //     Multi_image::insert([
-        //         'property_id' => $product_id,
-        //         'multi_image' => $uploadPath,
+        
+            $privacy = new Property();
+        
+            // Handle image upload
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+                $save_url_blog = 'upload/propert/' . $name_gen_blog;
+        
+                Image::make($image)->resize(776,410)->save(public_path($save_url_blog));
+                $privacy->image = $save_url_blog;
+            }
+        
+            // Assign other fields
+            $privacy->name = $request->name;
+            $privacy->condition = $request->condition;
+            $privacy->privacy = $request->privacy;
+            $privacy->status = $request->status == 1 ? 1 : 2;
+        
+            $privacy->save();
+        
+            Alert::success('Blog Added Successfully', '');
+            return redirect()->back();
 
-        //     ]);
-        // }
-         // end loop
-        Alert::success('Property Added Successfully', '');
-        return redirect()->back();
      } // end mathod
     public function manage()
     {
@@ -65,7 +64,7 @@ class PropertyController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name_gen_blog = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(700,700)->save('upload/propert/'.$name_gen_blog);
+            Image::make($image)->resize(776,410)->save('upload/propert/'.$name_gen_blog);
             $save_url_blog = 'upload/propert/'.$name_gen_blog;
             $privacy->image = $save_url_blog;
         }
@@ -81,18 +80,30 @@ class PropertyController extends Controller
             $privacy->status = 2;
         }
         $privacy->save();
-        Alert::success('property update successfully', '');
+        Alert::success('Blog update successfully', '');
         return redirect()->route('propertyy.manage');
     }
 
     public function delete($id)
     {
         $privacy = Property::find($id);
+    
+        if (!$privacy) {
+            Alert::error('blog not found', '');
+            return redirect()->back();
+        }
+    
+        // Delete image from storage
+        if (file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+    
+        // Delete record from database
         $privacy->delete();
-        Alert::success('property delete Successfully', '');
+    
+        Alert::success('Blog deleted successfully', '');
         return redirect()->back();
     }
-
     public function page_view()
     {
         $privacy = Property::first();

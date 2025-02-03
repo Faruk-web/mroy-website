@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Blog update</h4>
+                <h4 class="page-title">Practice Update</h4>
             </div>
         </div>
     </div>
@@ -33,23 +33,38 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane show active" id="basic-form-preview">
-                            <form action="{{route('propertyy.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('practice.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Blog Name</label>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control" name="name" value="{{$privacy->name}}" id="inputEmail34" placeholder="Property Image"/>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Name</label>
+                                    <div class="col-10">
+                                        <input type="text" value="{{$privacy->name}}" class="form-control @error('name') is-invalid @enderror" name="name" id="inputEmail3" placeholder="name"/>
+                                        @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail34" class="col-3 col-form-label">Image</label>
-                                    <div class="col-9">
-                                        <input type="file" class="form-control" name="image" id="inputEmail34" placeholder="Property Image"/>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Designation</label>
+                                    <div class="col-10">
+                                        <input type="text" value="{{$privacy->title}}" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="title"/>
+                                        @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label class="col-2 col-form-label">Image size: 394 X 341</label>
+                                    <div class="col-10">
+                                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1">
                                         <img src="{{asset($privacy->image)}}" alt="" style="height: 100px">
+                                        @error('image')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Description</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Details</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter privacy">{{$privacy->privacy}}</textarea>
                                         @error('privacy')
@@ -58,19 +73,10 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Details</label>
-                                    <div class="col-10">
-                                        <textarea type="text" id="summernote2" name="condition" class="form-control @error('condition') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter condition">{{$privacy->condition}}</textarea>
-                                        @error('condition')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">status Practice</label>
                                     <div class="col-10">
                                         <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
-                                        <label for="switch{{$privacy->id}}" data-on-label="On" data-off-label="Off"></label>
+                                        <label for="switch{{$privacy->id}}" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -92,13 +98,8 @@
 
     <script>
         $('#summernote').summernote({
-            tabsize: 5,
-            height: 500
-        });
-
-        $('#summernote2').summernote({
-            tabsize: 5,
-            height: 500
+            tabsize: 2,
+            height: 300
         });
     </script>
 

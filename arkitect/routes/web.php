@@ -12,6 +12,7 @@ use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PracticeController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -128,6 +129,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::post('/update/{id}', [ClientController::class, 'update'])->name('client.update');
                 Route::post('/delete/{id}', [ClientController::class, 'delete'])->name('client.delete');
             });
+            Route::prefix('practice')->group(function () {
+                Route::get('/add', [PracticeController::class, 'index'])->name('practice.add');
+                Route::post('/new', [PracticeController::class, 'create'])->name('practice.new');
+                Route::get('/manage', [PracticeController::class, 'manage'])->name('practice.manage');
+                Route::get('/edit/{id}', [PracticeController::class, 'edit'])->name('practice.edit');
+                Route::post('/update/{id}', [PracticeController::class, 'update'])->name('practice.update');
+                Route::post('/delete/{id}', [PracticeController::class, 'delete'])->name('practice.delete');
+            });
         });
     });
 
+    
