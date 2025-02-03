@@ -20,7 +20,6 @@ class CategoryController extends Controller
         $request->validate([
             'category_name' => 'required|max:255',
             'parent_id' => 'required',
-            'description' => 'required'
         ]);
         $category = new Category();
         $category->parent_id = $request->parent_id;
@@ -75,23 +74,35 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
+        // Find category
         $category = Category::find($id);
+        
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category not found');
+        }
+    
+        // Delete subcategories
         $subCategories = Category::where('parent_id', $category->id)->get();
-//        dd($category->news);
-        foreach ($subCategories as $item)
-        {
-            $item->delete();
+        foreach ($subCategories as $subCategory) {
+            $subCategory->delete();
         }
-        foreach ($category->news as $data)
-        {
-            if (file_exists($data->image))
-            {
-                unlink($data->image);
+    
+        // Delete associated news (if any)
+        if (!empty($category->news)) { // Check if the relationship exists
+            foreach ($category->news as $data) {
+                if (!empty($data->image) && file_exists(public_path($data->image))) {
+                    unlink(public_path($data->image));
+                }
+                $data->delete();
             }
-            $data->delete();
         }
+    
+        // Delete the category itself
         $category->delete();
-        Alert::success('Category delete Successfully', '');
+    
+        Alert::success('Category deleted successfully', '');
         return redirect()->back();
     }
+    
+    
 }

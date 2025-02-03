@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Advocate Update</h4>
+                <h4 class="page-title">Support Team Update</h4>
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate or support team</label>
                                     <div class="col-10">
                                         <input type="checkbox" id="switch{{$privacy->id}}" class="form-control" value="1" @if($privacy->status == 1) checked @endif name="status" data-switch="bool"/>
                                         <label for="switch{{$privacy->id}}" data-on-label="yes" data-off-label="no"></label>

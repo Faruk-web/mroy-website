@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Category manage | {{env('APP_NAME')}}
+    Privacy & Policy Manage | {{env('APP_NAME')}}
 @endsection
 
 @section('body')
@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Category Manage</h4>
+                <h4 class="page-title">Galley Manage</h4>
             </div>
         </div>
     </div>
@@ -36,49 +36,33 @@
                         <thead>
                         <tr>
                             <th>S.N</th>
-                            <th>Main category</th>
-                            <th>Page name</th>
-                            <th> Description </th>
-                            <th>Status</th>
+                            <th>Name</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $category)
+                        @foreach($privacy as $data)
                         <tr>
                             <td>{{$loop->iteration}}</td>
+                            <td>{{$data->name}}</td>
+                            <td><img src="{{asset($data->multi_image)}}" alt="" style="height: 50px"></td>
                             <td>
-                                @if($category->parent_id == 0)
-                                    Main Category
-                                @else
-                                    {{$category->subCategory->category_name}}
-                                @endif
-                            </td>
-                            <td>{{$category->category_name}}</td>
-                            <td>{{$category->description}}</td>
-                            <td>
-                                @if($category->status == 1)
-                                    <span class="badge bg-success">Active</span>
-                                @else
-                                    <span class="badge bg-danger">In Active</span>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{route('category.edit', ['id' => $category->id])}}" class="btn btn-success btn-sm" title="Edit">
+                                <a href="{{route('gallery.edit', ['id' => $data->id])}}" class="btn btn-success btn-sm" title="Edit">
                                     <i class="ri-edit-box-fill"></i>
                                 </a>
-                                <button type="button" onclick="confirmDelete({{$category->id}});" class="btn btn-danger btn-sm" title="Delete">
+                                <button type="button" onclick="confirmDelete({{$data->id}});" class="btn btn-danger btn-sm" title="Delete">
                                     <i class="ri-chat-delete-fill"></i>
                                 </button>
 
-                                <form action="{{route('category.delete', ['id' => $category->id])}}" method="POST" id="categoryDeleteForm{{$category->id}}">
+                                <form action="{{route('gallery.delete', ['id' => $data->id])}}" method="POST" id="privacyDeleteForm{{$data->id}}">
                                     @csrf
                                 </form>
                                 <script>
-                                    function confirmDelete(categoryId) {
+                                    function confirmDelete(dataId) {
                                         var confirmDelete = confirm('Are you sure you want to delete this?');
                                         if (confirmDelete) {
-                                            document.getElementById('categoryDeleteForm' + categoryId).submit();
+                                            document.getElementById('privacyDeleteForm' + dataId).submit();
                                         } else {
                                             return false;
                                         }

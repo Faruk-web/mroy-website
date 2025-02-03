@@ -10,11 +10,8 @@ class PrivacyController extends Controller
 {
     public function index()
     {
-        $privacy = Privacy::where('status', 1)->first();
-     
-        return view('admin.privacy.index', compact('privacy'));
+        return view('admin.privacy.index');
     }
-
     public function create(Request $request)
 {
     $request->validate([
@@ -22,8 +19,6 @@ class PrivacyController extends Controller
     ]);
 
     $privacy = new Privacy();
-
-    // Handle image upload
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
@@ -32,12 +27,10 @@ class PrivacyController extends Controller
         Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
-
-    // Assign other fields
     $privacy->name = $request->name;
     $privacy->title = $request->title;
     $privacy->privacy = $request->privacy;
-    $privacy->status = $request->status == 1 ? 1 : 2;
+    $privacy->status = 1;
 
     $privacy->save();
 
@@ -47,7 +40,7 @@ class PrivacyController extends Controller
 
   public function manage()
     {
-        $privacy = Privacy::orderBy('id', 'asc')->get();
+        $privacy = Privacy::where('status',1)->orderBy('id', 'asc')->get();
         return view('admin.privacy.manage', compact('privacy'));
     }
 
@@ -65,15 +58,10 @@ class PrivacyController extends Controller
         Alert::error('Privacy not found', '');
         return redirect()->route('privacyy.manage');
     }
-
-    // Check if a new image is uploaded
     if ($request->hasFile('image')) {
-        // Delete old image
         if (file_exists(public_path($privacy->image))) {
             unlink(public_path($privacy->image));
         }
-
-        // Upload new image
         $image = $request->file('image');
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/propert/' . $name_gen_blog;
@@ -81,12 +69,10 @@ class PrivacyController extends Controller
         Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
         $privacy->image = $save_url_blog;
     }
-
-    // Update other fields
     $privacy->name = $request->name;
     $privacy->title = $request->title;
     $privacy->privacy = $request->privacy;
-    $privacy->status = $request->status == 1 ? 1 : 2;
+    $privacy->status = 1;
 
     $privacy->save();
 
@@ -103,20 +89,104 @@ class PrivacyController extends Controller
             Alert::error('Privacy not found', '');
             return redirect()->back();
         }
-    
-        // Delete image from storage
         if (file_exists(public_path($privacy->image))) {
             unlink(public_path($privacy->image));
         }
-    
-        // Delete record from database
         $privacy->delete();
     
         Alert::success('Advocate deleted successfully', '');
         return redirect()->back();
     }
-    
+    // ================================================= support Team =================================
+    public function teamindex()
+    {
+        return view('admin.team.index');
+    }
+    public function teamcreate(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+    ]);
 
+    $privacy = new Privacy();
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url_blog = 'upload/propert/' . $name_gen_blog;
+
+        Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+        $privacy->image = $save_url_blog;
+    }
+    $privacy->name = $request->name;
+    $privacy->title = $request->title;
+    $privacy->privacy = $request->privacy;
+    $privacy->status = 2;
+
+    $privacy->save();
+
+    Alert::success('team Added Successfully', '');
+    return redirect()->back();
+}
+
+  public function teammanage()
+    {
+        $privacy = Privacy::where('status',2)->orderBy('id', 'asc')->get();
+        return view('admin.team.manage', compact('privacy'));
+    }
+
+    public function teamedit($id)
+    {
+        $privacy = Privacy::find($id);
+        return view('admin.team.edit', compact('privacy'));
+    }
+
+    public function teamupdate(Request $request, $id)
+{
+    $privacy = Privacy::find($id);
+
+    if (!$privacy) {
+        Alert::error('team not found', '');
+        return redirect()->route('team.manage');
+    }
+    if ($request->hasFile('image')) {
+        if (file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+        $image = $request->file('image');
+        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url_blog = 'upload/propert/' . $name_gen_blog;
+
+        Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+        $privacy->image = $save_url_blog;
+    }
+    $privacy->name = $request->name;
+    $privacy->title = $request->title;
+    $privacy->privacy = $request->privacy;
+    $privacy->status = 2;
+
+    $privacy->save();
+
+    Alert::success('team updated successfully', '');
+    return redirect()->route('team.manage');
+}
+ 
+
+    public function teamdelete($id)
+    {
+        $privacy = Privacy::find($id);
+    
+        if (!$privacy) {
+            Alert::error('team not found', '');
+            return redirect()->back();
+        }
+        if (file_exists(public_path($privacy->image))) {
+            unlink(public_path($privacy->image));
+        }
+        $privacy->delete();
+    
+        Alert::success('team deleted successfully', '');
+        return redirect()->back();
+    }
     public function page_view()
     {
         $privacy = Privacy::where('status', 1)->first();

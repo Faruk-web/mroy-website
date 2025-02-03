@@ -291,7 +291,7 @@
                     <a data-bs-toggle="collapse" href="#sidebarPrivacy" aria-expanded="false" aria-controls="sidebarEmail"
                        class="side-nav-link">
                         <i class="uil-lock"></i>
-                        <span> Advocate Create </span>
+                        <span> Advocate</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarPrivacy">
@@ -301,6 +301,24 @@
                             </li>
                             <li>
                                 <a href="{{route('privacyy.manage')}}">Manage Advocate</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarteam" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Support Team </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarteam">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('team.add')}}">New Team</a>
+                            </li>
+                            <li>
+                                <a href="{{route('team.manage')}}">Manage Team</a>
                             </li>
                         </ul>
                     </div>
@@ -373,6 +391,24 @@
                             </li>
                             <li>
                                 <a href="{{route('propertyy.manage')}}">Manage Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebargallery" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Gallery</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebargallery">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('gallery.add')}}">Create Blog</a>
+                            </li>
+                            <li>
+                                <a href="{{route('gallery.manage')}}">Manage Blog</a>
                             </li>
                         </ul>
                     </div>

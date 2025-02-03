@@ -13,6 +13,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PracticeController;
+use App\Http\Controllers\GalleryController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -105,6 +106,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::post('/update/{id}', [PrivacyController::class, 'update'])->name('privacyy.update');
                 Route::post('/delete/{id}', [PrivacyController::class, 'delete'])->name('privacyy.delete');
             });
+            Route::prefix('team')->group(function () {
+                Route::get('/team/add', [PrivacyController::class, 'teamindex'])->name('team.add');
+                Route::post('/team/new', [PrivacyController::class, 'teamcreate'])->name('team.new');
+                Route::get('/team/manage', [PrivacyController::class, 'teammanage'])->name('team.manage');
+                Route::get('/team/edit/{id}', [PrivacyController::class, 'teamedit'])->name('team.edit');
+                Route::post('/team/update/{id}', [PrivacyController::class, 'teamupdate'])->name('team.update');
+                Route::post('/team/delete/{id}', [PrivacyController::class, 'teamdelete'])->name('team.delete');
+            });
             Route::prefix('propertyy')->group(function () {
                 Route::get('/add', [PropertyController::class, 'index'])->name('propertyy.add');
                 Route::post('/new', [PropertyController::class, 'create'])->name('propertyy.new');
@@ -136,6 +145,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [PracticeController::class, 'edit'])->name('practice.edit');
                 Route::post('/update/{id}', [PracticeController::class, 'update'])->name('practice.update');
                 Route::post('/delete/{id}', [PracticeController::class, 'delete'])->name('practice.delete');
+            });
+            Route::prefix('gallery')->group(function () {
+                Route::get('/add', [GalleryController::class, 'index'])->name('gallery.add');
+                Route::post('/new', [GalleryController::class, 'create'])->name('gallery.new');
+                Route::get('/manage', [GalleryController::class, 'manage'])->name('gallery.manage');
+                Route::get('/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
+                Route::post('/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
+                Route::post('/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
             });
         });
     });

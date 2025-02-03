@@ -64,10 +64,10 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate or support team</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Advocate</label>
                                     <div class="col-10">
                                         <input type="checkbox" id="switch1" class="form-control" value="1" name="status" data-switch="bool"/>
-                                        <label for="switch1" data-on-label="adv" data-off-label="team"></label>
+                                        <label for="switch1" data-on-label="yes" data-off-label="no"></label>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

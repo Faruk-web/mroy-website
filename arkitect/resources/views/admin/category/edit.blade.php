@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Category Name</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Name</label>
                                     <div class="col-10">
                                         <input type="text" value="{{$category->category_name}}" class="form-control @error('category_name') is-invalid @enderror" name="category_name" id="inputEmail3" placeholder="Category name"/>
                                         @error('category_name')

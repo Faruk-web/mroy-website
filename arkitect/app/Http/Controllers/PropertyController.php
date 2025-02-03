@@ -21,8 +21,7 @@ class PropertyController extends Controller
                 'name' => 'required',
             ]);
         
-            $privacy = new Property();
-        
+            $privacy = new Property(); 
             // Handle image upload
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -32,7 +31,6 @@ class PropertyController extends Controller
                 Image::make($image)->resize(776,410)->save(public_path($save_url_blog));
                 $privacy->image = $save_url_blog;
             }
-        
             // Assign other fields
             $privacy->name = $request->name;
             $privacy->condition = $request->condition;
