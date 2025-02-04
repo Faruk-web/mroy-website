@@ -30,18 +30,18 @@ Gallery Area
             </div>
             <div class="row gy-4 justify-content-center">
                 <!-- <div class="gallery-2-wrapper"> -->
-                @foreach($gallery as $item)
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{asset($item->multi_image)}}">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{asset($item->multi_image)}}" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
+                @foreach($gallery as $id => $image)
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gallery-card2 inner" data-bg-src="{{ asset($image) }}">
+                            <div class="gallery-img">
+                                <div class="gallery-content">
+                                    <a href="{{ asset($image) }}" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
+                                    <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
+                                    <p class="box-text">Family Law</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
                 <!-- </div> -->
             </div>

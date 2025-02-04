@@ -9,6 +9,9 @@ use App\Models\Property;
 use App\Models\Slider;
 use App\Models\Privacy;
 use App\Models\Multi_image;
+use App\Models\Client;
+use App\Models\Practice;
+
 use Illuminate\Support\Facades\Cache;
 class HomeController extends Controller
 {
@@ -37,23 +40,24 @@ class HomeController extends Controller
     }
     public function practice()
     {
-        return view('front.Practice.practice');
+        $prectice = Practice::select('id', 'name', 'image')->get();
+        return view('front.Practice.practice',compact('prectice'));
     }
     public function client()
     {
-        return view('front.client.client');
+        $client = Client::select('id', 'name', 'title', 'image')->get();
+        return view('front.client.client',compact('client'));
     }
     public function attorney()
     {
-        return view('front.attorney.attorney');
+        $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
+        return view('front.attorney.attorney',compact('advocate'));
     }
     
     public function gallery()
     {
-        $gallery = Cache::remember('gallery', 10, function () {
-            return Multi_image::pluck('multi_image', 'id');
-        });
-        return view('front.gallery.gallery',compact('gallery'));
+        $gallery = Multi_image::pluck('multi_image', 'id'); // Returns an associative array
+        return view('front.gallery.gallery', compact('gallery'));
     }
     public function projects()
     {
@@ -62,7 +66,8 @@ class HomeController extends Controller
     }
     public function terms()
     {
-        return view('front.terms.terms');
+        $team = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->get();
+        return view('front.terms.terms',compact('team'));
     }
     public function privacy()
     {

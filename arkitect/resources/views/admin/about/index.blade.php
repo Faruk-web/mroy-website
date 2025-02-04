@@ -49,6 +49,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Sub Details</label>
+                                    <div class="col-10">
+                                        <textarea type="text" id="summernote3" name="sub_details" class="form-control @error('details') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter SUb Details"></textarea>
+                                        @error('details')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Description</label>
                                     <div class="col-10">
                                         <textarea type="text" id="summernote" name="privacy" class="form-control @error('privacy') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter Description"></textarea>
@@ -96,6 +105,10 @@
         $('#summernote2').summernote({
             tabsize: 2,
             height: 300
+        });
+        $('#summernote3').summernote({
+            tabsize: 2,
+            height: 150
         });
     </script>
     <!-- end row -->
