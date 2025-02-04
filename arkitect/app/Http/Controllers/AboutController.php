@@ -34,6 +34,7 @@ class AboutController extends Controller
     
         // Assign other fields
         $privacy->name = $request->name;
+        $privacy->sub_details = $request->sub_details;
         $privacy->privacy = $request->privacy;
         $privacy->details = $request->details;
         $privacy->status = $request->status == 1 ? 1 : 2;
@@ -82,6 +83,7 @@ class AboutController extends Controller
     
         // Update other fields
         $privacy->name = $request->name;
+        $privacy->sub_details = $request->sub_details;
         $privacy->privacy = $request->privacy;
         $privacy->details = $request->details;
         $privacy->status = $request->status == 1 ? 1 : 2;

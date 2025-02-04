@@ -11,7 +11,7 @@ use App\Models\Privacy;
 use App\Models\Multi_image;
 use App\Models\Client;
 use App\Models\Practice;
-
+use App\Models\About;
 use Illuminate\Support\Facades\Cache;
 class HomeController extends Controller
 {
@@ -35,8 +35,8 @@ class HomeController extends Controller
     }
     public function about()
     {
-        $privacy=Privacy::select('id','name','image','title')->get();
-        return view('front.about.about',compact('privacy'));
+        $about=About::select('id','name','image','sub_details','details','privacy')->find(28);
+        return view('front.about.about',compact('about'));
     }
     public function practice()
     {
