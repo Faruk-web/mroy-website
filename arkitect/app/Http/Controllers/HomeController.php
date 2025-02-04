@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use App\Models\Property;
 use App\Models\Slider;
 use App\Models\Privacy;
+use App\Models\Multi_image;
+use Illuminate\Support\Facades\Cache;
 class HomeController extends Controller
 {
     public function index()
@@ -48,7 +50,10 @@ class HomeController extends Controller
     
     public function gallery()
     {
-        return view('front.gallery.gallery');
+        $gallery = Cache::remember('gallery', 10, function () {
+            return Multi_image::pluck('multi_image', 'id');
+        });
+        return view('front.gallery.gallery',compact('gallery'));
     }
     public function projects()
     {

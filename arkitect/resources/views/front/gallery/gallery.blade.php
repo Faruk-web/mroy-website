@@ -30,72 +30,19 @@ Gallery Area
             </div>
             <div class="row gy-4 justify-content-center">
                 <!-- <div class="gallery-2-wrapper"> -->
+                @foreach($gallery as $item)
                 <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-1.jpg">
+                    <div class="gallery-card2 inner" data-bg-src="{{asset($item->multi_image)}}">
                         <div class="gallery-img">
                             <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-1.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
+                                <a href="{{asset($item->multi_image)}}" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
                                 <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
                                 <p class="box-text">Family Law</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-2.jpg">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-2.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-3.jpg">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-3.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-4.jpg">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-4.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-5.jpg">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-5.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="gallery-card2 inner" data-bg-src="{{ asset('front') }}/assets/img/gallery/gallery-3-6.jpg">
-                        <div class="gallery-img">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-3-6.jpg" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- </div> -->
             </div>
         </div>

@@ -31,7 +31,7 @@ class GalleryController extends Controller
             foreach ($request->file('multi_image') as $image) {
                 $imageName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
                 $savePath = 'upload/gallery/' . $imageName;
-                Image::make($image)->resize(234, 355)->save(public_path($savePath));
+                Image::make($image)->resize(618, 355)->save(public_path($savePath));
                 Multi_image::create([
                     'name' => $request->name,
                     'multi_image' => $savePath,
@@ -78,7 +78,7 @@ class GalleryController extends Controller
     
             // Resize and save the image
             $save_path = 'upload/gallery/' . $name_gen_blog;
-            Image::make($image)->resize(234, 355)->save(public_path($save_path));
+            Image::make($image)->resize(618, 355)->save(public_path($save_path));
     
             // Optional: Delete old image if exists
             if (!empty($privacy->multi_image) && file_exists(public_path($privacy->multi_image))) {
