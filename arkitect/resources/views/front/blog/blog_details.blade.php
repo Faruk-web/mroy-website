@@ -8,10 +8,10 @@
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Blogs</h1>
+            <h1 class="breadcumb-title">Blog Details</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Blogs</li>
+                    <li>Blog</li>
                 </ul>
             </div>
         </div>
@@ -23,19 +23,17 @@ Blog Area
         <div class="container">
             <div class="row">
                 <div class="col-xxl-8 col-lg-7">
-                 @foreach($blog as $item)
                     <div class="th-blog blog-single has-post-thumbnail">
                         <div class="blog-img">
-                            <a href="{{route('blog.details',$item->id)}}"><img src="{{ asset($item->image) }}" alt="Blog Image"></a>
+                            <a href="#"><img src="{{ asset($blogs->image) }}" alt="Blog Image"></a>
                         </div>
                         <div class="blog-content">
-                            <h2 class="blog-title"><a href="{{route('blog.details',$item->id)}}">{{$item->name}}</a>
+                            <h2 class="blog-title"><a href="#">{{$blogs->name}}</a>
                             </h2>
-                            <p class="blog-text">{!!$item->privacy!!}</p>
-                            <a href="{{route('blog.details',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>
+                            <p class="blog-text">{!!$blogs->privacy!!}</p>
+                            <p class="blog-text">{!!$blogs->condition!!}</p>
                         </div>
                     </div>
-                    @endforeach
                     <div class="th-pagination ">
                         <ul>
                             <li><a href="blog.html">1</a></li>

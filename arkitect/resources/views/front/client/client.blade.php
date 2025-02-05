@@ -38,16 +38,11 @@ Team Area
                             <img src="{{ asset($item->image) }}" alt="Team">
                         </div>
                         <div class="team-content">
-                            <h3 class="box-title"><a href="team-details.html">{{ $item->name }}</a></h3>
+                            <h3 class="box-title"><a href="{{route('client.deatils',$item->id)}}">{{ $item->name }}</a></h3>
                             <span class="team-desig">{{ $item->title }}</span>
 
                             <div class="team-social">
-                                <div class="th-social">
-                                    <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                    <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
+                            <a href="{{route('client.deatils',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>
                             </div>
                         </div>
                     </div>

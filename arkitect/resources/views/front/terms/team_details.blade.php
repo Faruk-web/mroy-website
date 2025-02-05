@@ -1,97 +1,105 @@
 @extends('front.master')
-
 @section('title')
-    Blog us
+    Contact us
 @endsection
 @section('body')
-
+ 
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Blogs</h1>
+                <h1 class="breadcumb-title">Support Team Details</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Blogs</li>
+                    <li>Support Team Details</li>
                 </ul>
             </div>
         </div>
     </div>
     <!--==============================
-Blog Area
+    Service Area
 ==============================-->
-    <section class="th-blog-wrapper space-top space-extra-bottom">
+    <section class="space-top space-extra2-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xxl-8 col-lg-7">
-                 @foreach($blog as $item)
-                    <div class="th-blog blog-single has-post-thumbnail">
-                        <div class="blog-img">
-                            <a href="{{route('blog.details',$item->id)}}"><img src="{{ asset($item->image) }}" alt="Blog Image"></a>
+                <div class="col-xxl-8 col-lg-8">
+                    <div class="page-single mb-30">
+                        <div class="page-img">
+                            <img src="{{ asset($teams->image) }}" alt="Service Image">
                         </div>
-                        <div class="blog-content">
-                            <h2 class="blog-title"><a href="{{route('blog.details',$item->id)}}">{{$item->name}}</a>
-                            </h2>
-                            <p class="blog-text">{!!$item->privacy!!}</p>
-                            <a href="{{route('blog.details',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>
+                        <div class="page-content">
+                            <h2 class="sec-title page-title">{{$teams->name}}</h2>
+                            <span class="sub-title before-none">{{$teams->title}}</span>
+                            <p class="">{!!$teams->privacy!!}</p>
+
                         </div>
-                    </div>
-                    @endforeach
-                    <div class="th-pagination ">
-                        <ul>
-                            <li><a href="blog.html">1</a></li>
-                            <li><a href="blog.html">2</a></li>
-                            <li><a href="blog.html">3</a></li>
-                            <li><a href="blog.html"><i class="far fa-arrow-right"></i></a></li>
-                        </ul>
                     </div>
                 </div>
-                <div class="col-xxl-4 col-lg-5">
+                <div class="col-xxl-4 col-lg-4">
                     <aside class="sidebar-area">
-                        <div class="widget widget_search  ">
-                            <form class="search-form">
-                                <input type="text" placeholder="Enter Keyword">
-                                <button type="submit"><i class="far fa-search"></i></button>
-                            </form>
-                        </div>
                         <div class="widget widget_categories  ">
-                            <h3 class="widget_title">Legal Articles</h3>
+                            <h3 class="widget_title">Categories</h3>
                             <ul>
-                            @foreach($blog as $item)
+                            @foreach($team as $item)
                                 <li>
-                                    <a href="{{route('blog.details',$item->id)}}">{{$item->name}}</a>
+                                    <a href="{{route('team.detail',$item->id)}}">{{$item->name}}</a>
                                     <span><i class="fa-sharp fa-light fa-arrow-right"></i></span>
                                 </li>
-                            @endforeach
+                                @endforeach
                             </ul>
                         </div>
                         <div class="widget  ">
                             <h3 class="widget_title">Recent Posts</h3>
                             <div class="recent-post-wrap">
-                            @foreach($blog as $item)
+                            @foreach($team as $item)
                                 <div class="recent-post">
                                     <div class="media-img">
-                                        <a href="{{route('blog.details',$item->id)}}"><img src="{{ asset($item->image) }}" alt="Blog Image"></a>
+                                        <a href="{{route('team.detail',$item->id)}}"><img src="{{ asset($item->image) }}" alt="Blog Image"></a>
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="post-title"><a class="text-inherit" href="{{route('blog.details',$item->id)}}">{{$item->name}}</a></h4>
+                                        <h4 class="post-title"><a class="text-inherit" href="{{route('team.detail',$item->id)}}">{{$item->name}}</a></h4>
                                     </div>
                                 </div>
                             @endforeach
                             </div>
                         </div>
-                        <div class="widget widget_tag_cloud  ">
-                            <h3 class="widget_title">Popular Tags</h3>
-                            <div class="tagcloud">
-                                <a href="#">Family</a>
-                                <a href="#">Criminal</a>
-                                <a href="#">Firm</a>
-                                <a href="#">Clean</a>
-                                <a href="#">Real Estate</a>
-                                <a href="#">Law NFT</a>
-                                <a href="#">Crypto Law</a>
-                                <a href="#">Tips</a>
-                                <a href="#">Criminal Law</a>
-                                <a href="#">Health Policy</a>
+                        <div class="widget widget_call  ">
+                            <div class="widget-call">
+                                <h4 class="box-title text-white">Need Any Help?</h4>
+                                <p class="text-white box_text">Need Any Help, Call Us 24/7 For Support</p>
+                                <div class="widget_call">
+
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle"> Call Us</span>
+                                            <p class="info-box_text">
+                                                <a href="tel:8801791404011" class="info-box_link">8801791404011</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle">Mail Us</span>
+                                            <p class="info-box_text">
+                                                <a href="mailto:moloy.advocate@gmail.com" class="info-box_link">moloy.advocate@gmail.com</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle">Office Address</span>
+                                            <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), Dhaka-1000.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </aside>
@@ -101,7 +109,7 @@ Blog Area
     </section><!--==============================
 Brand Area  
 ==============================-->
-    <div class="space-bottom overflow-hidden">
+    <div class="space-bottom">
         <div class="container">
             <div class="row">
                 <div class="brand-bg-wrap">
@@ -207,4 +215,5 @@ Brand Area
             </div>
         </div>
     </div>
+    
 @endsection

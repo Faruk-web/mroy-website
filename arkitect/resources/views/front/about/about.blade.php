@@ -64,7 +64,51 @@ Team Area
                     </div>
                 </div>
             </div>
-
+            <section class="space" id="process-sec">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8 about-bottom-box-wrapcol-lg-10 text-center ">
+                            <div class="title-area">
+                                <span class="sub-title justify-content-center justify-content-xl-start">Schedule Consultation</span>
+                                <h2 class="sec-title mb-2">Schedule A Free Consultation</h2>
+                                <p class="box-text">Our team of seasoned attorneys is dedicated to carefully listening to your concerns, ensuring a deep understanding of your unique situation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gy-40 justify-content-center">
+                        <div class="col-xl-4 col-lg-4 col-md-6 ">
+                            <div class="process-box style-2">
+                                <div class="box-icon">
+                                    <span class="number">01</span>
+                                    <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-1.svg" alt="image">
+                                </div>
+                                <h3 class="box-title">Schedule A Time</h3>
+                                <p class="box-text">Choose a convenient date and time that works best for you. Our experienced lawyers are available to discuss.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 ">
+                            <div class="process-box style-2">
+                                <div class="box-icon">
+                                    <span class="number">02</span>
+                                    <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-2.svg" alt="image">
+                                </div>
+                                <h3 class="box-title">Meet with a Consultation</h3>
+                                <p class="box-text">During your consultation, you'll have the opportunity to discuss your case with a qualified attorney.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 ">
+                            <div class="process-box style-2">
+                                <div class="box-icon">
+                                    <span class="number">03</span>
+                                    <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-3.svg" alt="image">
+                                </div>
+                                <h3 class="box-title">Plan for Success</h3>
+                                <p class="box-text">Based on the information gathered during your consultation, we'll develop a tailored legal strategy to help you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <div class="row gy-4">
                 <div class="col-12">
                     <form action="mail.php" method="POST" class="contact-form team-details ajax-contact">

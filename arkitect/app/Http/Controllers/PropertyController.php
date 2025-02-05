@@ -26,7 +26,7 @@ class PropertyController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-                $save_url_blog = 'upload/propert/' . $name_gen_blog;
+                $save_url_blog = 'upload/blog/' . $name_gen_blog;
         
                 Image::make($image)->resize(776,410)->save(public_path($save_url_blog));
                 $privacy->image = $save_url_blog;
@@ -62,8 +62,8 @@ class PropertyController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name_gen_blog = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(776,410)->save('upload/propert/'.$name_gen_blog);
-            $save_url_blog = 'upload/propert/'.$name_gen_blog;
+            Image::make($image)->resize(776,410)->save('upload/blog/'.$name_gen_blog);
+            $save_url_blog = 'upload/blog/'.$name_gen_blog;
             $privacy->image = $save_url_blog;
         }
         $privacy->privacy = $request->privacy;

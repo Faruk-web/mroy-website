@@ -44,15 +44,19 @@ Route::get('/auth/callback', [SocialLoginController::class, 'authCallback'])->na
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/blog', [HomeController::class, 'blogs'])->name('blog');
-Route::get('/blog/details', [HomeController::class, 'blogDetails'])->name('blog.details');
+Route::get('/blog/details/{id}', [HomeController::class, 'blogDetails'])->name('blog.details');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/practice', [HomeController::class, 'practice'])->name('practice');
+Route::get('/practice/deatils/{id}', [HomeController::class, 'practicedeatils'])->name('practice.deatils');
 Route::get('/client', [HomeController::class, 'client'])->name('client');
+Route::get('/client/deatils/{id}', [HomeController::class, 'clientdeatils'])->name('client.deatils');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/attorney', [HomeController::class, 'attorney'])->name('attorney');
+Route::get('/attorney/details/{id}', [HomeController::class, 'attorneydeatil'])->name('attorney.details');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
-Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+Route::get('/teams', [HomeController::class, 'terms'])->name('terms');
+Route::get('/team/details/{id}', [HomeController::class, 'teamdetail'])->name('team.detail');
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/error', function () {
     return view('errors.404');

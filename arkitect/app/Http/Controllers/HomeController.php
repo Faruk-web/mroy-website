@@ -13,6 +13,7 @@ use App\Models\Client;
 use App\Models\Practice;
 use App\Models\About;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 class HomeController extends Controller
 {
     public function index()
@@ -27,11 +28,17 @@ class HomeController extends Controller
     }
     public function blogs()
     {
-        return view('front.blog.blog');
+        $blog = Property::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
+            $item->privacy = Str::limit($item->privacy, 200);
+            return $item;
+        });
+        return view('front.blog.blog',compact('blog'));
     }
-    public function blogDetails()
+    public function blogDetails($id)
     {
-        return view('front.blog.blog_details');
+        $blog = Property::select('id', 'name', 'image')->orderBy('id', 'asc')->get();
+        $blogs = Property::select('id', 'name', 'image','privacy','condition')->find($id);
+        return view('front.blog.blog_details',compact('blog','blogs'));
     }
     public function about()
     {
@@ -43,15 +50,35 @@ class HomeController extends Controller
         $prectice = Practice::select('id', 'name', 'image')->get();
         return view('front.Practice.practice',compact('prectice'));
     }
+    public function practicedeatils($id)
+    {
+        $team = Practice::select('id', 'name','image')->limit(6)->get();
+        $teams = Practice::select('id', 'name','title', 'image','privacy')->find($id);
+        return view('front.Practice.practice_deatils',compact('team','teams'));
+    }
+    
     public function client()
     {
         $client = Client::select('id', 'name', 'title', 'image')->get();
         return view('front.client.client',compact('client'));
     }
+    public function clientdeatils($id)
+    {
+        $team = Client::select('id', 'name','image')->limit(6)->get();
+        $teams = Client::select('id', 'name','title', 'image','privacy')->find($id);
+        return view('front.client.client_detail',compact('team','teams'));
+    }
+    
     public function attorney()
     {
         $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
         return view('front.attorney.attorney',compact('advocate'));
+    }
+    public function attorneydeatil($id)
+    {
+        $team = Privacy::select('id', 'name','image')->where('status',1)->get();
+        $teams = Privacy::select('id', 'name','title', 'image','privacy')->find($id);
+        return view('front.attorney.attorney_details',compact('team','teams'));
     }
     
     public function gallery()
@@ -69,6 +96,13 @@ class HomeController extends Controller
         $team = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->get();
         return view('front.terms.terms',compact('team'));
     }
+    public function teamdetail($id)
+    {
+        $team = Privacy::select('id', 'name', 'title', 'image')->where('status',2)->get();
+        $teams = Privacy::select('id', 'name','title', 'image','privacy')->find($id);
+        return view('front.terms.team_details',compact('team','teams'));
+    }
+    
     public function privacy()
     {
         return view('front.page.privacy');
