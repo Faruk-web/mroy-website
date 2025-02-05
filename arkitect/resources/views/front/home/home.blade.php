@@ -162,7 +162,7 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_1.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 10 </span>k <span class="plus-simple">+</span></h4>
+                        <h4 class="box-number"><span class="counter-number"> 750 </span> <span class="plus-simple">+</span></h4>
                         <p class="box-text">Case Done</p>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_2.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 12 </span>k <span class="plus-simple">+</span></h4>
+                        <h4 class="box-number"><span class="counter-number"> 75 </span> <span class="plus-simple">+</span></h4>
                         <p class="box-text">Expert Attorneys</p>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_3.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 15 </span>k <span class="plus-simple">+</span></h4>
+                        <h4 class="box-number"><span class="counter-number"> 695 </span> <span class="plus-simple">+</span></h4>
                         <p class="box-text">Happy Client</p>
                     </div>
                 </div>
@@ -192,7 +192,7 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_4.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 20 </span>k <span class="plus-simple">+</span></h4>
+                        <h4 class="box-number"><span class="counter-number"> 120 </span> <span class="plus-simple">+</span></h4>
                         <p class="box-text">Award Winning</p>
                     </div>
                 </div>
@@ -223,7 +223,7 @@ Service Area
                         </div>
                         <div class="box-content">
                             <h3 class="box-title"><a href="{{route('service.deatils',1)}}">Criminal Law</a></h3>
-                            <p class="box-text">Defense representations for more various criminal charges. Investigations and evidence analysis. Bail applications and.</p>
+                            <p class="box-text">Defense representations for more various criminal charges.Investigations and evidence analysis.</p>
                         </div>
                         <a href="{{route('service.deatils',1)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
@@ -356,10 +356,62 @@ Team Area
 
             </div>
         </div>
-    </section><!--==============================
+    </section>
+ 
+    <!--==============================
+Gallery Area  
+==============================-->
+      <section class="space bg-smoke2" id="blog-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
+        <div class="shape-mockup jump-reverse d-none d-xxl-block" data-left="0" data-bottom="0">
+            <img src="{{ asset('front') }}/assets/img/shape/blog-1-shape-left.png" alt="shape-img">
+        </div>
+        <div class="shape-mockup jump d-none d-xxl-block" data-right="0" data-bottom="0">
+            <img src="{{ asset('front') }}/assets/img/shape/blog-1-shape-right.png" alt="shape-img">
+        </div>
+        <div class="container">
+            <div class="row justify-content-lg-between justify-content-center align-items-end">
+                <div class="col-lg">
+                    <div class="title-area text-center text-lg-start">
+                        <span class="sub-title">Our Practice Area</span>
+                        <h2 class="sec-title">Attorneys of Practice Area</h2>
+                    </div>
+                </div>
+                <div class="col-lg-auto d-none d-lg-block">
+                    <div class="sec-btn">
+                        <div class="icon-box">
+                            <button data-slider-prev="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-left"></i></button>
+                            <button data-slider-next="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-area">
+                <div class="swiper th-slider has-shadow" id="blogSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}, "autoHeight": "true"}'>
+                    <div class="swiper-wrapper">
+                      @foreach($prectice as $item)
+                        <div class="swiper-slide">
+                            <div class="blog-card">
+                                <div class="blog-img">
+                                    <a href="blog-details.html">
+                                        <img src="{{ asset($item->image) }}" alt="blog image">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <h3 class="box-title"><a href="{{route('practice.deatils',$item->id)}}">{{ $item->name }}</a></h3>
+                                <span class="team-desig">{{ $item->title }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!--==============================
 Process Area  
 ==============================-->
-    <section class="space" id="process-sec">
+<section class="space" id="process-sec">
         <div class="shape-mockup jump" data-right="0" data-bottom="0">
             <img src="{{ asset('front') }}/assets/img/shape/process-1-shape.png" alt="image">
         </div>
@@ -414,10 +466,47 @@ Process Area
                 </div>
             </div>
         </div>
-    </section><!--==============================
+    </section>
+<!--==============================
+Blog Area  
+==============================-->
+  <section class="space" id="team-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-8 col-xl-9 ">
+                    <div class="title-area text-center">
+                        <span class="sub-title justify-content-center"> Articles</span>
+                        <h2 class="sec-title">Legal Articles</h2>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+            <div class="row gy-4">
+                <!-- Single Item -->
+                @foreach($blog as $item)
+                <div class="col-xl-4 col-lg-4 col-sm-6">
+                    <div class="team-card style-2">
+                        <div class="team-img">
+                            <img src="{{ asset($item->image) }}" alt="Team">
+                        </div>
+                        <div class="team-content">
+                            <h3 class="box-title"><a href="{{route('blog.details',$item->id)}}">{{ $item->name }}</a></h3>
+                            <span class="team-desig">{!!$item->privacy!!}</span>
+
+                            <div class="team-social">
+                            <a href="{{route('blog.details',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach 
+            </div>
+        </div>
+    </section>
+       <!--==============================
 Brand Area  
 ==============================-->
-    <div class="brand-area-1" data-bg-src="{{ asset('front') }}/assets/img/bg/brand-bg-11.png">
+<div class="brand-area-1" data-bg-src="{{ asset('front') }}/assets/img/bg/brand-bg-11.png">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -499,130 +588,11 @@ Brand Area
                 </div>
             </div>
         </div>
-    </div><!--==============================
-Gallery Area  
-==============================-->
-    <div class="overflow-hidden space gallery-sec-3">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-9 col-lg-10">
-                    <div class="title-area  text-center">
-                        <span class="sub-title justify-content-center">Case Study</span>
-                        <h2 class="sec-title">Attoenwy Legal Excellence in Action</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row gy-4 masonary-active">
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-1.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-1.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation </a></h2>
-                                <p class="box-text">Family Law</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-4  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-2.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-2.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Legal Advice </a></h2>
-                                <p class="box-text">Divorce Cases</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-3.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-3.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Preliminary Meeting </a></h2>
-                                <p class="box-text">Custody Disputes</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-4.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-4.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Client Consultation </a></h2>
-                                <p class="box-text">Parental Rights</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-2  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-5.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-5.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Advice Session </a></h2>
-                                <p class="box-text">Child Support</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-6.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-6.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">First Meeting </a></h2>
-                                <p class="box-text">Paternity Cases</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-4  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-7.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-7.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Introductory Discussion </a></h2>
-                                <p class="box-text">Civil Unions</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3  filter-item">
-                    <div class="gallery-card">
-                        <div class="gallery-img">
-                            <img src="{{ asset('front') }}/assets/img/gallery/gallery-1-8.jpg" alt="gallery image">
-                            <div class="gallery-content">
-                                <a href="{{ asset('front') }}/assets/img/gallery/gallery-1-8.jpg" class="popup-icon popup-image"><i class="fa-solid fa-eye"></i></a>
-                                <h2 class="box-title"><a href="case-studies-details.html">Case Consultation </a></h2>
-                                <p class="box-text">Marriage Contracts</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div><!--==============================
+    </div>
+       <!--==============================
 Testimonial Area  
 ==============================-->
-    <section class="testi-card-area-1 overflow-hidden space" id="testi-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/testi-bg-1.png">
+<section class="testi-card-area-1 overflow-hidden space" id="testi-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/testi-bg-1.png">
         <div class="container">
             <div class="row justify-content-lg-between justify-content-center align-items-end">
                 <div class="col-lg">
@@ -727,12 +697,8 @@ Testimonial Area
                 </div>
             </div>
         </div>
-    </section><!--==============================
-Price Area  
-==============================-->
-    <!--==============================
-Contact Area  
-==============================-->
+    </section>
+
     <section class="space overflow-hidden">
         <div class="shape-mockup jump d-none d-xl-block" data-top="15%" data-right="3%">
             <img src="{{ asset('front') }}/assets/img/shape/contact-1-top.png" alt="shape img">
@@ -822,149 +788,8 @@ Contact Area
                 </div>
             </div>
         </div>
-    </section><!--==============================
-Blog Area  
-==============================-->
-    <section class="space bg-smoke2" id="blog-sec">
-        <div class="shape-mockup jump-reverse d-none d-xxl-block" data-left="0" data-bottom="0">
-            <img src="{{ asset('front') }}/assets/img/shape/blog-1-shape-left.png" alt="shape-img">
-        </div>
-        <div class="shape-mockup jump d-none d-xxl-block" data-right="0" data-bottom="0">
-            <img src="{{ asset('front') }}/assets/img/shape/blog-1-shape-right.png" alt="shape-img">
-        </div>
-        <div class="container">
-            <div class="row justify-content-lg-between justify-content-center align-items-end">
-                <div class="col-lg">
-                    <div class="title-area text-center text-lg-start">
-                        <span class="sub-title">News & Blog</span>
-                        <h2 class="sec-title">Our News & Update</h2>
-                    </div>
-                </div>
-                <div class="col-lg-auto d-none d-lg-block">
-                    <div class="sec-btn">
-                        <div class="icon-box">
-                            <button data-slider-prev="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-left"></i></button>
-                            <button data-slider-next="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slider-area">
-                <div class="swiper th-slider has-shadow" id="blogSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}, "autoHeight": "true"}'>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_1.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>22 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>2 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">Steps to Pursue a Career as a Legal Project Manager.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_2.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>23 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>3 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">The advantages of choosing a public defender.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_3.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>24 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>2 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">Technology is revolutionizing the legal sector.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_4.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>26 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>4 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">Design a leverage existing future proof rathe of-morate.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_1.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>27 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>2 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">The advantages of choosing a public defender.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="blog-card">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="{{ asset('front') }}/assets/img/blog/blog_1_2.jpg" alt="blog image">
-                                    </a>
-                                </div>
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <a href="blog.html"><i class="fa-regular fa-user"></i>By Jonson</a>
-                                        <a href="blog.html"><i class="fa-regular fa-calendar"></i>29 Sep, 2025</a>
-                                        <a href="blog-details.html"><i class="fa-regular fa-comment"></i>3 Comments</a>
-                                    </div>
-                                    <h3 class="box-title"><a href="blog-details.html">Technology is revolutionizing the legal sector.</a></h3>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--==============================
+    </section>
+    <!--==============================
 	Newsletter Area start
 ==============================-->
     <div class="news-letter-1-wrapper" data-bg-src="{{ asset('front') }}/assets/img/bg/footer-1-top-right.jpg">

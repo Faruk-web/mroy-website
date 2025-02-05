@@ -258,22 +258,22 @@
                         <div class="col-auto me-xl-auto">
                             <nav class="main-menu d-none d-lg-inline-block me-xl-auto">
                                 <ul>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('home')}}">Home</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('about')}}">About Us</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('practice')}}">Practice Area</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('client')}}">Clients</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('attorney')}}">Advocates</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <li class="menu-item">
                                         <a href="{{route('service')}}">Service</a>
                                     </li>
                                     

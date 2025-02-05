@@ -19,9 +19,18 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+        $prectice = Practice::select('id', 'name', 'image','title')->orderBy('id', 'desc')->limit(6)->get()->map(function ($item) {
+            $item->privacy = Str::limit($item->privacy, 100);
+            return $item;
+        });
+        $blog = Property::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
+            $item->privacy = Str::limit($item->privacy, 70);
+            return $item;
+        });
         $Slider=Slider::select('id','image','title')->get();
         $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
-        return view('front.home.home',compact('Slider','advocate'));
+        return view('front.home.home',compact('Slider','advocate','prectice','blog'));
     }
     public function service()
     {
@@ -59,7 +68,7 @@ class HomeController extends Controller
     }
     public function practice()
     {
-        $prectice = Practice::select('id', 'name', 'image')->get();
+        $prectice = Practice::select('id', 'name','title','image')->get();
         return view('front.Practice.practice',compact('prectice'));
     }
     public function practicedeatils($id)

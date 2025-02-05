@@ -39,7 +39,7 @@ Team Area
                         </div>
                         <div class="team-content">
                             <h3 class="box-title"><a href="{{route('practice.deatils',$item->id)}}">{{ $item->name }}</a></h3>
-                            <!-- <span class="team-desig">{{ $item->title }}</span> -->
+                            <span class="team-desig">{{ $item->title }}</span>
 
                             <div class="team-social">
                             <a href="{{route('practice.deatils',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>

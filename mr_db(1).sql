@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2025 at 10:16 AM
+-- Generation Time: Feb 05, 2025 at 12:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -480,7 +480,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('7e6NzMTPAI6teJmmicCWNCnsaIjFg03gc83XTSsI', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZU1DbHcyeldSWmVuN0NsYUdqbXJYTUk5bnExdWtrV3lTQmtUamNiQyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZXJ2aWNlL2FkZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMmEkMTIkaDNwNlJZSkcvV0pxdkYvNHBuT2pWdXBHNDFOanljSHo3NGc5MGV6TWFlS1R5QTkuSEdUOXUiO3M6NToiYWxlcnQiO2E6MDp7fX0=', 1738746945);
+('7e6NzMTPAI6teJmmicCWNCnsaIjFg03gc83XTSsI', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiZU1DbHcyeldSWmVuN0NsYUdqbXJYTUk5bnExdWtrV3lTQmtUamNiQyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hdHRvcm5leS9kZXRhaWxzLzE5Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo1OiJhbGVydCI7YTowOnt9fQ==', 1738754049);
 
 -- --------------------------------------------------------
 
