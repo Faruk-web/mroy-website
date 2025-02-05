@@ -20,8 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $Slider=Slider::select('id','image','title')->get();
-        
-        return view('front.home.home',compact('Slider'));
+        $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
+        return view('front.home.home',compact('Slider','advocate'));
     }
     public function service()
     {

@@ -202,7 +202,7 @@ Counter Area
     </div><!--==============================
 Service Area  
 ==============================-->
-    <section class="th-service-1 overflow-hidden space" id="service-sec">
+    <section class="th-service-1 overflow-hidden space" id="service-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-8">
@@ -282,10 +282,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_5.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Personal Injury Law</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',5)}}">Personal Injury Law</a></h3>
                             <p class="box-text">Professional legal defense for different types of criminal accusations. Careful examination of case details.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',5)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
@@ -297,10 +297,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_6.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Health Care Policy</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',6)}}">Health Care Policy</a></h3>
                             <p class="box-text">Skilled advocacy for individuals facing various criminal charges. Invest support and prepare of bail motions.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',6)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
             </div>
@@ -311,292 +311,49 @@ Team Area
     <section class="team-area-1 space overflow-hidden" data-overlay="title" data-opacity="8" data-bg-src="{{ asset('front') }}/assets/img/bg/team-1-bg.jpg">
         <div class="container">
             <div class="row gx-60">
-                <div class="col-xl-4">
-                    <div class="team-1-sec-title">
-                        <div class="title-area">
-                            <span class="sub-title">Our Attorneys</span>
-                            <h2 class="sec-title text-white">Dedicated Lawyers, Proven Results</h2>
-                            <div class="button-wrapper">
-                                <a href="team.html" class="th-btn star-btn">More Attorney<i class="fa-regular fa-arrow-right-long"></i></a>
+                    <div class="container">
+                        <div class="row justify-content-lg-between justify-content-center align-items-end">
+                            <div class="col-lg">
+                                <div class="title-area text-center text-lg-start">
+                                    <span class="sub-title">Our Attorneys</span>
+                                    <h2 class="sec-title text-white">Dedicated Lawyers, Proven Results</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-auto d-none d-lg-block">
+                                <div class="sec-btn">
+                                    <div class="icon-box">
+                                        <button data-slider-prev="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-left"></i></button>
+                                        <button data-slider-next="#blogSlider1" class="slider-arrow default show-all"><i class="far fa-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-area">
+                            <div class="swiper th-slider has-shadow" id="blogSlider1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"3"}}, "autoHeight": "true"}'>
+                                <div class="swiper-wrapper">
+                                @foreach($advocate as $item)
+                                    <div class="swiper-slide">
+                                        <div class="blog-card">
+                                            <div class="blog-img">
+                                                <a href="{{route('attorney.details',$item->id)}}">
+                                                    <img src="{{ asset($item->image) }}" alt="blog image">
+                                                </a>
+                                            </div>
+                                            <div class="blog-content">
+                                                <h3 class="box-title"><a href="{{route('attorney.details',$item->id)}}">{{ $item->name }}</a></h3>
+                                                <span class="team-desig">{{ $item->title }}</span>
+                                                <a href="{{route('attorney.details',$item->id)}}" class="link-btn mt-2 mb-3">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    @endforeach
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-8">
-                    <div class="team-1-card-wrap">
-                        <div class="swiper has-shadow th-slider" id="teamSlider111" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"2"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"4"}}}'>
-                            <div class="swiper-wrapper">
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_1.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
 
-                                            <h3 class="box-title"><a href="team-details.html">Michel phelops</a></h3>
-                                            <span class="team-desig">Chief Justice</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_1.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Michel phelops</a></h3>
-                                                    <span class="team-desig">Chief Justice</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_2.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Sarah Rahman</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_2.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Sarah Rahman</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_3.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Smith Miller</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_3.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Smith Miller</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_4.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Samira Dsuza</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_4.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Samira Dsuza</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_5.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Poppy Linda</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_5.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Poppy Linda</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_6.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Sarah Rahman</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_6.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Sarah Rahman</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_7.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Smith Miller</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_7.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Smith Miller</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Single Item -->
-                                <div class="swiper-slide">
-                                    <div class="team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('front') }}/assets/img/team/team_1_8.jpg" alt="Team">
-                                        </div>
-                                        <div class="team-content">
-
-                                            <h3 class="box-title"><a href="team-details.html">Samira Dsuza</a></h3>
-                                            <span class="team-desig">Attorney</span>
-                                        </div>
-                                        <div class="team-content-hover-wrap">
-                                            <div class="team-content-hover">
-                                                <div class="team-img">
-                                                    <img src="{{ asset('front') }}/assets/img/team/team_1_8.jpg" alt="Team">
-                                                </div>
-                                                <div class="hover-inner">
-                                                    <h3 class="box-title"><a href="team-details.html">Samira Dsuza</a></h3>
-                                                    <span class="team-desig">Attorney</span>
-                                                    <div class="team-social">
-                                                        <div class="th-social">
-                                                            <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                                            <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-                                                            <a target="_blank" href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                                                            <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <button data-slider-prev="#teamSlider111" class="slider-arrow slider-prev"><i class="far fa-arrow-left"></i></button>
-                        <button data-slider-next="#teamSlider111" class="slider-arrow slider-next"><i class="far fa-arrow-right"></i></button>
-
-                    </div>
-                </div>
             </div>
         </div>
     </section><!--==============================
