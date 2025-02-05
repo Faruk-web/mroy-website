@@ -413,6 +413,24 @@
                         </ul>
                     </div>
                 </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarservice" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Service</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarservice">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('service.add')}}">Create Service</a>
+                            </li>
+                            <li>
+                                <a href="{{route('service.manage')}}">Manage Service</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <!--- End Sidemenu -->
             <div class="clearfix"></div>

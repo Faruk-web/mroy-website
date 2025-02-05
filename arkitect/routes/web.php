@@ -14,6 +14,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ServiceController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -43,6 +44,7 @@ Route::get('/auth/callback', [SocialLoginController::class, 'authCallback'])->na
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/service', [HomeController::class, 'service'])->name('service');
+Route::get('/service/deatils/{id}', [HomeController::class, 'servicedeatils'])->name('service.deatils');
 Route::get('/blog', [HomeController::class, 'blogs'])->name('blog');
 Route::get('/blog/details/{id}', [HomeController::class, 'blogDetails'])->name('blog.details');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -157,6 +159,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [GalleryController::class, 'edit'])->name('gallery.edit');
                 Route::post('/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
                 Route::post('/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
+            });
+            Route::prefix('service')->group(function () {
+                Route::get('/add', [ServiceController::class, 'index'])->name('service.add');
+                Route::post('/new', [ServiceController::class, 'create'])->name('service.new');
+                Route::get('/manage', [ServiceController::class, 'manage'])->name('service.manage');
+                Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+                Route::post('/update/{id}', [ServiceController::class, 'update'])->name('service.update');
+                Route::post('/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
             });
         });
     });

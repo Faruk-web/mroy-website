@@ -222,10 +222,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_1.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Criminal Law</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',1)}}">Criminal Law</a></h3>
                             <p class="box-text">Defense representations for more various criminal charges. Investigations and evidence analysis. Bail applications and.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',1)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
@@ -237,10 +237,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_2.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Corporate Law</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',2)}}">Corporate Law</a></h3>
                             <p class="box-text">Legal advocacy for diverse and the of Conducting in-depth think and reviewing evidence filing bail of and.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',2)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
@@ -252,10 +252,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_3.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Family Law</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',3)}}">Family Law</a></h3>
                             <p class="box-text">Expert defense strategies for variety of criminal cases. Comprehensive evidence case analysis and in hearings.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',3)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
@@ -267,10 +267,10 @@ Service Area
                             <img src="{{ asset('front') }}/assets/img/icon/service_card_1_4.svg" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="service-details.html">Real Estate Law</a></h3>
+                            <h3 class="box-title"><a href="{{route('service.deatils',4)}}">Real Estate Law</a></h3>
                             <p class="box-text">Representation in numerous criminal matters, including detailed invest. Assistance with bail procedures eval.</p>
                         </div>
-                        <a href="service-details.html" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',4)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 <div class="col-xl-4 col-md-6">
@@ -973,89 +973,6 @@ Testimonial Area
     </section><!--==============================
 Price Area  
 ==============================-->
-    <section class="price-sec-1 space overflow-hidden" data-bg-src="{{ asset('front') }}/assets/img/bg/pricing-plan-1-bg.png">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-9 col-xl-10">
-                    <div class="title-area text-center">
-                        <span class="sub-title justify-content-center style-theme">Price Plan</span>
-                        <h2 class="sec-title text-white">Customized Plans Just for You</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row gy-4 justify-content-center">
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="price-card ">
-                        <div class="price-card_top">
-                            <h3 class="price-card_title">Basic Plan</h3>
-                            <p class="box-text">Consultation with a lawyer for your person al solution with basic plan.</p>
-                            <h4 class="price-card_price">
-                                <sup>$</sup>355 <span class="duration">/ Month</span>
-                            </h4>
-                        </div>
-                        <a href="pricing.html" class="th-btn w-100">Get Started <i class="fa-regular fa-arrow-right ms-2"></i></a>
-                        <div class="price-card_content">
-                            <div class="checklist style7">
-                                <ul>
-                                    <li><i class="fas fa-circle-check"></i>Criminal Defense with junior lawyer</li>
-                                    <li><i class="fas fa-circle-check"></i>Domestic Violence with junior lawyer</li>
-                                    <li class="unavailable"><i class="fas fa-circle-check"></i>Family violence dispuited case</li>
-                                    <li class="unavailable"><i class="fas fa-circle-check"></i>Personal injury law deffense</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="price-card active">
-                        <div class="price-card_top">
-                            <h3 class="price-card_title">Standard Plan</h3>
-                            <p class="box-text">Consultation with a lawyer for your person al solution with Standard Plan.</p>
-                            <h4 class="price-card_price">
-                                <sup>$</sup>455 <span class="duration">/ Month</span>
-                            </h4>
-                        </div>
-                        <a href="pricing.html" class="th-btn w-100">Get Started <i class="fa-regular fa-arrow-right ms-2"></i></a>
-                        <div class="price-card_content">
-                            <div class="checklist style7">
-                                <ul>
-                                    <li><i class="fas fa-circle-check"></i>Criminal Defense with junior lawyer</li>
-                                    <li><i class="fas fa-circle-check"></i>Domestic Violence with junior lawyer</li>
-                                    <li><i class="fas fa-circle-check"></i>Family violence dispuited case</li>
-                                    <li class="unavailable"><i class="fas fa-circle-check"></i> Personal injury law deffense</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="price-card ">
-                        <div class="price-card_top">
-                            <h3 class="price-card_title">Premium Plan</h3>
-                            <p class="box-text">Consultation with a lawyer for your person al solution with Premium Plan.</p>
-                            <h4 class="price-card_price">
-                                <sup>$</sup>555 <span class="duration">/ Month</span>
-                            </h4>
-                        </div>
-                        <a href="pricing.html" class="th-btn w-100">Get Started <i class="fa-regular fa-arrow-right ms-2"></i></a>
-                        <div class="price-card_content">
-                            <div class="checklist style7">
-                                <ul>
-                                    <li><i class="fas fa-circle-check"></i>Criminal Defense with junior lawyer</li>
-                                    <li><i class="fas fa-circle-check"></i>Domestic Violence with junior lawyer</li>
-                                    <li><i class="fas fa-circle-check"></i>Family violence dispuited case</li>
-                                    <li><i class="fas fa-circle-check"></i> Personal injury law deffense</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!--==============================
 Contact Area  
 ==============================-->
@@ -1109,7 +1026,7 @@ Contact Area
                                 </div>
                                 <div class="info-contnt">
                                     <h4 class="footer-info-title">Location</h4>
-                                    <p class="info-box_text">371 7th Ave, New York, NY 10001</p>
+                                    <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), Dhaka-1000</p>
                                 </div>
                             </div>
                             <div class="info-box">
@@ -1121,8 +1038,8 @@ Contact Area
                                     <h4 class="footer-info-title">Phone</h4>
 
                                     <p class="info-box_text">
-                                        <a href="tel:+15264855467" class="info-box_link">+ 152-6485-5467</a>
-                                        <a href="tel:+15264855467" class="info-box_link">+ 152-6485-5467</a>
+                                        <a href="tel:+8801791404011" class="info-box_link">+8801791404011</a>
+                                        <a href="tel:+8801833780455" class="info-box_link">+8801833780455</a>
                                     </p>
                                 </div>
                             </div>
@@ -1134,8 +1051,8 @@ Contact Area
                                 <div class="info-contnt">
                                     <h4 class="footer-info-title">Email</h4>
                                     <p class="info-box_text">
-                                        <a href="mailto:info@kleanix.com" class="info-box_link">info@ensaf.com</a>
-                                        <a href="mailto:info@kleanix.com" class="info-box_link">info@ensaf.com</a>
+                                        <a href="mailto:moloy.advocate@gmail.com" class="info-box_link">moloy.advocate@gmail.com</a>
+                                        <a href="mailto:info@mroyassociates.com" class="info-box_link">info@mroyassociates.com</a>
                                     </p>
                                 </div>
 

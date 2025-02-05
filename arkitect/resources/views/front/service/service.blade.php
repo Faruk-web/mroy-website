@@ -7,10 +7,10 @@
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title"> Practice Area</h1>
+                <h1 class="breadcumb-title">Services</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li> Practice Area</li>
+                    <li>Services</li>
                 </ul>
             </div>
         </div>
@@ -18,33 +18,31 @@
     <!--==============================
 Team Area  
 ==============================-->
-    <section class="space" id="team-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
-        <div class="container">
+    <section class="th-service-1 overflow-hidden space" id="service-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
+           <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xxl-8 col-xl-9 ">
+                <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-8">
                     <div class="title-area text-center">
-                        <span class="sub-title justify-content-center"> Our Practice Area</span>
-                        <h2 class="sec-title">Attorneys of Practice Area</h2>
+                        <span class="sub-title justify-content-center">What We Do</span>
+                        <h2 class="sec-title">Legal Services We Offer</h2>
                     </div>
                 </div>
-                <div></div>
             </div>
-            <div class="row gy-4">
-                <!-- Single Item -->
-                @foreach($prectice as $item)
-                <div class="col-xl-4 col-lg-4 col-sm-6">
-                    <div class="team-card style-2">
-                        <div class="team-img">
-                            <img src="{{ asset($item->image) }}" alt="Team">
+            <div class="row gy-30 justify-content-center">
+            @foreach($service as $item)
+                <div class="col-xl-4 col-md-6">
+                    <div class="service-card">
+                        <div class="shape-mockup service_card-bg-1">
+                            <img src="{{ asset($item->image) }}" alt="shape img">
                         </div>
-                        <div class="team-content">
-                            <h3 class="box-title"><a href="{{route('practice.deatils',$item->id)}}">{{ $item->name }}</a></h3>
-                            <!-- <span class="team-desig">{{ $item->title }}</span> -->
-
-                            <div class="team-social">
-                            <a href="{{route('practice.deatils',$item->id)}}" class="link-btn"> Read More <i class="fa-regular fa-arrow-right-long"></i> </a>
-                            </div>
+                        <div class="box-icon">
+                            <img src="{{ asset($item->image) }}" alt="Icon">
                         </div>
+                        <div class="box-content">
+                            <h3 class="box-title"><a href="{{route('service.deatils',$item->id)}}">{{$item->name}}</a></h3>
+                            <p class="box-text">{!!$item->privacy!!}</p>
+                        </div>
+                        <a href="{{route('service.deatils',$item->id)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
                 @endforeach

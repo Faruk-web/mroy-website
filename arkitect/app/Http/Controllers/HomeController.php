@@ -12,6 +12,7 @@ use App\Models\Multi_image;
 use App\Models\Client;
 use App\Models\Practice;
 use App\Models\About;
+use App\Models\Board;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 class HomeController extends Controller
@@ -24,8 +25,19 @@ class HomeController extends Controller
     }
     public function service()
     {
-        return view('front.service.service');
+        $service = Board::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
+            $item->privacy = Str::limit($item->privacy, 100);
+            return $item;
+        });
+        return view('front.service.service',compact('service'));
     }
+    public function servicedeatils($id)
+    {
+        $team = Board::select('id', 'name', 'image')->orderBy('id', 'asc')->get();
+        $teams = Board::select('id', 'name', 'main_image','privacy')->find($id);
+        return view('front.service.service_details',compact('team','teams'));
+    }
+    
     public function blogs()
     {
         $blog = Property::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
