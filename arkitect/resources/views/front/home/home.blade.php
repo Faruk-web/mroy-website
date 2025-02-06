@@ -47,13 +47,13 @@ Hero Area
                         <div class="col-xl-7 col-lg-7">
                             <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">The Best Law Chamber</span>
                             <div data-ani="slideinup" data-ani-delay="0.4s">
-                                <h1 class="hero-title">Welcome to M. Roy & Associates
+                                <h1 class="hero-title">{{$item->title}}
                                 </h1>
                                 <div class="hero-title">Results
                                     <span class="client-group-wrap">
                                         <span class="client-group-wrap__content">
                                             <span class="client-group-wrap__box-title">
-                                                We have to <span><span class="counter-number">2</span>k+</span>
+                                                We have to <span><span class="counter-number">695</span>+</span>
                                                 Happy Client
                                             </span>
                                             <span class="client-group-wrap__box-review">
@@ -121,7 +121,7 @@ About Area
                         </div>
                         <div class="img2">
                             <div class="img2-top">
-                                <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about-1-right.jpg" alt="Image">
+                                <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about.jpg" alt="Image">
                             </div>
                             <div class="img2-bottom">
                                 <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about-1-right-2.jpg" alt="Image">
@@ -133,8 +133,8 @@ About Area
                 <div class="col-xl-5">
                     <div class="title-area mb-25">
                         <span class="sub-title before-none">About Us</span>
-                        <h2 class="sec-title">A Legacy of Legal Excellence</h2>
-                        <p class="sec-text">Our team of experienced attorneys has a diverse range of expe rtise, covering a wide spectrum of legal areas. We specialize in corporate law, family law.</p>
+                        <h2 class="sec-title">Welcome to Business Law Firm</h2>
+                        <p class="sec-text">M. Roy & Associates deal with huge corporate clients specially for JV companies, formation of companies including foreign director(s), filing return, providing legal support in obtaining necessary certificate for operation of the company such as Trade License, VAT, Tax, Factory Certificate, IRC, ERC, BIDA approval etc. We also deals with all court related issues of limited companies.</p>
                     </div>
                     <div class="checklist style2 mb-40">
                         <ul>
@@ -145,7 +145,7 @@ About Area
                         </ul>
                     </div>
                     <div>
-                        <a href="about.html" class="th-btn style4">More About <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('about')}}" class="th-btn style4">More About <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
             </div>
