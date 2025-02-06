@@ -94,6 +94,16 @@ Blog Area
                                 <a href="#">Health Policy</a>
                             </div>
                         </div>
+                        <div class="widget widget_tag_cloud  ">
+                            <h3 class="widget_title">Connect with facebook</h3>
+                            <div class="tagcloud">
+                            <div class="footer-heading">
+                                
+                            </div>
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmroyassociate%2F&tabs=timeline&width=280&height=260&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=566770480501658" height="360" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                            </div>
+                            </div>
+                        </div>
                     </aside>
                 </div>
             </div>
