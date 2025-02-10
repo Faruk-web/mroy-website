@@ -160,6 +160,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::post('/update/{id}', [GalleryController::class, 'update'])->name('gallery.update');
                 Route::post('/delete/{id}', [GalleryController::class, 'delete'])->name('gallery.delete');
             });
+            Route::prefix('logo')->group(function () {
+                Route::get('/add', [GalleryController::class, 'logoindex'])->name('logo.add');
+                Route::post('/new', [GalleryController::class, 'logocreate'])->name('logo.new');
+                Route::get('/manage', [GalleryController::class, 'logomanage'])->name('logo.manage');
+                Route::get('/edit/{id}', [GalleryController::class, 'logoedit'])->name('logo.edit');
+                Route::post('/update/{id}', [GalleryController::class, 'logoupdate'])->name('logo.update');
+                Route::post('/delete/{id}', [GalleryController::class, 'logodelete'])->name('logo.delete');
+            });
             Route::prefix('service')->group(function () {
                 Route::get('/add', [ServiceController::class, 'index'])->name('service.add');
                 Route::post('/new', [ServiceController::class, 'create'])->name('service.new');

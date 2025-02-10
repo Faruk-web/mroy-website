@@ -431,6 +431,24 @@
                         </ul>
                     </div>
                 </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarlogo" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Logo</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarlogo">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('logo.add')}}">Create Logo</a>
+                            </li>
+                            <li>
+                                <a href="{{route('logo.manage')}}">Manage Logo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <!--- End Sidemenu -->
             <div class="clearfix"></div>
