@@ -15,6 +15,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Models\RoleRoute;
 
 // function getRoleName($routeName)
@@ -175,6 +176,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
                 Route::post('/update/{id}', [ServiceController::class, 'update'])->name('service.update');
                 Route::post('/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
+            });
+            Route::prefix('setting')->group(function () {
+                Route::get('/add', [SettingController::class, 'index'])->name('setting.add');
+                Route::post('/new', [SettingController::class, 'create'])->name('setting.new');
+                Route::get('/manage', [SettingController::class, 'manage'])->name('setting.manage');
+                Route::get('/edit/{id}', [SettingController::class, 'edit'])->name('setting.edit');
+                Route::post('/update/{id}', [SettingController::class, 'update'])->name('setting.update');
+                Route::post('/delete/{id}', [SettingController::class, 'delete'])->name('setting.delete');
             });
         });
     });

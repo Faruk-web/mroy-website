@@ -449,6 +449,24 @@
                         </ul>
                     </div>
                 </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarsetting" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Setting</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarsetting">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('setting.add')}}">Create setting</a>
+                            </li>
+                            <li>
+                                <a href="{{route('setting.manage')}}">Manage setting</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <!--- End Sidemenu -->
             <div class="clearfix"></div>
