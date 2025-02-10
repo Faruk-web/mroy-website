@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2025 at 07:29 AM
+-- Generation Time: Feb 10, 2025 at 12:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -135,6 +135,38 @@ INSERT INTO `clients` (`id`, `name`, `title`, `image`, `status`, `privacy`, `cre
 (4, 'William Hazelip', 'Need to Update', 'upload/client/1823119517206030.jpg', 2, '<p>\"Navigating family law issues was overwhelming for months until I came \r\nacross abc. They didn’t just solve how to prevent the issue from \r\nhappening again my problem—they empowered me with knowledge to manage \r\nsuch situations better. Their expertise and dedication to client \r\nsatisfaction left okay no problem a lasting impression. I’m forever \r\ngrateful and highly endorse their services.\"</p>', '2025-02-04 09:44:19', '2025-02-05 07:42:27'),
 (5, 'Mike Francis', 'Need to Update', 'upload/client/1823119539641521.jpg', 2, '<p>\"Dealing with family law was a long and difficult journey until abc \r\nstepped in. They delivered a comprehensive solution and taught me ways \r\nto avoid recurring issues. The team’s expertise, patience, and \r\ncommitment to excellence are unmatched. I’m beyond thankful and \r\nconfidently recommend them to anyone in need. They not only yes no vry \r\ngd provided me with the solution I needed,\"</p>', '2025-02-04 09:44:40', '2025-02-05 07:42:54'),
 (6, 'Sarah Rahman', 'Need to Update', 'upload/client/1823119586913902.jpg', 2, '<p>\"I was struggling with family law for months before I found abc. They \r\nnot only provided me with the solution I needed, but they also educated \r\nme on how to prevent the issue from happening again. Their team is \r\nincredibly knowledgeable and patient, and they always go the extra mile \r\nto ensure customer satisfaction. I am so grateful for their help and \r\nwould recommend them to anyone.\"</p>', '2025-02-04 09:45:25', '2025-02-05 07:43:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `email` varchar(70) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `name`, `phone`, `email`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'sfddsfs sfddsfd', '2025-02-10 10:12:42', '2025-02-10 10:12:42'),
+(2, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'fdgdhgfdhgf', '2025-02-10 10:14:20', '2025-02-10 10:14:20'),
+(3, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'sgdfgdf', '2025-02-10 10:15:39', '2025-02-10 10:15:39'),
+(4, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'dfsfdfsdfs', '2025-02-10 10:18:06', '2025-02-10 10:18:06'),
+(5, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'dfsdfdfdf', '2025-02-10 10:22:43', '2025-02-10 10:22:43'),
+(6, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'dfsdsdg', '2025-02-10 10:24:14', '2025-02-10 10:24:14'),
+(7, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'fgfhgfh', '2025-02-10 10:25:48', '2025-02-10 10:25:48'),
+(8, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', NULL, '2025-02-10 10:27:53', '2025-02-10 10:27:53'),
+(9, 'Omar Faruk', '01887645449', 'omarfaruk6780@gmail.com', 'dfgdfg', '2025-02-10 10:30:09', '2025-02-10 10:30:09'),
+(10, 'Omar Faruk', '01798715053', 'omarfaruk6780@gmail.com', 'tetrt', '2025-02-10 10:46:36', '2025-02-10 10:46:36');
 
 -- --------------------------------------------------------
 
@@ -506,7 +538,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('ou3zhhKAUjY3y34cfl5eIY34Gf7QDxXNkPDsktg6', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoib0dQbkVJMlBZVjZxZFdoalV0Zzh4OXZNSDBKa1lJQlNJMjBuSmk3aCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZXR0aW5nL2VkaXQvMSI7fXM6NToiYWxlcnQiO2E6MDp7fX0=', 1739168872);
+('ZACRFe5sGoCdae20JAwqSTd0TwhOVbrdp5NOOohZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiazI0bThDOU03OWUycVJGNkF5YnJvTmtPcVdaSXdHWkVPRkdKVlE4cCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU6ImFsZXJ0IjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJhJDEyJGgzcDZSWUpHL1dKcXZGLzRwbk9qVnVwRzQxTmp5Y0h6NzRnOTBlek1hZUtUeUE5LkhHVDl1Ijt9', 1739185728);
 
 -- --------------------------------------------------------
 
@@ -650,6 +682,12 @@ ALTER TABLE `categories`
 -- Indexes for table `clients`
 --
 ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -799,6 +837,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
