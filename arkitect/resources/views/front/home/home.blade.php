@@ -715,7 +715,8 @@ Testimonial Area
                                 <span class="sub-title justify-content-center text-white">Have Any Questions?</span>
                                 <h4 class="sec-title text-white">Get in Touch with Us</h4>
                             </div>
-                            <form action="mail.php" method="POST" class="quote-form ajax-contact">
+                            <form action="{{route('contact')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <input type="text" class="form-control" name="name" id="name" placeholder="Name">
@@ -726,15 +727,16 @@ Testimonial Area
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="tel" class="form-control" name="number" id="number" placeholder="Number">
+                                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="phone">
                                         <i class="fas fa-phone"></i>
+                                        <small id="phoneError"></small>
                                     </div>
                                     <div class="form-group col-12">
                                         <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message"></textarea>
                                         <i class="fas fa-pencil"></i>
                                     </div>
                                     <div class="form-btn col-12 mt-2">
-                                        <button class="th-btn bg-theme w-100">Send Now <i class="fa-regular fa-arrow-right-long"></i></button>
+                                        <button type="submit" class="th-btn bg-theme w-100">Send Now <i class="fa-regular fa-arrow-right-long"></i></button>
                                     </div>
                                 </div>
                                 <p class="form-messages mb-0 mt-3"></p>

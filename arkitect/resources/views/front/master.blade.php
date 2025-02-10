@@ -217,6 +217,25 @@
     </div><!--==============================
 	Header Area
 ==============================-->
+        @if(session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn" data-bs-dismiss="alert" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+        @endif
+
+        <!-- Validation Errors -->
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
     <header class="th-header header-layout1">
         <div class="header-top">
             <div class="container">
@@ -478,6 +497,33 @@
 
     <!-- Main Js File -->
     <script src="{{ asset('front') }}/assets/js/main.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("phone").addEventListener("input", function() {
+                let phone = this.value;
+                let phoneError = document.getElementById("phoneError");
+
+                let regex = /^01[3-9]\d{8}$/;
+
+                if (!regex.test(phone)) {
+                    phoneError.textContent = "Need to valid number";
+                    phoneError.style.color = "red";
+                } else {
+                    phoneError.textContent = "";
+                }
+            });
+
+            document.getElementById("myForm").addEventListener("submit", function(event) {
+                let phone = document.getElementById("phone").value;
+                let regex = /^01[3-9]\d{8}$/;
+
+                if (!regex.test(phone)) {
+                    event.preventDefault(); // Stop form submission
+                    alert("Please enter a valid Bangladeshi phone number.");
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

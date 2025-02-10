@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Setting;
+use App\Models\Contact;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -125,8 +127,51 @@ class SettingController extends Controller
           Alert::success('Setting updated successfully', '');
           return redirect()->route('setting.manage');
       }
-     
- 
+    //  ===================== contact form ====================================
+    public function contact(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+    
+        $privacy = new Contact();
+        // Assign other fields
+        $privacy->name = $request->name;
+        $privacy->phone = $request->phone;
+        $privacy->email = $request->email;
+        $privacy->message = $request->message;
+        $privacy->save();
+    
+        Alert::success('Your massage submitted Successfully', '');
+        return redirect()->back()->with('success', 'Your massage submitted successfully!');
+    }
+    public function contactdata()
+    {
+        $privacy = Contact::orderBy('id', 'asc')->get()->map(function ($contact) {
+            $contact->formatted_date = Carbon::parse($contact->created_at)->format('d F Y'); 
+            return $contact;
+        });
+        return view('admin.setting.manage_query', compact('privacy'));
+    }
+    public function delete($id)
+    {
+        $privacy = Contact::find($id);
+    
+        if (!$privacy) {
+            Alert::error('Query not found', '');
+            return redirect()->back();
+        }
+        // Delete record from database
+        $privacy->delete();
+    
+        Alert::success('Customer Query deleted successfully', '');
+        return redirect()->back();
+    }
+
+
+
+
       public function page_view()
       {
           $privacy = Privacy::where('status', 1)->first();

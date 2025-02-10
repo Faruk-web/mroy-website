@@ -111,36 +111,29 @@ Team Area
             </section>
             <div class="row gy-4">
                 <div class="col-12">
-                    <form action="mail.php" method="POST" class="contact-form team-details ajax-contact">
-                        <h4 class="form-title text-start mb-4">Send a Message</h4>
+                <form action="{{route('contact')}}" method="POST" class="contact-form style-4 " enctype="multipart/form-data">
+                    @csrf
+                        <h3 class="form-title text-start">Leave a Reply</h3>
                         <div class="row">
-                            <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Your Name">
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="tel" class="form-control" name="number" id="number" placeholder="Phone Number">
-                                <i class="fas fa-phone"></i>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="phone">
+                                <i class="fas fa-user"></i>
+                                <small id="phoneError"></small>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email Address">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                                 <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <select name="subject" id="subject" class="form-select">
-                                    <option value="" disabled="" selected="" hidden="">Select Subject</option>
-                                    <option value="Defensive Driving">Defensive Driving</option>
-                                    <option value="Traffic Guide">Traffic Guide</option>
-                                    <option value="International Driving">International Driving</option>
-                                    <option value="Highway Driving">Highway Driving</option>
-                                </select>
                             </div>
                             <div class="form-group col-12">
                                 <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Your Message"></textarea>
                                 <i class="fas fa-pencil"></i>
                             </div>
                             <div class="form-btn col-12">
-                                <button class="th-btn style4">Send Message <i class="fa-regular fa-arrow-right-long"></i></button>
+                                <button type="submit" class="th-btn style2">Send Message <i class="fa-regular fa-arrow-right-long"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

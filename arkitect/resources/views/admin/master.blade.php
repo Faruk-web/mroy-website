@@ -458,12 +458,16 @@
                     </a>
                     <div class="collapse" id="sidebarsetting">
                         <ul class="side-nav-second-level">
-                            <li>
+                            <!-- <li>
                                 <a href="{{route('setting.add')}}">Create setting</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="{{route('setting.manage')}}">Manage setting</a>
                             </li>
+                            <li>
+                                <a href="{{route('setting.contact')}}">Customer Query</a>
+                            </li>
+                            
                         </ul>
                     </div>
                 </li>

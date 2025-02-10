@@ -61,6 +61,8 @@ Route::get('/projects', [HomeController::class, 'projects'])->name('projects');
 Route::get('/teams', [HomeController::class, 'terms'])->name('terms');
 Route::get('/team/details/{id}', [HomeController::class, 'teamdetail'])->name('team.detail');
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+Route::post('/contact', [SettingController::class, 'contact'])->name('contact');
+
 Route::get('/error', function () {
     return view('errors.404');
 });
@@ -183,6 +185,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/manage', [SettingController::class, 'manage'])->name('setting.manage');
                 Route::get('/edit/{id}', [SettingController::class, 'edit'])->name('setting.edit');
                 Route::post('/update/{id}', [SettingController::class, 'update'])->name('setting.update');
+                Route::get('/contact/data', [SettingController::class, 'contactdata'])->name('setting.contact');
                 Route::post('/delete/{id}', [SettingController::class, 'delete'])->name('setting.delete');
             });
         });
