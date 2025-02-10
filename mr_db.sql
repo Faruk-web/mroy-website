@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2025 at 05:30 AM
+-- Generation Time: Feb 10, 2025 at 07:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -166,6 +166,32 @@ CREATE TABLE `imprints` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logos`
+--
+
+CREATE TABLE `logos` (
+  `id` int(10) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `multi_logo` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `logos`
+--
+
+INSERT INTO `logos` (`id`, `name`, `multi_logo`, `created_at`, `updated_at`) VALUES
+(1, 'Logo', 'upload/logo/1823646687627010.jpg', '2025-02-10 05:22:25', '2025-02-10 05:23:28'),
+(2, 'Logo', 'upload/logo/1823646621834398.jpg', '2025-02-10 05:22:25', '2025-02-10 05:22:25'),
+(3, 'Logo', 'upload/logo/1823646621839021.jpg', '2025-02-10 05:22:25', '2025-02-10 05:22:25'),
+(4, 'Logo', 'upload/logo/1823646621843696.jpg', '2025-02-10 05:22:25', '2025-02-10 05:22:25'),
+(5, 'Logo', 'upload/logo/1823646621847943.jpg', '2025-02-10 05:22:25', '2025-02-10 05:22:25'),
+(6, 'Logo', 'upload/logo/1823646621879408.jpg', '2025-02-10 05:22:25', '2025-02-10 05:22:25');
 
 -- --------------------------------------------------------
 
@@ -480,11 +506,36 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('2uo36auj1vNvSTPdvmIAaYQL6fcBmfb1slQTafHt', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiSFVONFZZUlJ2S1FKNlA5Q1JCbDE3UTdNV2dscWUyQ0JzNk5WWGpnbiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ibG9nIjt9fQ==', 1738817138),
-('aKb54D5YScHLas588wr0PVqUc00mGEYvmDO1aFjf', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaURXUDFUTzM2OU1iOEJvdnphQUtNSnpwb2pVMXFkOEljWHFXd0UwMCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1738827524),
-('cNJ4Ycv3XqSUwnudbG76xcIoqnP3cw8r5f6AwToi', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZGlGdXIwMmpNRlpMUFpvV3M0em45TjdZeHpUbXdtbUtnREdPRnRlSyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fX0=', 1738836933),
-('cWRjj1ae1ib43fnslmK9yBuHYQ7YN7ntWTVX8NPk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidnhZMHMwd2dsZ0lDT3ZtVWNpUlhPOFlqamxxb2FuNWkxY2VRaGxqcyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1738773214),
-('EhSqnqfZ5nxhk38stLD5nZD7lyYmIDXexEkmZms7', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoia21ndHNYTWg4ZW93NEJLTkVlMkxtdVhIMGM3WFVjcVNjdE5kckdXYSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1738767339);
+('ou3zhhKAUjY3y34cfl5eIY34Gf7QDxXNkPDsktg6', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoib0dQbkVJMlBZVjZxZFdoalV0Zzh4OXZNSDBKa1lJQlNJMjBuSmk3aCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zZXR0aW5nL2VkaXQvMSI7fXM6NToiYWxlcnQiO2E6MDp7fX0=', 1739168872);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `logo` varchar(70) DEFAULT NULL,
+  `p_phone` varchar(50) DEFAULT NULL,
+  `s_phone` varchar(50) DEFAULT NULL,
+  `d_phone` varchar(50) DEFAULT NULL,
+  `p_mail` varchar(50) DEFAULT NULL,
+  `s_mail` varchar(50) DEFAULT NULL,
+  `location` varchar(200) DEFAULT NULL,
+  `f_logo` varchar(70) DEFAULT NULL,
+  `privacy` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `logo`, `p_phone`, `s_phone`, `d_phone`, `p_mail`, `s_mail`, `location`, `f_logo`, `privacy`, `created_at`, `updated_at`) VALUES
+(1, 'Moloy roy', 'upload/setting/1823650734867013.jpg', '8797986546363', '566565+65+655', '4654645666454', 'omarfaruk@gmail.com', 'omarfaruk6780@gmail.com', '54645fsdfdsfdfdgdg2565', 'upload/setting/1823650734876271.jpg', '<p>dsffdgfdgfdgfdghgj fdgfdhgfdhfhg</p><p>dhfsjfhfkjshfs</p>', '2025-02-10 06:02:20', '2025-02-10 06:27:47');
 
 -- --------------------------------------------------------
 
@@ -615,6 +666,12 @@ ALTER TABLE `imprints`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `logos`
+--
+ALTER TABLE `logos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -685,6 +742,12 @@ ALTER TABLE `sessions`
   ADD KEY `sessions_last_activity_index` (`last_activity`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
@@ -750,6 +813,12 @@ ALTER TABLE `imprints`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `logos`
+--
+ALTER TABLE `logos`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -802,6 +871,12 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `role_routes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sliders`
