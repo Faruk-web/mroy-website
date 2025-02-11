@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2025 at 12:09 PM
+-- Generation Time: Feb 11, 2025 at 12:18 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,6 +78,37 @@ INSERT INTO `boards` (`id`, `name`, `image`, `main_image`, `privacy`, `status`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `businesses`
+--
+
+CREATE TABLE `businesses` (
+  `id` int(10) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `details` text DEFAULT NULL,
+  `image` varchar(70) DEFAULT NULL,
+  `s_image` varchar(70) DEFAULT NULL,
+  `issue` varchar(70) DEFAULT NULL,
+  `issue_no` int(10) DEFAULT NULL,
+  `advocate` varchar(70) DEFAULT NULL,
+  `advocate_no` int(10) DEFAULT NULL,
+  `client` varchar(50) DEFAULT NULL,
+  `client_no` int(10) DEFAULT NULL,
+  `award` varchar(50) DEFAULT NULL,
+  `award_no` int(10) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `businesses`
+--
+
+INSERT INTO `businesses` (`id`, `name`, `details`, `image`, `s_image`, `issue`, `issue_no`, `advocate`, `advocate_no`, `client`, `client_no`, `award`, `award_no`, `created_at`, `updated_at`) VALUES
+(1, 'Welcome to Business Law Firm', '<div class=\"title-area mb-25\" style=\"margin-bottom: 25px; position: relative; z-index: 2; color: rgb(134, 134, 134); font-family: Poppins, sans-serif; font-size: 16px; background-color: rgb(245, 245, 245);\"><p class=\"sec-text\" style=\"margin-right: 0px; margin-bottom: 18px; margin-left: 0px; font-family: var(--body-font); color: var(--body-color); line-height: 1.75;\">M. Roy &amp; Associates deal with huge corporate clients specially for JV companies, formation of companies including foreign director(s), filing return, providing legal support in obtaining necessary certificate for operation of the company such as Trade License, VAT, Tax, Factory Certificate, IRC, ERC, BIDA approval etc. We also deals with all court related issues of limited companies.</p></div><div class=\"checklist style2 mb-40\" style=\"margin-bottom: 40px; color: rgb(134, 134, 134); font-family: Poppins, sans-serif; font-size: 16px; background-color: rgb(245, 245, 245);\"><ul style=\"padding-left: 0px; margin-bottom: 0px; list-style: none;\"><li style=\"display: flex; gap: 10px; margin-bottom: 10px; font-size: 18px; color: var(--title-color);\"><span class=\"fa-sharp fa-solid fa-circle-check\" style=\"-webkit-font-smoothing: antialiased; display: var(--fa-display,inline-block); font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; line-height: 28px; text-rendering: auto; font-family: &quot;Font Awesome 6 Pro&quot;; font-weight: 900; color: var(--title-color); font-size: 16px;\"></span>Committed to excellence in legal practice.</li><li style=\"display: flex; gap: 10px; margin-bottom: 10px; font-size: 18px; color: var(--title-color);\"><span class=\"fa-sharp fa-solid fa-circle-check\" style=\"-webkit-font-smoothing: antialiased; display: var(--fa-display,inline-block); font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; line-height: 28px; text-rendering: auto; font-family: &quot;Font Awesome 6 Pro&quot;; font-weight: 900; color: var(--title-color); font-size: 16px;\"></span>Act with honesty and uphold ethical principles.</li><li style=\"display: flex; gap: 10px; margin-bottom: 10px; font-size: 18px; color: var(--title-color);\"><span class=\"fa-sharp fa-solid fa-circle-check\" style=\"-webkit-font-smoothing: antialiased; display: var(--fa-display,inline-block); font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; line-height: 28px; text-rendering: auto; font-family: &quot;Font Awesome 6 Pro&quot;; font-weight: 900; color: var(--title-color); font-size: 16px;\"></span>Road Test Preparation with 98% success</li><li style=\"display: flex; gap: 10px; font-size: 18px; color: var(--title-color);\"><span class=\"fa-sharp fa-solid fa-circle-check\" style=\"-webkit-font-smoothing: antialiased; display: var(--fa-display,inline-block); font-variant-numeric: normal; font-variant-east-asian: normal; font-variant-alternates: normal; font-variant-position: normal; font-variant-emoji: normal; line-height: 28px; text-rendering: auto; font-family: &quot;Font Awesome 6 Pro&quot;; font-weight: 900; color: var(--title-color); font-size: 16px;\"></span>Meeting clients\' needs is our priority.</li></ul></div>', 'upload/business/1823751749654293.jpg', 'upload/business/1823751749678833.jpg', 'Case Done', 750, 'Expert Attorneys', 75, 'Happy Client', 695, 'Award Winning', 120, NULL, '2025-02-11 09:13:23');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -105,7 +136,26 @@ INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `parent_
 (101, 'Support Team', 'support-team', NULL, 0, 2, '2025-02-03 10:04:23', '2025-02-03 10:04:23'),
 (102, 'Blog Page', 'blog-page', NULL, 0, 2, '2025-02-03 10:04:38', '2025-02-03 10:04:38'),
 (103, 'Gallery Page', 'gallery-page', NULL, 0, 2, '2025-02-03 10:05:01', '2025-02-03 10:05:01'),
-(104, 'Contact Page', 'contact-page', NULL, 0, 2, '2025-02-03 10:05:15', '2025-02-03 10:05:15');
+(104, 'Contact Page', 'contact-page', NULL, 0, 2, '2025-02-03 10:05:15', '2025-02-03 10:05:15'),
+(105, 'What We Do', 'what-we-do', 'Legal Services We Offer', 96, 2, '2025-02-11 10:02:40', '2025-02-11 10:02:40'),
+(106, 'Our Attorneys', 'our-attorneys', 'Dedicated Lawyers, Proven Results', 96, 2, '2025-02-11 10:03:06', '2025-02-11 10:12:28'),
+(107, 'Our Practice Area', 'our-practice-area', 'Attorneys of Practice Area', 96, 2, '2025-02-11 10:03:29', '2025-02-11 10:03:29'),
+(108, 'Articles', 'articles', 'Legal Articles', 96, 2, '2025-02-11 10:03:48', '2025-02-11 10:03:48'),
+(109, 'Client Testimonials', 'client-testimonials', 'What Our Clients Say', 96, 2, '2025-02-11 10:04:12', '2025-02-11 10:04:12'),
+(110, 'Have Any Questions?', 'have-any-questions', 'Get in Touch with Us', 96, 2, '2025-02-11 10:05:19', '2025-02-11 10:05:19'),
+(111, 'Newsletter', 'newsletter', 'Sign Up to get latest Update', 96, 2, '2025-02-11 10:05:39', '2025-02-11 10:05:39'),
+(112, 'Attorney Details', 'attorney-details', 'Attorney Details', 97, 2, '2025-02-11 10:29:45', '2025-02-11 10:29:45'),
+(113, 'Schedule A Free Consultation', 'schedule-a-free-consultation', 'Our team of seasoned attorneys is dedicated to carefully listening to your concerns, ensuring a deep understanding of your unique situation.', 97, 2, '2025-02-11 10:30:17', '2025-02-11 10:30:17'),
+(114, 'Schedule A Time', 'schedule-a-time', 'Choose a convenient date and time that works best for you. Our experienced lawyers are available to discuss.', 97, 2, '2025-02-11 10:31:08', '2025-02-11 10:31:08'),
+(115, 'Meet with a Consultation', 'meet-with-a-consultation', 'During your consultation, you\'ll have the opportunity to discuss your case with a qualified attorney.', 97, 2, '2025-02-11 10:31:25', '2025-02-11 10:31:25'),
+(116, 'Plan for Success', 'plan-for-success', 'Based on the information gathered during your consultation, we\'ll develop a tailored legal strategy to help you.', 97, 2, '2025-02-11 10:31:42', '2025-02-11 10:31:42'),
+(117, 'Contact From', 'contact-from', 'Leave a Reply', 97, 2, '2025-02-11 10:32:08', '2025-02-11 10:32:08'),
+(118, 'Practice Area', 'practice-area', 'Practice Area', 98, 2, '2025-02-11 10:34:16', '2025-02-11 10:34:16'),
+(119, 'Our Practice Area', 'our-practice-area', 'Attorneys of Practice Area', 98, 2, '2025-02-11 10:34:33', '2025-02-11 10:34:33'),
+(120, 'Our Clients', 'our-clients', 'Our Clients', 99, 2, '2025-02-11 11:09:11', '2025-02-11 11:09:11'),
+(121, 'Our Clients', 'our-clients', 'Meet Our Happy Clients', 99, 2, '2025-02-11 11:09:32', '2025-02-11 11:09:32'),
+(122, 'Our Advocates', 'our-advocates', 'Our Advocates', 100, 2, '2025-02-11 11:15:07', '2025-02-11 11:15:07'),
+(123, 'Advocate', 'advocate', 'Meet Our Experienced Attorneys', 100, 2, '2025-02-11 11:15:30', '2025-02-11 11:15:30');
 
 -- --------------------------------------------------------
 
@@ -302,6 +352,33 @@ CREATE TABLE `password_resets` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peaces`
+--
+
+CREATE TABLE `peaces` (
+  `id` int(10) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
+  `consultation` varchar(100) DEFAULT NULL,
+  `consultation_d` text DEFAULT NULL,
+  `evaluation` varchar(100) DEFAULT NULL,
+  `evaluation_d` text DEFAULT NULL,
+  `strategy` varchar(100) DEFAULT NULL,
+  `strategy_d` text DEFAULT NULL,
+  `link` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `peaces`
+--
+
+INSERT INTO `peaces` (`id`, `name`, `consultation`, `consultation_d`, `evaluation`, `evaluation_d`, `strategy`, `strategy_d`, `link`, `created_at`, `updated_at`) VALUES
+(1, 'Navigating the Law: Your Assurance of Peace', 'Initial Consultation', 'Our experienced lawyers thoroughly analyze the facts of each case. They then apply the relevant laws to provide clear.', 'Case Evaluation', 'We prioritize understanding your concerns and aligning with your goals. Your satisfaction is our top priority.', 'Legal Strategy', 'We develop a customized plan to protect your rights and achieve the best possible outcome.', 'https://youtu.be/_sI_Ps7JSEk?si=R3iIoTFWu3lm1m05', NULL, '2025-02-11 09:43:43');
 
 -- --------------------------------------------------------
 
@@ -538,7 +615,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('ZACRFe5sGoCdae20JAwqSTd0TwhOVbrdp5NOOohZ', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiazI0bThDOU03OWUycVJGNkF5YnJvTmtPcVdaSXdHWkVPRkdKVlE4cCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjU6ImFsZXJ0IjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MjE6InBhc3N3b3JkX2hhc2hfc2FuY3R1bSI7czo2MDoiJDJhJDEyJGgzcDZSWUpHL1dKcXZGLzRwbk9qVnVwRzQxTmp5Y0h6NzRnOTBlek1hZUtUeUE5LkhHVDl1Ijt9', 1739185728);
+('bRT6Nyl6kjfWnnH0F0M8P3l7Cnt0fznCfcr3PpO5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoia1BtbmljaWFlNGNVRTVwU1U4Z29meVcwa2VSUTBScEc2RkFIbDJveSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXRlZ29yeS9hZGQiO31zOjU6ImFsZXJ0IjthOjA6e319', 1739272650);
 
 -- --------------------------------------------------------
 
@@ -577,11 +654,11 @@ INSERT INTO `settings` (`id`, `name`, `logo`, `p_phone`, `s_phone`, `d_phone`, `
 
 CREATE TABLE `sliders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `short_description` text DEFAULT NULL,
-  `image` text DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `privacy` longtext DEFAULT NULL,
+  `title` varchar(250) DEFAULT NULL,
+  `s_title` varchar(150) DEFAULT NULL,
+  `number` int(10) DEFAULT NULL,
+  `client` varchar(150) DEFAULT NULL,
+  `image` varchar(70) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -591,10 +668,10 @@ CREATE TABLE `sliders` (
 -- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `title`, `short_description`, `image`, `link`, `privacy`, `status`, `created_at`, `updated_at`) VALUES
-(12, 'Welcome to M. Roy & Associates', NULL, 'slider-images/web-deplovement-1738472065.jpg', 'http://amflbd.com/', NULL, 1, '2023-10-02 09:46:19', '2025-02-02 04:54:25'),
-(13, 'Welcome to Global Best Law Chamber', NULL, 'slider-images/graphic-design-for-freelancing-1738472077.jpg', 'https://amldlbd.com/', NULL, 1, '2023-10-02 09:47:36', '2025-02-02 04:54:37'),
-(14, 'We are committed\nto provide the best', NULL, 'slider-images/logo-design-for-freelancing-1738472397.jpg', 'https://amgbd.com/concern/amin-mohammad-engineering-associates-ltd', NULL, 1, '2023-10-02 09:48:44', '2025-02-02 04:59:57');
+INSERT INTO `sliders` (`id`, `title`, `s_title`, `number`, `client`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(12, 'Welcome to M. Roy & Associates', 'The Best Law Chamber', 695, 'We have to', 'slider-images/web-deplovement-1738472065.jpg', 1, '2023-10-02 09:46:19', '2025-02-11 07:49:13'),
+(13, 'Welcome to Global Best Law Chamber', 'The Best Law Chamber', 695, 'We have to', 'slider-images/graphic-design-for-freelancing-1738472077.jpg', 1, '2023-10-02 09:47:36', '2025-02-11 07:49:41'),
+(14, 'We are committedto provide the best', 'The Best Law Chamber', 695, 'We have to', 'slider-images/logo-design-for-freelancing-1738472397.jpg', 1, '2023-10-02 09:48:44', '2025-02-11 07:49:52');
 
 -- --------------------------------------------------------
 
@@ -673,6 +750,12 @@ ALTER TABLE `boards`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `businesses`
+--
+ALTER TABLE `businesses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -726,6 +809,12 @@ ALTER TABLE `multi_images`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `peaces`
+--
+ALTER TABLE `peaces`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `personal_access_tokens`
@@ -827,10 +916,16 @@ ALTER TABLE `boards`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `businesses`
+--
+ALTER TABLE `businesses`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -873,6 +968,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `multi_images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+
+--
+-- AUTO_INCREMENT for table `peaces`
+--
+ALTER TABLE `peaces`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
