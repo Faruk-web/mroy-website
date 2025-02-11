@@ -69,7 +69,7 @@ class CategoryController extends Controller
         }
         $category->save();
         Alert::success('Category update successfully', '');
-        return redirect()->route('category.manage');
+        return redirect()->back();
     }
 
     public function delete($id)
@@ -80,13 +80,11 @@ class CategoryController extends Controller
         if (!$category) {
             return redirect()->back()->with('error', 'Category not found');
         }
-    
         // Delete subcategories
         $subCategories = Category::where('parent_id', $category->id)->get();
         foreach ($subCategories as $subCategory) {
             $subCategory->delete();
         }
-    
         // Delete associated news (if any)
         if (!empty($category->news)) { // Check if the relationship exists
             foreach ($category->news as $data) {
@@ -104,5 +102,21 @@ class CategoryController extends Controller
         return redirect()->back();
     }
     
+    // ========================all pages title update============
+    public function homepage()
+    {
+        $categories = Category::where('parent_id',96)->orderBy('id', 'asc')->get();
+        return view('admin.category.homepage', compact('categories'));
+    }
+    public function aboutpage()
+    {
+        $categories = Category::where('parent_id',97)->orderBy('id', 'asc')->get();
+        return view('admin.category.aboutpage', compact('categories'));
+    }
+    public function practicepage()
+    {
+        $categories = Category::where('parent_id',98)->orderBy('id', 'asc')->get();
+        return view('admin.category.practicepage', compact('categories'));
+    }
     
 }

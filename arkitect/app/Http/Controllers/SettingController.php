@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Setting;
 use App\Models\Contact;
+use App\Models\Business;
+use App\Models\Peace;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
@@ -134,9 +136,7 @@ class SettingController extends Controller
             'name' => 'required',
             'phone' => 'required',
         ]);
-    
         $privacy = new Contact();
-        // Assign other fields
         $privacy->name = $request->name;
         $privacy->phone = $request->phone;
         $privacy->email = $request->email;
@@ -168,8 +168,112 @@ class SettingController extends Controller
         Alert::success('Customer Query deleted successfully', '');
         return redirect()->back();
     }
+//  ===================== Business ====================================
+public function businessmanage()
+{
+    $privacy = Business::orderBy('id', 'asc')->get();
+    return view('admin.business.manage', compact('privacy'));
+}
 
+public function businessedit($id)
+{
+    $privacy = Business::find($id);
+    return view('admin.business.edit', compact('privacy'));
+}
 
+public function businessupdate(Request $request, $id)
+{
+    $privacy = Business::find($id);
+
+    if (!$privacy) {
+        Alert::error('business not found', '');
+        return redirect()->route('business.manage');
+    }
+    if ($request->hasFile('image')) {
+        if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
+            try {
+                unlink(public_path($privacy->image));
+            } catch (\Exception $e) {
+                \Log::error("Failed to delete image: " . $e->getMessage());
+            }
+        }
+        // Upload new image
+        $image = $request->file('image');
+        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $save_url_blog = 'upload/business/' . $name_gen_blog;
+
+        Image::make($image)->resize(372, 290)->save(public_path($save_url_blog));
+        $privacy->image = $save_url_blog;
+    }
+
+    if ($request->hasFile('s_image')) {
+      if (!empty($privacy->image) && file_exists(public_path($privacy->s_image))) {
+          try {
+              unlink(public_path($privacy->s_image));
+          } catch (\Exception $e) {
+              \Log::error("Failed to delete footer s_image: " . $e->getMessage());
+          }
+      }
+      // Upload new image
+      $image = $request->file('s_image');
+      $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+      $save_url_blog = 'upload/business/' . $name_gen_blog;
+      Image::make($image)->resize(372, 290)->save(public_path($save_url_blog));
+      $privacy->s_image = $save_url_blog;
+  }
+    // Update other fields
+      $privacy->name = $request->name;
+      $privacy->details = $request->details;
+      $privacy->issue = $request->issue;
+      $privacy->issue_no = $request->issue_no;
+      $privacy->advocate = $request->advocate;
+      $privacy->advocate_no = $request->advocate_no;
+      $privacy->client = $request->client;
+      $privacy->client_no = $request->client_no;
+      $privacy->award = $request->award;
+      $privacy->award_no = $request->award_no;
+
+    $privacy->save();
+
+    Alert::success('business updated successfully', '');
+    return redirect()->route('business.manage');
+}
+
+//  ===================== Peace ====================================
+public function peacemanage()
+{
+    $privacy = Peace::orderBy('id', 'asc')->get();
+    return view('admin.peace.manage', compact('privacy'));
+}
+
+public function peaceedit($id)
+{
+    $privacy = Peace::find($id);
+    return view('admin.peace.edit', compact('privacy'));
+}
+
+public function peaceupdate(Request $request, $id)
+{
+    $privacy = Peace::find($id);
+
+    if (!$privacy) {
+        Alert::error('business not found', '');
+        return redirect()->route('business.manage');
+    }
+    // Update other fields
+      $privacy->name = $request->name;
+      $privacy->consultation = $request->consultation;
+      $privacy->consultation_d = $request->consultation_d;
+      $privacy->evaluation = $request->evaluation;
+      $privacy->evaluation_d = $request->evaluation_d;
+      $privacy->strategy = $request->strategy;
+      $privacy->strategy_d = $request->strategy_d;
+      $privacy->link = $request->link;
+    $privacy->save();
+
+    Alert::success('peace updated successfully', '');
+    return redirect()->route('peace.manage');
+}
 
 
       public function page_view()

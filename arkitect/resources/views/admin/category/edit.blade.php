@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Category Edit</h4>
+                <h4 class="page-title">Page Title Update</h4>
             </div>
         </div>
     </div>
@@ -38,14 +38,15 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Under Category</label>
                                     <div class="col-10">
-                                        <select name="parent_id" id="parent_id" class="form-control @error('parent_id') is-invalid @enderror">
+                                        <select name="parent_id_disabled" id="parent_id" class="form-control @error('parent_id') is-invalid @enderror" disabled>
                                             <option value="0">Main Category</option>
                                             @foreach($categories as $categorya)
                                                 <option value="{{$categorya->id}}"  @if($categorya->id == $category->parent_id) selected @endif>{{$categorya->category_name}}</option>
                                             @endforeach
                                         </select>
+                                        <input type="hidden" name="parent_id" value="{{ $category->parent_id }}">
                                         @error('parent_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>

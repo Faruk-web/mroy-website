@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Slider Edit | {{env('APP_NAME')}}
+    Privacy & Policy Edit | {{env('APP_NAME')}}
 @endsection
 
 @section('body')
@@ -23,7 +23,7 @@
                         </a>
                     </form>
                 </div>
-                <h4 class="page-title">Slider Edit</h4>
+                <h4 class="page-title">Assurance of Peace Update</h4>
             </div>
         </div>
     </div>
@@ -33,60 +33,75 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane show active" id="basic-form-preview">
-                            <form action="{{route('slider.update', ['id' => $slider->id])}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('peace.update', ['id' => $privacy->id])}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Title</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Name</label>
                                     <div class="col-10">
-                                        <input type="text" value="{{$slider->title}}" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="title"/>
+                                        <input type="text" value="{{$privacy->name}}" class="form-control @error('name') is-invalid @enderror" name="name" id="inputEmail3" placeholder="name"/>
                                         @error('title')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Sub Title</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Consultation</label>
                                     <div class="col-10">
-                                        <input type="text" value="{{$slider->s_title}}" class="form-control @error('s_title') is-invalid @enderror" name="s_title" id="inputEmail3" placeholder="Sub title"/>
-                                        @error('s_title')
+                                        <input type="text" value="{{$privacy->consultation}}" class="form-control @error('consultation') is-invalid @enderror" name="consultation" id="inputEmail3" placeholder="consultation"/>
+                                        @error('consultation')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Client Number</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Consultation Details</label>
                                     <div class="col-10">
-                                        <input type="text" value="{{$slider->number}}" class="form-control @error('number') is-invalid @enderror" name="number" id="inputEmail3" placeholder="Client Number"/>
-                                        @error('s_title')
+                                        <textarea type="text" name="consultation_d" class="form-control @error('consultation_d') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter consultation_d">{{$privacy->consultation_d}}</textarea>
+                                        @error('consultation_d')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Client</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Evaluation</label>
                                     <div class="col-10">
-                                        <input type="text" value="{{$slider->client}}" class="form-control @error('client') is-invalid @enderror" name="client" id="inputEmail3" placeholder="client"/>
-                                        @error('client')
+                                        <input type="text" value="{{$privacy->evaluation}}" class="form-control @error('evaluation') is-invalid @enderror" name="evaluation" id="inputEmail3" placeholder="evaluation"/>
+                                        @error('evaluation')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-2 col-form-label">Image size: 499 X 565</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Evaluation Details</label>
                                     <div class="col-10">
-                                        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="exampleInputPassword1">
-                                        <img src="{{asset($slider->image)}}" alt="" style="height: 100px">
-                                        @error('image')
+                                        <textarea type="text" name="evaluation_d" class="form-control @error('evaluation_d') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter evaluation_d">{{$privacy->evaluation_d}}</textarea>
+                                        @error('evaluation_d')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-2 col-form-label">Status</label>
+                                    <label for="inputEmail3" class="col-2 col-form-label">Strategy</label>
                                     <div class="col-10">
-                                        {{--                                        <input type="checkbox" id="switch1" name="status" @if($notice->status == 1) checked @endif data-switch="bool"/>--}}
-                                        <input type="checkbox" id="switch1" value="1" @if($slider->status == 1) checked @endif class="form-control" name="status" data-switch="bool"/>
-                                        <label for="switch1" data-on-label="On" data-off-label="Off"></label>
+                                        <input type="text" value="{{$privacy->strategy}}" class="form-control @error('strategy') is-invalid @enderror" name="strategy" id="inputEmail3" placeholder="strategy"/>
+                                        @error('strategy')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Strategy Details</label>
+                                    <div class="col-10">
+                                        <textarea type="text" name="strategy_d" class="form-control @error('strategy_d') is-invalid @enderror" aria-describedby="emailHelp" placeholder="Enter strategy_d">{{$privacy->strategy_d}}</textarea>
+                                        @error('strategy_d')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail34" class="col-2 col-form-label">Video Limk</label>
+                                    <div class="col-10">
+                                        <input type="text" value="{{$privacy->link}}" class="form-control @error('link') is-invalid @enderror" name="link" id="inputEmail34" placeholder="link"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">

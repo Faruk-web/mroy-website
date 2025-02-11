@@ -106,6 +106,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
                 Route::post('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
                 Route::post('/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+                Route::get('/home/page', [CategoryController::class, 'homepage'])->name('category.homepage');
+                Route::get('/about/page', [CategoryController::class, 'aboutpage'])->name('category.aboutpage');
+                Route::get('/Practice/page', [CategoryController::class, 'practicepage'])->name('category.practicepage');
             });
             Route::prefix('privacyy')->group(function () {
                 Route::get('/add', [PrivacyController::class, 'index'])->name('privacyy.add');
@@ -187,6 +190,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::post('/update/{id}', [SettingController::class, 'update'])->name('setting.update');
                 Route::get('/contact/data', [SettingController::class, 'contactdata'])->name('setting.contact');
                 Route::post('/delete/{id}', [SettingController::class, 'delete'])->name('setting.delete');
+            });
+            Route::prefix('business')->group(function () {
+                Route::get('/manage', [SettingController::class, 'businessmanage'])->name('business.manage');
+                Route::get('/edit/{id}', [SettingController::class, 'businessedit'])->name('business.edit');
+                Route::post('/update/{id}', [SettingController::class, 'businessupdate'])->name('business.update');
+            });
+            Route::prefix('peace')->group(function () {
+                Route::get('/manage', [SettingController::class, 'peacemanage'])->name('peace.manage');
+                Route::get('/edit/{id}', [SettingController::class, 'peaceedit'])->name('peace.edit');
+                Route::post('/update/{id}', [SettingController::class, 'peaceupdate'])->name('peace.update');
             });
         });
     });

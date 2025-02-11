@@ -132,7 +132,6 @@ About Area
                 </div>
                 <div class="col-xl-5">
                     <div class="title-area mb-25">
-                        <span class="sub-title before-none">About Us</span>
                         <h2 class="sec-title">Welcome to Business Law Firm</h2>
                         <p class="sec-text">M. Roy & Associates deal with huge corporate clients specially for JV companies, formation of companies including foreign director(s), filing return, providing legal support in obtaining necessary certificate for operation of the company such as Trade License, VAT, Tax, Factory Certificate, IRC, ERC, BIDA approval etc. We also deals with all court related issues of limited companies.</p>
                     </div>

@@ -69,7 +69,6 @@ Team Area
                     <div class="row justify-content-center">
                         <div class="col-xl-8 about-bottom-box-wrapcol-lg-10 text-center ">
                             <div class="title-area">
-                                <span class="sub-title justify-content-center justify-content-xl-start">Schedule Consultation</span>
                                 <h2 class="sec-title mb-2">Schedule A Free Consultation</h2>
                                 <p class="box-text">Our team of seasoned attorneys is dedicated to carefully listening to your concerns, ensuring a deep understanding of your unique situation.</p>
                             </div>

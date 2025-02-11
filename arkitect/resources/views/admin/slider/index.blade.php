@@ -38,8 +38,35 @@
                                 <div class="row mb-3">
                                     <label for="inputEmail3" class="col-2 col-form-label">Title</label>
                                     <div class="col-10">
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="Slider name"/>
+                                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="inputEmail3" placeholder="title"/>
                                         @error('title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Sub Title</label>
+                                    <div class="col-10">
+                                        <input type="text" class="form-control @error('s_title') is-invalid @enderror" name="s_title" id="inputEmail3" placeholder="sub title"/>
+                                        @error('s_title')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Client Number</label>
+                                    <div class="col-10">
+                                        <input type="number" class="form-control @error('number') is-invalid @enderror" name="number" id="inputEmail3" placeholder="Number"/>
+                                        @error('number')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="inputEmail3" class="col-2 col-form-label">Client</label>
+                                    <div class="col-10">
+                                        <input type="client" class="form-control @error('client') is-invalid @enderror" name="client" id="inputEmail3" placeholder="client"/>
+                                        @error('client')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

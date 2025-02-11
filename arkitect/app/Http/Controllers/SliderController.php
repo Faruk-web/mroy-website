@@ -14,7 +14,6 @@ class SliderController extends Controller
     {
         $slug = Str::slug($request->title);
         $image = $request->image;
-        // Set the image name and directory
         $imageName = $slug.'-'.time().'.'.$image->getClientOriginalExtension();
         $directory = 'slider-images/';
         $imageUrl = $directory.$imageName;
@@ -37,7 +36,9 @@ class SliderController extends Controller
     {
         $slider = new Slider();
         $slider->title = $request->title;
-        $slider->short_description = $request->short_description;
+        $slider->s_title = $request->s_title;
+        $slider->number = $request->number;
+        $slider->client = $request->client;
         if ($request->status)
         {
             $slider->status = $request->status;
@@ -75,7 +76,9 @@ class SliderController extends Controller
             $imageUrl = $slider->image;
         }
         $slider->title = $request->title;
-        $slider->short_description = $request->short_description;
+        $slider->s_title = $request->s_title;
+        $slider->number = $request->number;
+        $slider->client = $request->client;
         if ($request->status)
         {
             $slider->status = $request->status;

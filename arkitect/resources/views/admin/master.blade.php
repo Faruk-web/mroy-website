@@ -111,7 +111,7 @@
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                        aria-expanded="false">
                                 <span class="account-user-avatar">
-                                    <img src="{{asset('/')}}admin/assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    <img src="{{ asset('front') }}/assets/img/favicons/fav.jpg" alt="user-image" class="rounded-circle">
                                 </span>
                         <span>
                                     <span class="account-user-name">{{Auth::user()->name}}</span>
@@ -174,7 +174,7 @@
         <!-- Logo Light -->
         <a href="{{route('dashboard')}}" class="logo logo-light">
                     <span class="logo-lg">
-                        <img src="{{asset('/')}}admin/assets/images/logo.png" alt="logo" height="22">
+                        <img src="{{ asset('front') }}/assets/img/logo.png" alt="logo" height="40">
                     </span>
             <span class="logo-sm">
                         <img src="{{asset('/')}}admin/assets/images/logo.png" alt="small logo" height="22">
@@ -458,11 +458,39 @@
                     </a>
                     <div class="collapse" id="sidebarsetting">
                         <ul class="side-nav-second-level">
-                            <!-- <li>
-                                <a href="{{route('setting.add')}}">Create setting</a>
-                            </li> -->
+                            <li>
+                                <a href="{{route('business.manage')}}">Law Firm Manage</a>
+                            </li>
+                            <li>
+                                <a href="{{route('peace.manage')}}">Assurance of Peace</a>
+                            </li>
                             <li>
                                 <a href="{{route('setting.manage')}}">Manage setting</a>
+                            </li>
+                            <li>
+                                <a href="{{route('setting.contact')}}">Customer Query</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarpage" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Page Title</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarpage">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('category.homepage')}}">Home Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.aboutpage')}}">About Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.practicepage')}}">Practice Page</a>
                             </li>
                             <li>
                                 <a href="{{route('setting.contact')}}">Customer Query</a>
