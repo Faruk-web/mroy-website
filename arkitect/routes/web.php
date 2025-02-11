@@ -109,6 +109,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/home/page', [CategoryController::class, 'homepage'])->name('category.homepage');
                 Route::get('/about/page', [CategoryController::class, 'aboutpage'])->name('category.aboutpage');
                 Route::get('/Practice/page', [CategoryController::class, 'practicepage'])->name('category.practicepage');
+                Route::get('/client/page', [CategoryController::class, 'clientpage'])->name('category.clientpage');
+                Route::get('/advocate/page', [CategoryController::class, 'advocatepage'])->name('category.advocatepage');
             });
             Route::prefix('privacyy')->group(function () {
                 Route::get('/add', [PrivacyController::class, 'index'])->name('privacyy.add');

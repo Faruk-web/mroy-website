@@ -493,7 +493,10 @@
                                 <a href="{{route('category.practicepage')}}">Practice Page</a>
                             </li>
                             <li>
-                                <a href="{{route('setting.contact')}}">Customer Query</a>
+                                <a href="{{route('category.clientpage')}}">Client Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.advocatepage')}}">Advocate Page</a>
                             </li>
                             
                         </ul>
