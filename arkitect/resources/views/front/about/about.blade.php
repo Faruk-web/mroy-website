@@ -3,13 +3,16 @@
     About us
 @endsection
 @section('body')
+     @php
+        $setting = App\Models\Category::find(112);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Attorney Details</h1>
+                <h1 class="breadcumb-title">{{$setting->category_name}}</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Attorney Details</li>
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li>{{$setting->description}}</li>
                 </ul>
             </div>
         </div>
@@ -35,8 +38,7 @@ Team Area
                                         <p class="team-about_desig">M. Roy & Associates, Chief Justice</p>
                                     </div>
                                     <div class="th-social">
-                                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.whatsapp.com/"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.facebook.com/profile.php?id=100095507015872"><i class="fab fa-facebook-f"></i></a>
                                     </div>
                                 </div>
                                 <p class="team-about_text">{!!$about->sub_details!!}</p>
@@ -64,16 +66,22 @@ Team Area
                     </div>
                 </div>
             </div>
+            @php
+                $setting = App\Models\Category::find(113);
+            @endphp
             <section class="space" id="process-sec">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-xl-8 about-bottom-box-wrapcol-lg-10 text-center ">
                             <div class="title-area">
-                                <h2 class="sec-title mb-2">Schedule A Free Consultation</h2>
-                                <p class="box-text">Our team of seasoned attorneys is dedicated to carefully listening to your concerns, ensuring a deep understanding of your unique situation.</p>
+                                <h2 class="sec-title mb-2">{{$setting->category_name}}</h2>
+                                <p class="box-text">{{$setting->description}}</p>
                             </div>
                         </div>
                     </div>
+                    @php
+                        $setting = App\Models\Category::find(114);
+                    @endphp
                     <div class="row gy-40 justify-content-center">
                         <div class="col-xl-4 col-lg-4 col-md-6 ">
                             <div class="process-box style-2">
@@ -81,38 +89,47 @@ Team Area
                                     <span class="number">01</span>
                                     <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-1.svg" alt="image">
                                 </div>
-                                <h3 class="box-title">Schedule A Time</h3>
-                                <p class="box-text">Choose a convenient date and time that works best for you. Our experienced lawyers are available to discuss.</p>
+                                <h3 class="box-title">{{$setting->category_name}}</h3>
+                                <p class="box-text">{{$setting->description}}</p>
                             </div>
                         </div>
+                        @php
+                        $setting = App\Models\Category::find(115);
+                       @endphp
                         <div class="col-xl-4 col-lg-4 col-md-6 ">
                             <div class="process-box style-2">
                                 <div class="box-icon">
                                     <span class="number">02</span>
                                     <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-2.svg" alt="image">
                                 </div>
-                                <h3 class="box-title">Meet with a Consultation</h3>
-                                <p class="box-text">During your consultation, you'll have the opportunity to discuss your case with a qualified attorney.</p>
+                                <h3 class="box-title">{{$setting->category_name}}</h3>
+                                <p class="box-text">{{$setting->description}}</p>
                             </div>
                         </div>
+                        @php
+                        $setting = App\Models\Category::find(116);
+                       @endphp
                         <div class="col-xl-4 col-lg-4 col-md-6 ">
                             <div class="process-box style-2">
                                 <div class="box-icon">
                                     <span class="number">03</span>
                                     <img src="{{ asset('front') }}/assets/img/icon/process-2-icon-3.svg" alt="image">
                                 </div>
-                                <h3 class="box-title">Plan for Success</h3>
-                                <p class="box-text">Based on the information gathered during your consultation, we'll develop a tailored legal strategy to help you.</p>
+                                <h3 class="box-title">{{$setting->category_name}}</h3>
+                                <p class="box-text">{{$setting->description}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+                      @php
+                        $setting = App\Models\Category::find(117);
+                       @endphp
             <div class="row gy-4">
                 <div class="col-12">
                 <form action="{{route('contact')}}" method="POST" class="contact-form style-4 " enctype="multipart/form-data">
                     @csrf
-                        <h3 class="form-title text-start">Leave a Reply</h3>
+                        <h3 class="form-title text-start">{{$setting->description}}</h3>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name">

@@ -3,14 +3,16 @@
     Contact us
 @endsection
 @section('body')
- 
+     @php
+        $setting = App\Models\Category::find(125);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Services</h1>
+                <h1 class="breadcumb-title">{{$setting->category_name}}</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Services</li>
+                    <li>{{$setting->description}}</li>
                 </ul>
             </div>
         </div>
@@ -18,13 +20,16 @@
     <!--==============================
 Team Area  
 ==============================-->
+     @php
+        $setting = App\Models\Category::find(126);
+      @endphp
     <section class="th-service-1 overflow-hidden space" id="service-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
            <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-8">
                     <div class="title-area text-center">
-                        <span class="sub-title justify-content-center">What We Do</span>
-                        <h2 class="sec-title">Legal Services We Offer</h2>
+                        <span class="sub-title justify-content-center">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
             </div>

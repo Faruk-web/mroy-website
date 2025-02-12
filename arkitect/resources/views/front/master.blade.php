@@ -60,8 +60,9 @@
     <!--[if lte IE 9]>
     	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   	<![endif]-->
-
-
+      @php
+        $setting = App\Models\Setting::find(1);
+      @endphp
     <!--********************************
    		Code Start From Here 
 	******************************** -->
@@ -104,21 +105,17 @@
             <div class="widget  ">
                 <div class="th-widget-about">
                     <div class="about-logo">
-                        <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
+                        <a href="{{route('home')}}"><img src="{{ asset($setting->logo) }}" alt="Ensaf-html"></a>
                     </div>
-                    <p class="about-text">We provide specialized winterization services to safeguard your pool during the off-season, and when spring arrives, we handle the thorough opening process.</p>
+                    <p class="about-text">{{$setting->privacy}}</p>
                 </div>
             </div>
 
             <div class="widget newsletter-widget  ">
-                <h3 class="widget_title">Newsletter</h3>
-                <p class="footer-text">Sign up to get update news about us</p>
-                <form class="newsletter-form">
-                    <input class="form-control" type="email" placeholder="Enter Email" required="">
-                    <button type="submit" class="th-btn style2">Subscribe</button>
-                </form>
+                <h3 class="widget_title">Admin Dashboard</h3>
+                <a href="{{route('login')}}" class="th-btn style2">Admin Login</a>
             </div>
-            <a href="{{route('login')}}" class="th-btn style2">Admin Login</a>
+            
         </div>
     </div>
     <div class="popup-search-box d-none d-lg-block">
@@ -201,8 +198,8 @@
                     <div class="col-auto d-none d-lg-block">
                         <div class="header-links">
                             <ul>
-                                <li><i class="fa-regular fa-phone"></i> <a href="tel:+8801791404011">+8801791404011 , +8801833780455, Phone: +8802223385673</a></li>
-                                <li><i class="fa-sharp fa-regular fa-envelope"></i> <a href="moloy.advocate@gmail.com">moloy.advocate@gmail.com</a></li>
+                                <li><i class="fa-regular fa-phone"></i> <a href="tel:{{$setting->p_phone}}">{{$setting->p_phone}} , {{$setting->s_phone}},{{$setting->d_phone}}</a></li>
+                                <li><i class="fa-sharp fa-regular fa-envelope"></i> <a href="mailto:{{$setting->p_mail}}">{{$setting->p_mail}}</a></li>
                                 <!-- <li><i class="fal fa-location-dot"></i> <a href="https://www.google.com/maps/place/Tropicana+Tower,+45+Topkhana+Road,+Dhaka+1000/@23.730477,90.409228,19z">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</a></li> -->
                             </ul>
                         </div>
@@ -229,7 +226,7 @@
                         <div class="col-auto">
                             <div class="header-logo">
                                 <div class="logo-bg"></div>
-                                <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/logo.png" alt="Ensaf-html"></a>
+                                <a href="{{route('home')}}"><img src="{{ asset($setting->logo) }}" alt="Ensaf-html"></a>
                             </div>
                         </div>
                         <div class="col-auto me-xl-auto">
@@ -340,13 +337,14 @@
                             <h3 class="widget_title">Our Services</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="service-details.html">Real Estate Law</a></li>
-                                    <li><a href="service-details.html">Personal Injury</a></li>
-                                    <li><a href="service-details.html">Corporate Law</a></li>
-                                    <li><a href="service-details.html">Criminal Law</a></li>
-                                    <li><a href="service-details.html">Health Care</a></li>
-                                    <li><a href="service-details.html">Family Law</a></li>
-                                    <li><a href="service-details.html">Others Law</a></li>
+                                    <li><a href="{{route('service')}}">Service</a></li>
+                                    <li><a href="#">Real Estate Law</a></li>
+                                    <li><a href="#">Personal Injury</a></li>
+                                    <li><a href="#">Corporate Law</a></li>
+                                    <li><a href="#">Criminal Law</a></li>
+                                    <li><a href="#">Health Care</a></li>
+                                    <li><a href="#">Family Law</a></li>
+                                    <li><a href="#">Others Law</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -357,12 +355,12 @@
                                 <div class="about-logo">
                                     <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/footer-round-logo.svg" alt="Ensaf-html"></a>
                                 </div>
-                                <p class="about-text">The services of ‘ M. Roy & Associates’ are the offspring of the sincere, well-thought-out and meticulous teamwork of its associates, who have embarked on the mission to serve the clients with great zeal and vigor and race-track of their professional services from ethics.</p>
+                                <p class="about-text">{{$setting->privacy}}</p>
                                 <div class="th-social">
-                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.whatsapp.com/"><i class="fab fa-whatsapp"></i></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100095507015872"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -376,7 +374,7 @@
                                     </div>
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Location</h4>
-                                        <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000</p>
+                                        <p class="info-box_text">{{$setting->location}}</p>
                                     </div>
                                 </div>
                                 <div class="info-box">
@@ -386,9 +384,9 @@
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Phone</h4>
                                         <p class="info-box_text">
-                                            <a href="tel: +8801791404011" class="info-box_link"> +8801791404011</a>
-                                            <a href="tel:+8801833780455" class="info-box_link">+8801833780455</a>
-                                            <a href="tel:+8802223385673" class="info-box_link">+8802223385673</a>
+                                            <a href="tel: {{$setting->p_phone}}" class="info-box_link"> {{$setting->p_phone}}</a>
+                                            <a href="tel:{{$setting->s_phone}}" class="info-box_link">{{$setting->s_phone}}</a>
+                                            <a href="tel:{{$setting->d_phone}}" class="info-box_link">{{$setting->d_phone}}</a>
                                         </p>
                                     </div>
                                 </div>
@@ -399,8 +397,8 @@
                                     <div class="info-contnt">
                                         <h4 class="footer-info-title">Email</h4>
                                         <p class="info-box_text">
-                                            <a href="mailto:moloy.advocate@gmail.com " class="info-box_link">moloy.advocate@gmail.com </a>
-                                            <a href="mailto:moloy.advocate@mroyassociates.com" class="info-box_link">moloy.advocate@mroyassociates.com</a>
+                                            <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
+                                            <a href="mailto:{{$setting->S_mail}}" class="info-box_link">{{$setting->S_mail}}</a>
                                         </p>
                                     </div>
 

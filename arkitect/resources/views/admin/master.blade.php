@@ -498,7 +498,18 @@
                             <li>
                                 <a href="{{route('category.advocatepage')}}">Advocate Page</a>
                             </li>
-                            
+                            <li>
+                                <a href="{{route('category.servicepage')}}">Service Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.teampage')}}">Support Team Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.blogpage')}}">Blog Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.gallerypage')}}">Gallery Page</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

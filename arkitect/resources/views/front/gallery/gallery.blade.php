@@ -3,14 +3,16 @@
 Gallery
 @endsection
 @section('body')
- 
+    @php
+        $setting = App\Models\Category::find(129);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Gallery</h1>
+                <h1 class="breadcumb-title">{{$setting->category_name}}</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Gallery</li>
+                    <li><a href="{{route(route('home'))}}">Home</a></li>
+                    <li>{{$setting->description}}</li>
                 </ul>
             </div>
         </div>
@@ -18,13 +20,16 @@ Gallery
     <!--==============================
 Gallery Area  
 ==============================-->
+     @php
+        $setting = App\Models\Category::find(130);
+      @endphp
     <div class="gallery-sec-3 space overflow-hidden">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-9">
                     <div class="title-area  text-center">
-                        <span class="sub-title">Gallery</span>
-                        <h2 class="sec-title">Our Success Stories</h2>
+                        <span class="sub-title">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
             </div>
@@ -36,7 +41,7 @@ Gallery Area
                             <div class="gallery-img">
                                 <div class="gallery-content">
                                     <a href="{{ asset($image) }}" class="icon-btn popup-image"><i class="fa-solid fa-eye"></i> </a>
-                                    <h2 class="box-title"><a href="case-studies-details.html">Initial Consultation</a></h2>
+                                    <h2 class="box-title"><a href="#">Initial Consultation</a></h2>
                                     <p class="box-text">Family Law</p>
                                 </div>
                             </div>

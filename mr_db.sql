@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 12:18 PM
+-- Generation Time: Feb 12, 2025 at 01:33 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -155,7 +155,16 @@ INSERT INTO `categories` (`id`, `category_name`, `slug`, `description`, `parent_
 (120, 'Our Clients', 'our-clients', 'Our Clients', 99, 2, '2025-02-11 11:09:11', '2025-02-11 11:09:11'),
 (121, 'Our Clients', 'our-clients', 'Meet Our Happy Clients', 99, 2, '2025-02-11 11:09:32', '2025-02-11 11:09:32'),
 (122, 'Our Advocates', 'our-advocates', 'Our Advocates', 100, 2, '2025-02-11 11:15:07', '2025-02-11 11:15:07'),
-(123, 'Advocate', 'advocate', 'Meet Our Experienced Attorneys', 100, 2, '2025-02-11 11:15:30', '2025-02-11 11:15:30');
+(123, 'Advocate', 'advocate', 'Meet Our Experienced Attorneys', 100, 2, '2025-02-11 11:15:30', '2025-02-11 11:15:30'),
+(124, 'Service Page', 'service-page', NULL, 0, 2, '2025-02-12 07:00:05', '2025-02-12 07:00:05'),
+(125, 'Services', 'services', 'Services', 124, 2, '2025-02-12 07:00:25', '2025-02-12 07:00:25'),
+(126, 'What We Do', 'what-we-do', 'Legal Services We Offer', 124, 2, '2025-02-12 07:01:01', '2025-02-12 07:01:01'),
+(127, 'Blogs', 'blogs', 'Blogs', 102, 2, '2025-02-12 07:02:59', '2025-02-12 07:02:59'),
+(128, 'logo', 'logo', 'Chosen by millions around the globe', 102, 2, '2025-02-12 07:04:19', '2025-02-12 07:04:19'),
+(129, 'Gallery', 'gallery', 'Gallery', 103, 2, '2025-02-12 07:05:42', '2025-02-12 07:05:42'),
+(130, 'Gallery', 'gallery', 'Our Success Stories', 103, 2, '2025-02-12 07:06:09', '2025-02-12 07:06:09'),
+(131, 'Support Teams', 'support-teams', 'Support Teams', 101, 2, '2025-02-12 07:06:58', '2025-02-12 07:06:58'),
+(132, 'Support Teams', 'support-teams', 'Meet Our Support Team', 101, 2, '2025-02-12 07:07:23', '2025-02-12 07:07:23');
 
 -- --------------------------------------------------------
 
@@ -615,7 +624,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('bRT6Nyl6kjfWnnH0F0M8P3l7Cnt0fznCfcr3PpO5', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoia1BtbmljaWFlNGNVRTVwU1U4Z29meVcwa2VSUTBScEc2RkFIbDJveSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jYXRlZ29yeS9hZGQiO31zOjU6ImFsZXJ0IjthOjA6e319', 1739272650);
+('5ki8SIzK8xnGXNnXF9vaIOdnghHi9U6XOEsUwVIr', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoicEhWQmE0dThReU80ZU0zY0ZnV21NZzFzcVlGeEdCczFKMmpIOE5LOCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyYSQxMiRoM3A2UllKRy9XSnF2Ri80cG5PalZ1cEc0MU5qeWNIejc0ZzkwZXpNYWVLVHlBOS5IR1Q5dSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jb250YWN0Ijt9czo1OiJhbGVydCI7YTowOnt9fQ==', 1739357527);
 
 -- --------------------------------------------------------
 
@@ -644,7 +653,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `logo`, `p_phone`, `s_phone`, `d_phone`, `p_mail`, `s_mail`, `location`, `f_logo`, `privacy`, `created_at`, `updated_at`) VALUES
-(1, 'Moloy roy', 'upload/setting/1823650734867013.jpg', '8797986546363', '566565+65+655', '4654645666454', 'omarfaruk@gmail.com', 'omarfaruk6780@gmail.com', '54645fsdfdsfdfdgdg2565', 'upload/setting/1823650734876271.jpg', '<p>dsffdgfdgfdgfdghgj fdgfdhgfdhfhg</p><p>dhfsjfhfkjshfs</p>', '2025-02-10 06:02:20', '2025-02-10 06:27:47');
+(1, 'Moloy roy', 'upload/setting/1823842871930620.png', '+8801791404011', '+8801833780455', '+8802223385673', 'moloy.advocate@gmail.com', 'info@mroyassociates.com', 'Suite# 13E, Tropicana Tower (13th Floor), 45 Topkhana Road, Dhaka-1000.', 'upload/setting/1823841064726667.jpg', 'The services of ‘ M. Roy &amp; Associates’ are the offspring of the sincere, well-thought-out and meticulous teamwork of its associates, who have embarked on the mission to serve the clients', '2025-02-10 06:02:20', '2025-02-12 09:21:44');
 
 -- --------------------------------------------------------
 
@@ -671,7 +680,7 @@ CREATE TABLE `sliders` (
 INSERT INTO `sliders` (`id`, `title`, `s_title`, `number`, `client`, `image`, `status`, `created_at`, `updated_at`) VALUES
 (12, 'Welcome to M. Roy & Associates', 'The Best Law Chamber', 695, 'We have to', 'slider-images/web-deplovement-1738472065.jpg', 1, '2023-10-02 09:46:19', '2025-02-11 07:49:13'),
 (13, 'Welcome to Global Best Law Chamber', 'The Best Law Chamber', 695, 'We have to', 'slider-images/graphic-design-for-freelancing-1738472077.jpg', 1, '2023-10-02 09:47:36', '2025-02-11 07:49:41'),
-(14, 'We are committedto provide the best', 'The Best Law Chamber', 695, 'We have to', 'slider-images/logo-design-for-freelancing-1738472397.jpg', 1, '2023-10-02 09:48:44', '2025-02-11 07:49:52');
+(14, 'We are committed to provide the best', 'The Best Law Chamber', 695, 'We have to', 'slider-images/logo-design-for-freelancing-1738472397.jpg', 1, '2023-10-02 09:48:44', '2025-02-11 07:49:52');
 
 -- --------------------------------------------------------
 
@@ -925,7 +934,7 @@ ALTER TABLE `businesses`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `clients`

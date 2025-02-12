@@ -4,14 +4,16 @@
     Blog us
 @endsection
 @section('body')
-
+      @php
+        $setting = App\Models\Category::find(127);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Blogs</h1>
+            <h1 class="breadcumb-title">{{$setting->category_name}}</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Blogs</li>
+                    <li>{{$setting->description}}</li>
                 </ul>
             </div>
         </div>
@@ -111,6 +113,9 @@ Blog Area
     </section><!--==============================
 Brand Area  
 ==============================-->
+     @php
+        $setting = App\Models\Category::find(128);
+      @endphp
     <div class="space-bottom overflow-hidden">
         <div class="container">
             <div class="row">
@@ -118,7 +123,7 @@ Brand Area
                     <div class="row">
                         <div class="col-12">
                             <div class="brand-1-top title-area text-center">
-                                <h3 class="box-title">Chosen by millions around the globe</h3>
+                                <h3 class="box-title">{{$setting->description}}</h3>
                             </div>
                         </div>
                         <div class="col-12">

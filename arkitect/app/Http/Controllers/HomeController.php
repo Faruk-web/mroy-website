@@ -13,6 +13,9 @@ use App\Models\Client;
 use App\Models\Practice;
 use App\Models\About;
 use App\Models\Board;
+use App\Models\Business;
+use App\Models\Peace;
+use App\Models\Logo;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 class HomeController extends Controller
@@ -28,9 +31,14 @@ class HomeController extends Controller
             $item->privacy = Str::limit($item->privacy, 70);
             return $item;
         });
-        $Slider=Slider::select('id','image','title')->get();
+        $Slider=Slider::select('id','image','title','s_title','number','client')->get();
         $advocate = Privacy::select('id', 'name', 'title', 'image')->where('status',1)->get();
-        return view('front.home.home',compact('Slider','advocate','prectice','blog'));
+        $business=Business::find(1);
+        $peace=Peace::find(1);
+        $logo=Logo::select('id','multi_logo')->get();
+        $client=Client::select('id','name','title','privacy')->get();
+
+        return view('front.home.home',compact('Slider','advocate','prectice','blog','business','peace','logo','client'));
     }
     public function service()
     {

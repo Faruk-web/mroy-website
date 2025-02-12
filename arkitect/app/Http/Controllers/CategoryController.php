@@ -128,5 +128,25 @@ class CategoryController extends Controller
         $categories = Category::where('parent_id',100)->orderBy('id', 'asc')->get();
         return view('admin.category.advocatepage', compact('categories'));
     }
+    public function servicepage()
+    {
+        $categories = Category::where('parent_id',124)->orderBy('id', 'asc')->get();
+        return view('admin.category.servicepage', compact('categories'));
+    }
+    public function teampage()
+    {
+        $categories = Category::where('parent_id',101)->orderBy('id', 'asc')->get();
+        return view('admin.category.teampage', compact('categories'));
+    }
+    public function blogpage()
+    {
+        $categories = Category::where('parent_id',102)->orderBy('id', 'asc')->get();
+        return view('admin.category.blogpage', compact('categories'));
+    }
+    public function gallerypage()
+    {
+        $categories = Category::where('parent_id',103)->orderBy('id', 'asc')->get();
+        return view('admin.category.gallerypage', compact('categories'));
+    }
     
 }

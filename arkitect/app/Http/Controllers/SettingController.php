@@ -32,7 +32,7 @@ class SettingController extends Controller
           $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
           $save_url_blog = 'upload/setting/' . $name_gen_blog;
   
-          Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+          Image::make($image)->resize(200, 60)->save(public_path($save_url_blog));
           $privacy->logo = $save_url_blog;
       }
        // Handle image upload
@@ -41,7 +41,7 @@ class SettingController extends Controller
         $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $save_url_blog = 'upload/setting/' . $name_gen_blog;
 
-        Image::make($image)->resize(394, 341)->save(public_path($save_url_blog));
+        Image::make($image)->resize(80, 90)->save(public_path($save_url_blog));
         $privacy->f_logo = $save_url_blog;
     }
   

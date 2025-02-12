@@ -45,7 +45,7 @@ Hero Area
                 <div class="container">
                     <div class="row  gy-4 align-items-center">
                         <div class="col-xl-7 col-lg-7">
-                            <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">The Best Law Chamber</span>
+                            <span class="sub-title" data-ani="slideinup" data-ani-delay="0.2s">{{$item->s_title}}</span>
                             <div data-ani="slideinup" data-ani-delay="0.4s">
                                 <h1 class="hero-title">{{$item->title}}
                                 </h1>
@@ -53,7 +53,7 @@ Hero Area
                                     <span class="client-group-wrap">
                                         <span class="client-group-wrap__content">
                                             <span class="client-group-wrap__box-title">
-                                                We have to <span><span class="counter-number">695</span>+</span>
+                                            {{$item->client}} <span><span class="counter-number">{{$item->number}}</span>+</span>
                                                 Happy Client
                                             </span>
                                             <span class="client-group-wrap__box-review">
@@ -121,10 +121,10 @@ About Area
                         </div>
                         <div class="img2">
                             <div class="img2-top">
-                                <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about.jpg" alt="Image">
+                                <img class="tilt-active" src="{{asset($business->image)}}" alt="Image">
                             </div>
                             <div class="img2-bottom">
-                                <img class="tilt-active" src="{{ asset('front') }}/assets/img/about/about-1-right-2.jpg" alt="Image">
+                                <img class="tilt-active" src="{{asset($business->s_image)}}" alt="Image">
                             </div>
 
                         </div>
@@ -132,17 +132,17 @@ About Area
                 </div>
                 <div class="col-xl-5">
                     <div class="title-area mb-25">
-                        <h2 class="sec-title">Welcome to Business Law Firm</h2>
-                        <p class="sec-text">M. Roy & Associates deal with huge corporate clients specially for JV companies, formation of companies including foreign director(s), filing return, providing legal support in obtaining necessary certificate for operation of the company such as Trade License, VAT, Tax, Factory Certificate, IRC, ERC, BIDA approval etc. We also deals with all court related issues of limited companies.</p>
+                        <h2 class="sec-title">{{$business->name}}</h2>
+                        <p class="sec-text">{!!$business->details!!}</p>
                     </div>
-                    <div class="checklist style2 mb-40">
+                    <!-- <div class="checklist style2 mb-40">
                         <ul>
                             <li><i class="fa-sharp fa-solid fa-circle-check"></i> Committed to excellence in legal practice.</li>
                             <li><i class="fa-sharp fa-solid fa-circle-check"></i> Act with honesty and uphold ethical principles. </li>
                             <li><i class="fa-sharp fa-solid fa-circle-check"></i> Road Test Preparation with 98% success</li>
                             <li><i class="fa-sharp fa-solid fa-circle-check"></i> Meeting clients' needs is our priority.</li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div>
                         <a href="{{route('about')}}" class="th-btn style4">More About <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
@@ -161,8 +161,8 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_1.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 750 </span> <span class="plus-simple">+</span></h4>
-                        <p class="box-text">Case Done</p>
+                        <h4 class="box-number"><span class="counter-number"> {{$business->issue_no}} </span> <span class="plus-simple">+</span></h4>
+                        <p class="box-text">{{$business->issue}}</p>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -171,8 +171,8 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_2.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 75 </span> <span class="plus-simple">+</span></h4>
-                        <p class="box-text">Expert Attorneys</p>
+                        <h4 class="box-number"><span class="counter-number"> {{$business->advocate_no}} </span> <span class="plus-simple">+</span></h4>
+                        <p class="box-text">{{$business->advocate}}</p>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -181,8 +181,8 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_3.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 695 </span> <span class="plus-simple">+</span></h4>
-                        <p class="box-text">Happy Client</p>
+                        <h4 class="box-number"><span class="counter-number"> {{$business->client_no}} </span> <span class="plus-simple">+</span></h4>
+                        <p class="box-text">{{$business->client}}</p>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -191,8 +191,8 @@ Counter Area
                         <img src="{{ asset('front') }}/assets/img/icon/counter_1_4.svg" alt="Icon">
                     </div>
                     <div class="media-body">
-                        <h4 class="box-number"><span class="counter-number"> 120 </span> <span class="plus-simple">+</span></h4>
-                        <p class="box-text">Award Winning</p>
+                        <h4 class="box-number"><span class="counter-number"> {{$business->award_no}} </span> <span class="plus-simple">+</span></h4>
+                        <p class="box-text">{{$business->award}}</p>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -201,13 +201,16 @@ Counter Area
     </div><!--==============================
 Service Area  
 ==============================-->
+      @php
+        $setting = App\Models\Category::find(105);
+      @endphp
     <section class="th-service-1 overflow-hidden space" id="service-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-6 col-xl-7 col-lg-7 col-md-8">
                     <div class="title-area text-center">
-                        <span class="sub-title justify-content-center">What We Do</span>
-                        <h2 class="sec-title">Legal Services We Offer</h2>
+                        <span class="sub-title justify-content-center">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
             </div>
@@ -307,6 +310,9 @@ Service Area
     </section><!--==============================
 Team Area  
 ==============================-->
+      @php
+        $setting = App\Models\Category::find(106);
+      @endphp
     <section class="team-area-1 space overflow-hidden" data-overlay="title" data-opacity="8" data-bg-src="{{ asset('front') }}/assets/img/bg/team-1-bg.jpg">
         <div class="container">
             <div class="row gx-60">
@@ -314,8 +320,8 @@ Team Area
                         <div class="row justify-content-lg-between justify-content-center align-items-end">
                             <div class="col-lg">
                                 <div class="title-area text-center text-lg-start">
-                                    <span class="sub-title">Our Attorneys</span>
-                                    <h2 class="sec-title text-white">Dedicated Lawyers, Proven Results</h2>
+                                    <span class="sub-title">{{$setting->category_name}}</span>
+                                    <h2 class="sec-title text-white">{{$setting->description}}</h2>
                                 </div>
                             </div>
                             <div class="col-lg-auto d-none d-lg-block">
@@ -360,6 +366,9 @@ Team Area
     <!--==============================
 Gallery Area  
 ==============================-->
+     @php
+        $setting = App\Models\Category::find(107);
+      @endphp
       <section class="space bg-smoke2" id="blog-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
         <div class="shape-mockup jump-reverse d-none d-xxl-block" data-left="0" data-bottom="0">
             <img src="{{ asset('front') }}/assets/img/shape/blog-1-shape-left.png" alt="shape-img">
@@ -371,8 +380,8 @@ Gallery Area
             <div class="row justify-content-lg-between justify-content-center align-items-end">
                 <div class="col-lg">
                     <div class="title-area text-center text-lg-start">
-                        <span class="sub-title">Our Practice Area</span>
-                        <h2 class="sec-title">Attorneys of Practice Area</h2>
+                        <span class="sub-title">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
                 <div class="col-lg-auto d-none d-lg-block">
@@ -420,7 +429,7 @@ Process Area
                     <div class="process-thumb">
                         <div class="img-box1">
                             <div class="process-play-btn-wrap">
-                                <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video">
+                                <a href="{{$peace->link}}" class="play-btn style2 popup-video">
                                     <i class="fa-sharp fa-solid fa-play"></i>
                                 </a>
                             </div>
@@ -430,8 +439,7 @@ Process Area
                 </div>
                 <div class="col-xl-6">
                     <div class="title-area">
-                        <span class="sub-title before-none">Work Process</span>
-                        <h2 class="sec-title">Navigating the Law: Your Assurance of Peace</h2>
+                        <h2 class="sec-title">{{$peace->name}}</h2>
                     </div>
                     <div class="process-bottom">
                         <div class="process-bottom-item">
@@ -439,8 +447,8 @@ Process Area
                                 <img src="{{ asset('front') }}/assets/img/icon/process-1-icon-1.svg" alt="img">
                             </div>
                             <div class="process-bottom-item__content">
-                                <h5 class="box-title">Initial Consultation</h5>
-                                <p>Our experienced lawyers thoroughly analyze the facts of each case. They then apply the relevant laws to provide clear.</p>
+                                <h5 class="box-title">{{$peace->consultation}}</h5>
+                                <p>{{$peace->consultation_d}}</p>
                             </div>
                         </div>
                         <div class="process-bottom-item">
@@ -448,8 +456,8 @@ Process Area
                                 <img src="{{ asset('front') }}/assets/img/icon/process-1-icon-2.svg" alt="img">
                             </div>
                             <div class="process-bottom-item__content">
-                                <h5 class="box-title">Case Evaluation</h5>
-                                <p>We prioritize understanding your concerns and aligning with your goals. Your satisfaction is our top priority.</p>
+                                <h5 class="box-title">{{$peace->evaluation}}</h5>
+                                <p>{{$peace->evaluation_d}}</p>
                             </div>
                         </div>
                         <div class="process-bottom-item">
@@ -457,8 +465,8 @@ Process Area
                                 <img src="{{ asset('front') }}/assets/img/icon/process-1-icon-3.svg" alt="img">
                             </div>
                             <div class="process-bottom-item__content">
-                                <h5 class="box-title">Legal Strategy </h5>
-                                <p>We develop a customized plan to protect your rights and achieve the best possible outcome.</p>
+                                <h5 class="box-title">{{$peace->strategy}}</h5>
+                                <p>{{$peace->strategy_d}}</p>
                             </div>
                         </div>
                     </div>
@@ -469,13 +477,16 @@ Process Area
 <!--==============================
 Blog Area  
 ==============================-->
+     @php
+        $setting = App\Models\Category::find(108);
+      @endphp
   <section class="space" id="team-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/team-2-shape-bg.png">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xxl-8 col-xl-9 ">
                     <div class="title-area text-center">
-                        <span class="sub-title justify-content-center"> Articles</span>
-                        <h2 class="sec-title">Legal Articles</h2>
+                        <span class="sub-title justify-content-center">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
                 <div></div>
@@ -511,78 +522,25 @@ Brand Area
                 <div class="col-12">
                     <div class="swiper th-slider" id="brand-slider-1" data-slider-options='{"breakpoints":{"0":{"slidesPerView":2},"576":{"slidesPerView":"2"},"768":{"slidesPerView":"3"},"992":{"slidesPerView":"4"},"1200":{"slidesPerView":"5"},"1400":{"slidesPerView":"6"}}}'>
                         <div class="swiper-wrapper">
+                           @foreach($logo as $item)
                             <div class="swiper-slide">
                                 <div class="brand-box">
                                     <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_1.svg" alt="Brand Logo">
+                                        <img src="{{ asset($item->multi_logo) }}" alt="Brand Logo">
                                     </a>
                                 </div>
                             </div>
+                            @endforeach 
+                            @foreach($logo as $item)
                             <div class="swiper-slide">
                                 <div class="brand-box">
                                     <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_2.svg" alt="Brand Logo">
+                                        <img src="{{ asset($item->multi_logo) }}" alt="Brand Logo">
                                     </a>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_1.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_2.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_3.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_4.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="brand-box">
-                                    <a href="about.html">
-                                        <img src="{{ asset('front') }}/assets/img/brand/brand_1_5.svg" alt="Brand Logo">
-                                    </a>
-                                </div>
-                            </div>
+                            @endforeach 
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -591,13 +549,16 @@ Brand Area
        <!--==============================
 Testimonial Area  
 ==============================-->
+      @php
+        $setting = App\Models\Category::find(109);
+      @endphp
 <section class="testi-card-area-1 overflow-hidden space" id="testi-sec" data-bg-src="{{ asset('front') }}/assets/img/bg/testi-bg-1.png">
         <div class="container">
             <div class="row justify-content-lg-between justify-content-center align-items-end">
                 <div class="col-lg">
                     <div class="title-area text-center text-lg-start">
-                        <span class="sub-title before-none">Client Testimonials</span>
-                        <h2 class="sec-title">What Our Clients Say</h2>
+                        <span class="sub-title before-none">{{$setting->category_name}}</span>
+                        <h2 class="sec-title">{{$setting->description}}</h2>
                     </div>
                 </div>
                 <div class="col-lg-auto">
@@ -612,92 +573,36 @@ Testimonial Area
             <div class="testi-card-slide">
                 <div class="swiper has-shadow th-slider" id="testiSlide11" data-slider-options='{"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":"1"},"768":{"slidesPerView":"1"},"992":{"slidesPerView":"2"},"1200":{"slidesPerView":"2"}}}'>
                     <div class="swiper-wrapper">
+                      @foreach($client as $item)
                         <div class="swiper-slide">
                             <div class="testi-block" dir="ltr">
                                 <div class="testi-icon-1-top">
-                                    <img src="{{ asset('front') }}/assets/img/icon/testi-icon-1-top.svg" alt="image">
+                                    <img src="{{ asset('front') }}/assets/img/icon/counter_1_3.svg" alt="image">
                                 </div>
                                 <div class="testi-block-top">
                                     <div class="box-img">
-                                        <img src="{{ asset('front') }}/assets/img/testimonial/testi_1_1.jpg" alt="Avater">
+                                        <img src="{{ asset('front') }}/assets/img/c-logo.jpg" alt="Avater">
                                     </div>
                                     <div class="content">
-                                        <h3 class="box-title">Monica D’suza</h3>
-                                        <p class="box-desig">Ui/Ux Designer</p>
+                                        <h3 class="box-title">{{$item->name}}</h3>
+                                        <p class="box-desig">{{$item->title}}</p>
                                         <div class="box-review">
                                             <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="box-text">"I was struggling with family law for months before I found abc. They not only provided me with the solution I needed, but they also educated me on how to prevent the issue from happening again. Their team is incredibly knowledgeable and patient, and they always go the extra mile to ensure customer satisfaction. I am so grateful for their help and would recommend them to anyone."</p>
+                                <p class="box-text">{!!$item->privacy!!}</p>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="testi-block" dir="ltr">
-                                <div class="testi-icon-1-top">
-                                    <img src="{{ asset('front') }}/assets/img/icon/testi-icon-1-top.svg" alt="image">
-                                </div>
-                                <div class="testi-block-top">
-                                    <div class="box-img">
-                                        <img src="{{ asset('front') }}/assets/img/testimonial/testi_1_2.jpg" alt="Avater">
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="box-title">Teresa Hamilton</h3>
-                                        <p class="box-desig">Ui/Ux Designer</p>
-                                        <div class="box-review">
-                                            <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="box-text">"I had been facing challenges with family law for months until I discovered abc. They not only resolved my issues effectively but also guided me on how to avoid similar problems in the future. Their team is highly skilled, patient, and always prioritizes customer satisfaction. I truly appreciate their support okay this is right for it and would highly recommend them to others."</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testi-block" dir="ltr">
-                                <div class="testi-icon-1-top">
-                                    <img src="{{ asset('front') }}/assets/img/icon/testi-icon-1-top.svg" alt="image">
-                                </div>
-                                <div class="testi-block-top">
-                                    <div class="box-img">
-                                        <img src="{{ asset('front') }}/assets/img/testimonial/testi_1_3.jpg" alt="Avater">
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="box-title">Monks Millar</h3>
-                                        <p class="box-desig">Ui/Ux Designer</p>
-                                        <div class="box-review">
-                                            <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="box-text">"I was struggling with family law for months before I found abc. They not only provided me with the solution I needed, but they also educated me on how to prevent the issue from happening again. Their team is incredibly knowledgeable and patient, and they always go the extra mile to ensure customer satisfaction. I am so grateful for their help and would recommend them to anyone."</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testi-block" dir="ltr">
-                                <div class="testi-icon-1-top">
-                                    <img src="{{ asset('front') }}/assets/img/icon/testi-icon-1-top.svg" alt="image">
-                                </div>
-                                <div class="testi-block-top">
-                                    <div class="box-img">
-                                        <img src="{{ asset('front') }}/assets/img/testimonial/testi_1_4.jpg" alt="Avater">
-                                    </div>
-                                    <div class="content">
-                                        <h3 class="box-title">William Hazelip</h3>
-                                        <p class="box-desig">Ui/Ux Designer</p>
-                                        <div class="box-review">
-                                            <i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i><i class="fa-sharp fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="box-text">"Navigating family law issues was overwhelming for months until I came across abc. They didn’t just solve how to prevent the issue from happening again my problem—they empowered me with knowledge to manage such situations better. Their expertise and dedication to client satisfaction left okay no problem a lasting impression. I’m forever grateful and highly endorse their services."</p>
-                            </div>
-                        </div>
+                        @endforeach 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    @php
+        $setting = App\Models\Category::find(110);
+      @endphp
     <section class="space overflow-hidden">
         <div class="shape-mockup jump d-none d-xl-block" data-top="15%" data-right="3%">
             <img src="{{ asset('front') }}/assets/img/shape/contact-1-top.png" alt="shape img">
@@ -711,8 +616,8 @@ Testimonial Area
                     <div class="col-xl-6">
                         <div class="contact-form">
                             <div class="title-area mb-35">
-                                <span class="sub-title justify-content-center text-white">Have Any Questions?</span>
-                                <h4 class="sec-title text-white">Get in Touch with Us</h4>
+                                <span class="sub-title justify-content-center text-white">{{$setting->category_name}}</span>
+                                <h4 class="sec-title text-white">{{$setting->description}}</h4>
                             </div>
                             <form action="{{route('contact')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -750,7 +655,7 @@ Testimonial Area
                                 </div>
                                 <div class="info-contnt">
                                     <h4 class="footer-info-title">Location</h4>
-                                    <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), Dhaka-1000</p>
+                                    <p class="info-box_text">{{$setting->location}}</p>
                                 </div>
                             </div>
                             <div class="info-box">
@@ -762,8 +667,8 @@ Testimonial Area
                                     <h4 class="footer-info-title">Phone</h4>
 
                                     <p class="info-box_text">
-                                        <a href="tel:+8801791404011" class="info-box_link">+8801791404011</a>
-                                        <a href="tel:+8801833780455" class="info-box_link">+8801833780455</a>
+                                        <a href="tel:{{$setting->p_phone}}" class="info-box_link">{{$setting->p_phone}}</a>
+                                        <a href="tel:{{$setting->s_phone}}" class="info-box_link">{{$setting->s_phone}}</a>
                                     </p>
                                 </div>
                             </div>
@@ -775,8 +680,8 @@ Testimonial Area
                                 <div class="info-contnt">
                                     <h4 class="footer-info-title">Email</h4>
                                     <p class="info-box_text">
-                                        <a href="mailto:moloy.advocate@gmail.com" class="info-box_link">moloy.advocate@gmail.com</a>
-                                        <a href="mailto:info@mroyassociates.com" class="info-box_link">info@mroyassociates.com</a>
+                                        <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
+                                        <a href="mailto:{{$setting->s_mail}}" class="info-box_link">{{$setting->s_mail}}</a>
                                     </p>
                                 </div>
 
@@ -793,6 +698,9 @@ Testimonial Area
     <!--==============================
 	Newsletter Area start
 ==============================-->
+      @php
+        $setting = App\Models\Category::find(111);
+      @endphp
     <div class="news-letter-1-wrapper" data-bg-src="{{ asset('front') }}/assets/img/bg/footer-1-top-right.jpg">
         <div class="shape-mockup jump d-none d-xxl-block z-index-3" data-top="10%" data-left="0">
             <img src="{{ asset('front') }}/assets/img/icon/footer-1-top.png" alt="shape">
@@ -801,8 +709,8 @@ Testimonial Area
             <div class="subscribe-box">
                 <div class="row gy-40 gx-60 align-items-center justify-content-center">
                     <div class="col-xl-6">
-                        <p class="subscribe-box_text">Newsletter</p>
-                        <h4 class="subscribe-box_title">Sign Up to get latest Update</h4>
+                        <p class="subscribe-box_text">{{$setting->category_name}}</p>
+                        <h4 class="subscribe-box_title">{{$setting->description}}</h4>
                     </div>
                     <div class="col-xl-6 col-lg-8">
                         <form class="newsletter-form">
