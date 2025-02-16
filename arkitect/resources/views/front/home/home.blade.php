@@ -215,96 +215,23 @@ Service Area
                 </div>
             </div>
             <div class="row gy-30 justify-content-center">
+            @foreach($service as $item)
                 <div class="col-xl-4 col-md-6">
                     <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_1.png" alt="shape img">
-                        </div>
+                        <!-- <div class="shape-mockup service_card-bg-1">
+                            <img src="{{ asset($item->image) }}" alt="shape img">
+                        </div> -->
                         <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_1.svg" alt="Icon">
+                            <img src="{{ asset($item->image) }}" alt="Icon">
                         </div>
                         <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',1)}}">Criminal Law</a></h3>
-                            <p class="box-text">Defense representations for more various criminal charges.Investigations and evidence analysis.</p>
+                            <h3 class="box-title"><a href="{{route('service.deatils',$item->id)}}">{{$item->name}}</a></h3>
+                            <p class="box-text">{!!$item->privacy!!}</p>
                         </div>
-                        <a href="{{route('service.deatils',1)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
+                        <a href="{{route('service.deatils',$item->id)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_2.png" alt="shape img">
-                        </div>
-                        <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_2.svg" alt="Icon">
-                        </div>
-                        <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',2)}}">Corporate Law</a></h3>
-                            <p class="box-text">Legal advocacy for diverse and the of Conducting in-depth think and reviewing evidence filing bail of and.</p>
-                        </div>
-                        <a href="{{route('service.deatils',2)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_3.png" alt="shape img">
-                        </div>
-                        <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_3.svg" alt="Icon">
-                        </div>
-                        <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',3)}}">Family Law</a></h3>
-                            <p class="box-text">Expert defense strategies for variety of criminal cases. Comprehensive evidence case analysis and in hearings.</p>
-                        </div>
-                        <a href="{{route('service.deatils',3)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_4.png" alt="shape img">
-                        </div>
-                        <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_4.svg" alt="Icon">
-                        </div>
-                        <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',4)}}">Real Estate Law</a></h3>
-                            <p class="box-text">Representation in numerous criminal matters, including detailed invest. Assistance with bail procedures eval.</p>
-                        </div>
-                        <a href="{{route('service.deatils',4)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_5.png" alt="shape img">
-                        </div>
-                        <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_5.svg" alt="Icon">
-                        </div>
-                        <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',5)}}">Personal Injury Law</a></h3>
-                            <p class="box-text">Professional legal defense for different types of criminal accusations. Careful examination of case details.</p>
-                        </div>
-                        <a href="{{route('service.deatils',5)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                    <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
-                            <img src="{{ asset('front') }}/assets/img/bg/service_card-bg-1_6.png" alt="shape img">
-                        </div>
-                        <div class="box-icon">
-                            <img src="{{ asset('front') }}/assets/img/icon/service_card_1_6.svg" alt="Icon">
-                        </div>
-                        <div class="box-content">
-                            <h3 class="box-title"><a href="{{route('service.deatils',6)}}">Health Care Policy</a></h3>
-                            <p class="box-text">Skilled advocacy for individuals facing various criminal charges. Invest support and prepare of bail motions.</p>
-                        </div>
-                        <a href="{{route('service.deatils',6)}}" class="link-btn">Read More <i class="fa-regular fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section><!--==============================

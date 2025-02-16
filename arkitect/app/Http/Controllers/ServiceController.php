@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Board;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
+use enshrined\svgSanitize\Sanitizer;
 class ServiceController extends Controller
 {
     //
@@ -74,19 +75,29 @@ class ServiceController extends Controller
 
     // Check if a new image is uploaded
     if ($request->hasFile('image')) {
-        // Delete old image
-        if (file_exists(public_path($privacy->image))) {
+        // Delete old image if it exists
+        if (!empty($privacy->image) && file_exists(public_path($privacy->image))) {
             unlink(public_path($privacy->image));
         }
-
-        // Upload new image
+    
         $image = $request->file('image');
-        $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-        $save_url_blog = 'upload/service/' . $name_gen_blog;
-
-        Image::make($image)->resize(45, 45)->save(public_path($save_url_blog));
-        $privacy->image = $save_url_blog;
+        $ext = $image->getClientOriginalExtension();
+        $name_gen = hexdec(uniqid()) . '.' . $ext;
+        $save_path = 'upload/service/' . $name_gen;
+    
+        if ($ext === 'svg') {
+            // Sanitize and save SVG
+            $sanitizer = new Sanitizer();
+            $cleanSvg = $sanitizer->sanitize(file_get_contents($image));
+            file_put_contents(public_path($save_path), $cleanSvg);
+        } else {
+            // Handle normal images (JPEG, PNG, etc.)
+            Image::make($image)->resize(45, 45)->save(public_path($save_path));
+        }
+    
+        $privacy->image = $save_path;
     }
+    
     if ($request->hasFile('main_image')) {
         // Delete old image
         if (file_exists(public_path($privacy->main_image))) {

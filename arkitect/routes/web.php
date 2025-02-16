@@ -115,6 +115,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
                 Route::get('/team/page', [CategoryController::class, 'teampage'])->name('category.teampage');
                 Route::get('/blog/page', [CategoryController::class, 'blogpage'])->name('category.blogpage');
                 Route::get('/gallery/page', [CategoryController::class, 'gallerypage'])->name('category.gallerypage');
+                Route::get('/contact/page', [CategoryController::class, 'contactpage'])->name('category.contactpage');
+                
                 
             }); 
             Route::prefix('privacyy')->group(function () {

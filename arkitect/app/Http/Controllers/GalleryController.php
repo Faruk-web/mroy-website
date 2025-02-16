@@ -8,6 +8,7 @@ use App\Models\Logo;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\File;
+use enshrined\svgSanitize\Sanitizer;
 class GalleryController extends Controller
 {
     public function index(Request $request)
@@ -152,8 +153,9 @@ public function logoindex(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'multi_logo' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+            'multi_logo' => 'nullable|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
+    
         $privacy = Logo::find($id);
         
         if (!$privacy) {
@@ -162,19 +164,30 @@ public function logoindex(Request $request)
     
         if ($request->hasFile('multi_logo')) {
             $image = $request->file('multi_logo');
-            $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            $save_path = 'upload/logo/' . $name_gen_blog;
-            Image::make($image)->resize(95, 90)->save(public_path($save_path));
+            $ext = strtolower($image->getClientOriginalExtension());
+            $name_gen = hexdec(uniqid()) . '.' . $ext;
+            $save_path = 'upload/logo/' . $name_gen;
+    
+            // Delete old image if it exists
             if (!empty($privacy->multi_logo) && file_exists(public_path($privacy->multi_logo))) {
                 unlink(public_path($privacy->multi_logo));
             }
     
+            if ($ext === 'svg') {
+                // Save SVG file without resizing
+                file_put_contents(public_path($save_path), file_get_contents($image));
+            } else {
+                // Resize and save other image formats
+                Image::make($image)->resize(95, 90)->save(public_path($save_path));
+            }
+    
             $privacy->multi_logo = $save_path;
         }
+    
         $privacy->name = $request->name;
         $privacy->save();
     
-        Alert::success('logo updated successfully', '');
+        Alert::success('Logo updated successfully', '');
         return redirect()->route('logo.manage');
     }
     

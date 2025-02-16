@@ -148,5 +148,10 @@ class CategoryController extends Controller
         $categories = Category::where('parent_id',103)->orderBy('id', 'asc')->get();
         return view('admin.category.gallerypage', compact('categories'));
     }
+    public function contactpage()
+    {
+        $categories = Category::where('parent_id',104)->orderBy('id', 'asc')->get();
+        return view('admin.category.contactpage', compact('categories'));
+    }
     
 }

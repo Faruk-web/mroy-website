@@ -398,7 +398,7 @@
                                         <h4 class="footer-info-title">Email</h4>
                                         <p class="info-box_text">
                                             <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
-                                            <a href="mailto:{{$setting->S_mail}}" class="info-box_link">{{$setting->S_mail}}</a>
+                                            <a href="mailto:{{$setting->s_mail}}" class="info-box_link">{{$setting->s_mail}}</a>
                                         </p>
                                     </div>
 

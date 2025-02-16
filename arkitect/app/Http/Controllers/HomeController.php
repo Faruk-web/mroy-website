@@ -37,8 +37,12 @@ class HomeController extends Controller
         $peace=Peace::find(1);
         $logo=Logo::select('id','multi_logo')->get();
         $client=Client::select('id','name','title','privacy')->get();
+        $service = Board::select('id', 'name', 'image', 'privacy')->orderBy('id', 'DESC')->get()->map(function ($item) {
+            $item->privacy = Str::limit($item->privacy, 100);
+            return $item;
+        });
 
-        return view('front.home.home',compact('Slider','advocate','prectice','blog','business','peace','logo','client'));
+        return view('front.home.home',compact('Slider','advocate','prectice','blog','business','peace','logo','client','service'));
     }
     public function service()
     {

@@ -3,14 +3,18 @@
     Contact us
 @endsection
 @section('body')
- 
+     @php
+     $setting = App\Models\Setting::find(1);
+     $settings = App\Models\Category::find(133);
+      @endphp
+
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Contact</h1>
+                <h1 class="breadcumb-title">{{$settings->category_name}}</h1>
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Contact Page</li>
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li>{{$settings->description}}</li>
                 </ul>
             </div>
         </div>
@@ -18,6 +22,9 @@
     <!--==============================
 Contact Area  
 ==============================-->
+@php
+     $settings = App\Models\Category::find(134);
+      @endphp
     <div class="contact-area-2 space-top" id="contact-sec">
         <div class="container">
             <div class="row gy-4 justify-content-center">
@@ -28,7 +35,7 @@ Contact Area
                         </div>
                         <div class="info-contnt">
                             <h4 class="footer-info-title">Location</h4>
-                            <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), Dhaka-1000</p>
+                            <p class="info-box_text">{{$setting->location}}</p>
                         </div>
                     </div>
                     <div class="info-box">
@@ -39,8 +46,9 @@ Contact Area
                             <h4 class="footer-info-title">Phone</h4>
 
                             <p class="info-box_text">
-                                <a target="_blank" href="tel:+8801791404011" class="info-box_link">+8801791404011</a>
-                                <a target="_blank" href="tel:+8801833780455" class="info-box_link">+8801833780455</a>
+                                <a target="_blank" href="tel:{{$setting->p_phone}}" class="info-box_link">{{$setting->p_phone}}</a>
+                                <a target="_blank" href="tel:{{$setting->s_phone}}" class="info-box_link">{{$setting->s_phone}}</a>
+                                <a target="_blank" href="tel:{{$setting->d_phone}}" class="info-box_link">{{$setting->d_phone}}</a>
                             </p>
                         </div>
                     </div>
@@ -51,8 +59,8 @@ Contact Area
                         <div class="info-contnt">
                             <h4 class="footer-info-title">Email</h4>
                             <p class="info-box_text">
-                                <a href="mailto:moloy.advocate@gmail.com" class="info-box_link">moloy.advocate@gmail.com</a>
-                                <a href="mailto:moloy.advocate@mroyassociates.com" class="info-box_link">moloy.advocate@gmail.com</a>
+                                <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
+                                <a href="mailto:{{$setting->s_mail}}" class="info-box_link">{{$setting->s_mail}}</a>
                             </p>
                         </div>
                     </div>
@@ -62,22 +70,24 @@ Contact Area
                         </div>
 
                         <div class="info-contnt">
-                            <h4 class="footer-info-title">Have Questions?</h4>
-                            <p class="info-box_text">Discover more by visiting us or joining our community</p>
+                            <h4 class="footer-info-title">{{$settings->category_name}}</h4>
+                            <p class="info-box_text">{{$settings->description}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    @php
+     $settings = App\Models\Category::find(135);
+      @endphp
     <div class="space-top">
         <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-7">
                     <form action="{{route('contact')}}" method="POST" class="contact-form style-4 " enctype="multipart/form-data">
                     @csrf
-                        <h3 class="form-title text-start">Leave a Reply</h3>
+                        <h3 class="form-title text-start">{{$settings->description}}</h3>
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <input type="text" class="form-control" name="name" id="name" placeholder="Name">

@@ -37,9 +37,9 @@ Team Area
             @foreach($service as $item)
                 <div class="col-xl-4 col-md-6">
                     <div class="service-card">
-                        <div class="shape-mockup service_card-bg-1">
+                        <!-- <div class="shape-mockup service_card-bg-1">
                             <img src="{{ asset($item->image) }}" alt="shape img">
-                        </div>
+                        </div> -->
                         <div class="box-icon">
                             <img src="{{ asset($item->image) }}" alt="Icon">
                         </div>

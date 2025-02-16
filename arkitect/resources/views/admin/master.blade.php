@@ -465,10 +465,10 @@
                                 <a href="{{route('peace.manage')}}">Assurance of Peace</a>
                             </li>
                             <li>
-                                <a href="{{route('setting.manage')}}">Manage setting</a>
+                                <a href="{{route('setting.contact')}}">Customer Query</a>
                             </li>
                             <li>
-                                <a href="{{route('setting.contact')}}">Customer Query</a>
+                                <a href="{{route('setting.manage')}}">Manage setting</a>
                             </li>
                             
                         </ul>
@@ -509,6 +509,9 @@
                             </li>
                             <li>
                                 <a href="{{route('category.gallerypage')}}">Gallery Page</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.contactpage')}}">Contact Page</a>
                             </li>
                         </ul>
                     </div>
