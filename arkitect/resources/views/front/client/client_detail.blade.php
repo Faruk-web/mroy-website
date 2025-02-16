@@ -3,14 +3,16 @@
     Contact us
 @endsection
 @section('body')
- 
+@php
+     $settings = App\Models\Category::find(143);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Client Details</h1>
+                <h1 class="breadcumb-title">{{$settings->category_name}}</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Client Details</li>
+                    <li>{{$settings->description}}</li>
                 </ul>
             </div>
         </div>
@@ -62,10 +64,14 @@
                             @endforeach
                             </div>
                         </div>
+                        @php
+                        $setting = App\Models\Setting::select('id', 'p_phone', 'p_mail','location')->find(1);
+                        $settings = App\Models\Category::find(158);
+                        @endphp
                         <div class="widget widget_call  ">
                             <div class="widget-call">
-                                <h4 class="box-title text-white">Need Any Help?</h4>
-                                <p class="text-white box_text">Need Any Help, Call Us 24/7 For Support</p>
+                                <h4 class="box-title text-white">{{$settings->category_name}}</h4>
+                                <p class="text-white box_text">{{$settings->description}}</p>
                                 <div class="widget_call">
 
                                     <div class="info-box">
@@ -75,7 +81,7 @@
                                         <div>
                                             <span class="info-box_subtitle"> Call Us</span>
                                             <p class="info-box_text">
-                                                <a href="tel:8801791404011" class="info-box_link">8801791404011</a>
+                                                <a href="tel:{{$setting->p_phone}}" class="info-box_link">{{$setting->p_phone}}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -86,7 +92,7 @@
                                         <div>
                                             <span class="info-box_subtitle">Mail Us</span>
                                             <p class="info-box_text">
-                                                <a href="mailto:moloy.advocate@gmail.com" class="info-box_link">moloy.advocate@gmail.com</a>
+                                                <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -96,7 +102,7 @@
                                         </div>
                                         <div>
                                             <span class="info-box_subtitle">Office Address</span>
-                                            <p class="info-box_text">Suite# 13E, Tropicana Tower (13th Floor), Dhaka-1000.</p>
+                                            <p class="info-box_text">{{$setting->location}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -109,6 +115,9 @@
     </section><!--==============================
 Brand Area  
 ==============================-->
+@php
+     $settings = App\Models\Category::find(144);
+      @endphp
     <div class="space-bottom">
         <div class="container">
             <div class="row">
@@ -116,7 +125,7 @@ Brand Area
                     <div class="row">
                         <div class="col-12">
                             <div class="brand-1-top title-area text-center">
-                                <h3 class="box-title">Chosen by millions around the globe</h3>
+                                <h3 class="box-title">{{$settings->description}}</h3>
                             </div>
                         </div>
                         <div class="col-12">

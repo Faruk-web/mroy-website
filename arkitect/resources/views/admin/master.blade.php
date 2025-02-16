@@ -516,6 +516,36 @@
                         </ul>
                     </div>
                 </li>
+                <li class="side-nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarpagedetails" aria-expanded="false" aria-controls="sidebarEmail"
+                       class="side-nav-link">
+                        <i class="uil-lock"></i>
+                        <span> Page Detail</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarpagedetails">
+                        <ul class="side-nav-second-level">
+                            <li>
+                                <a href="{{route('category.areadetails')}}">Area Details</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.clientdetails')}}">Client Details</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.advocatedetails')}}">Advocate Details</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.teamdetails')}}">Team Details</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.blogdetails')}}">Blog Details</a>
+                            </li>
+                            <li>
+                                <a href="{{route('category.servicedetails')}}">Service Details</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <!--- End Sidemenu -->
             <div class="clearfix"></div>

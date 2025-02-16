@@ -275,7 +275,7 @@
                         <div class="col-auto d-none d-xl-block">
                             <div class="header-button">
                                 <button type="button" class="icon-btn searchBoxToggler"><i class="far fa-magnifying-glass"></i></button>
-                                <a href="{{route('contact')}}" class="th-btn style4">Free consultation <i class="far fa-arrow-right-long"></i></a>
+                                <a href="{{route('contact')}}" class="th-btn style4">consultation <i class="far fa-arrow-right-long"></i></a>
                                 <button type="button" class="icon-btn sideMenuInfo">
                                     <i class="fa-solid fa-bars"></i>
                                 </button>
@@ -353,7 +353,7 @@
                         <div class="widget footer-widget text-xl-center text-start">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="{{route('home')}}"><img src="{{ asset('front') }}/assets/img/footer-round-logo.svg" alt="Ensaf-html"></a>
+                                    <a href="{{route('home')}}"><img src="{{ asset($setting->f_logo) }}" alt="Ensaf-html"></a>
                                 </div>
                                 <p class="about-text">{{$setting->privacy}}</p>
                                 <div class="th-social">

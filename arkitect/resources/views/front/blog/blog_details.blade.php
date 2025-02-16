@@ -4,14 +4,16 @@
     Blog us
 @endsection
 @section('body')
-
+@php
+     $settings = App\Models\Category::find(153);
+      @endphp
 <div class="breadcumb-wrapper " data-bg-src="{{ asset('front') }}/assets/img/bg/breadcrumb-bg.jpg" data-overlay="title" data-opacity="8">
         <div class="container">
             <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Blog Details</h1>
+            <h1 class="breadcumb-title">{{$settings->category_name}}</h1>
                 <ul class="breadcumb-menu">
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li>Blog</li>
+                    <li>{{$settings->description}}</li>
                 </ul>
             </div>
         </div>
@@ -19,6 +21,7 @@
     <!--==============================
 Blog Area
 ==============================-->
+
     <section class="th-blog-wrapper space-top space-extra-bottom">
         <div class="container">
             <div class="row">
@@ -92,6 +95,50 @@ Blog Area
                                 <a href="#">Health Policy</a>
                             </div>
                         </div>
+                        @php
+                        $setting = App\Models\Setting::select('id', 'p_phone', 'p_mail','location')->find(1);
+                        $settings = App\Models\Category::find(154);
+                        @endphp
+                        <div class="widget widget_call  ">
+                            <div class="widget-call">
+                                <h4 class="box-title text-white">{{$settings->category_name}}</h4>
+                                <p class="text-white box_text">{{$settings->description}}</p>
+                                <div class="widget_call">
+
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle"> Call Us</span>
+                                            <p class="info-box_text">
+                                                <a href="tel:{{$setting->p_phone}}" class="info-box_link">{{$setting->p_phone}}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle">Mail Us</span>
+                                            <p class="info-box_text">
+                                                <a href="mailto:{{$setting->p_mail}}" class="info-box_link">{{$setting->p_mail}}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="info-box">
+                                        <div class="info-box_icon">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </div>
+                                        <div>
+                                            <span class="info-box_subtitle">Office Address</span>
+                                            <p class="info-box_text">{{$setting->location}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </aside>
                 </div>
             </div>
@@ -99,6 +146,9 @@ Blog Area
     </section><!--==============================
 Brand Area  
 ==============================-->
+@php
+     $settings = App\Models\Category::find(152);
+      @endphp
     <div class="space-bottom overflow-hidden">
         <div class="container">
             <div class="row">
@@ -106,7 +156,7 @@ Brand Area
                     <div class="row">
                         <div class="col-12">
                             <div class="brand-1-top title-area text-center">
-                                <h3 class="box-title">Chosen by millions around the globe</h3>
+                                <h3 class="box-title">{{$settings->description}}</h3>
                             </div>
                         </div>
                         <div class="col-12">

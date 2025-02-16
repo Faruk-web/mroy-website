@@ -153,5 +153,35 @@ class CategoryController extends Controller
         $categories = Category::where('parent_id',104)->orderBy('id', 'asc')->get();
         return view('admin.category.contactpage', compact('categories'));
     }
+    public function areadetails()
+    {
+        $categories = Category::where('parent_id',139)->orderBy('id', 'asc')->get();
+        return view('admin.category.areadetails', compact('categories'));
+    }
+    public function clientdetails()
+    {
+        $categories = Category::where('parent_id',142)->orderBy('id', 'asc')->get();
+        return view('admin.category.clientdetails', compact('categories'));
+    }
+    public function advocatedetails()
+    {
+        $categories = Category::where('parent_id',137)->orderBy('id', 'asc')->get();
+        return view('admin.category.advocatedetails', compact('categories'));
+    }
+    public function teamdetails()
+    {
+        $categories = Category::where('parent_id',138)->orderBy('id', 'asc')->get();
+        return view('admin.category.teamdetails', compact('categories'));
+    }
+    public function blogdetails()
+    {
+        $categories = Category::where('parent_id',151)->orderBy('id', 'desc')->get();
+        return view('admin.category.blogdetails', compact('categories'));
+    }
+    public function servicedetails()
+    {
+        $categories = Category::where('parent_id',136)->orderBy('id', 'desc')->get();
+        return view('admin.category.servicedetails', compact('categories'));
+    }
     
 }

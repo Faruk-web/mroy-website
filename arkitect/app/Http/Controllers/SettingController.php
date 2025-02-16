@@ -8,6 +8,7 @@ use App\Models\Peace;
 use Intervention\Image\Facades\Image;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
+use enshrined\svgSanitize\Sanitizer;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
@@ -99,20 +100,30 @@ class SettingController extends Controller
           }
 
           if ($request->hasFile('f_logo')) {
-            if (!empty($privacy->image) && file_exists(public_path($privacy->f_logo))) {
+            // Delete old image if it exists
+            if (!empty($privacy->f_logo) && file_exists(public_path($privacy->f_logo))) {
                 try {
                     unlink(public_path($privacy->f_logo));
                 } catch (\Exception $e) {
                     \Log::error("Failed to delete footer logo: " . $e->getMessage());
                 }
             }
+        
             // Upload new image
             $image = $request->file('f_logo');
-            $name_gen_blog = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            $save_url_blog = 'upload/setting/' . $name_gen_blog;
-    
-            Image::make($image)->resize(80, 90)->save(public_path($save_url_blog));
-            $privacy->f_logo = $save_url_blog;
+            $ext = strtolower($image->getClientOriginalExtension());
+            $name_gen = hexdec(uniqid()) . '.' . $ext;
+            $save_path = 'upload/setting/' . $name_gen;
+        
+            if ($ext === 'svg') {
+                // Save SVG file without resizing
+                file_put_contents(public_path($save_path), file_get_contents($image));
+            } else {
+                // Resize and save other image formats
+                Image::make($image)->resize(80, 90)->save(public_path($save_path));
+            }
+        
+            $privacy->f_logo = $save_path;
         }
           // Update other fields
             $privacy->name = $request->name;
